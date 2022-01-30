@@ -13,7 +13,7 @@ dependencies {
     compileOnly "com.github.GTNewHorizons:StorageDrawers:1.11.11-GTNH:api"
     compile "com.github.GTNewHorizons:waila:1.5.18:dev"
     compile "com.github.GTNewHorizons:EnderCore:0.2.6:dev"
-    compile ("com.github.GTNewHorizons:EnderIO:2.3.1.27:dev") {
+    compileOnly ("com.github.GTNewHorizons:EnderIO:2.3.1.27:dev") {
         transitive = false
     }
     compile ("com.github.GTNewHorizons:ForestryMC:4.4.5:dev") {
