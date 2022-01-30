@@ -29,14 +29,14 @@ repositories {
     maven {
         url = "https://jitpack.io"
     }
-	maven {
-		name = "OC repo"
-		url = "http://maven.cil.li/"
-	}
-	ivy {
-		name = "BuildCraft"
-		artifactPattern "http://www.mod-buildcraft.com/releases/BuildCraft/[revision]/[module]-[revision]-[classifier].[ext]"
-	}
+    maven {
+        name = "OC repo"
+        url = "http://maven.cil.li/"
+    }
+    ivy {
+        name = "BuildCraft"
+        artifactPattern "http://www.mod-buildcraft.com/releases/BuildCraft/[revision]/[module]-[revision]-[classifier].[ext]"
+    }
     ivy {
         name "Vexatos Github"
         metadataSources {
