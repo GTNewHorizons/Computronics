@@ -33,12 +33,15 @@ repositories {
 		name = "OC repo"
 		url = "http://maven.cil.li/"
 	}
-	maven {
-		name = "IC2 repo"
-		url = "http://maven.ic2.player.to/"
-	}
 	ivy {
 		name = "BuildCraft"
 		artifactPattern "http://www.mod-buildcraft.com/releases/BuildCraft/[revision]/[module]-[revision]-[classifier].[ext]"
 	}
+    ivy {
+        name "Vexatos Github"
+        metadataSources {
+            artifact()
+        }
+        artifactPattern "https://github.com/Vexatos/[module]/releases/download/v[revision]/[module]-1.7.10-[revision].jar"
+    }
 }

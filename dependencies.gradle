@@ -34,5 +34,6 @@ dependencies {
         transitive = false
     }
     compile ("com.github.GTNewHorizons:AsieLib:0.5.1:dev")
+    compileOnly group:"Vexatos", name:"Flamingo", version:"1.3"
     compile fileTree('libs') { include '*' }
 }
