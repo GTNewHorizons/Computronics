@@ -1,41 +1,31 @@
-/*
-
-# folders
-!/docs
-!/gradle
-!/src
-
-# files
-!/.gitignore
-!/README.md
-!/build.gradle
-!/build.properties
-!/gradlew
-!/gradlew.bat
-!/changelog.md
-
-# APIs and dependencies
-!/libs
-
-######################################
-## Remove MAC OSX generated garbage
-######################################
-
-*/.DS_Store
-.DS_Store
-.DS_Store?
-.Trashes
-Icon?
-
-############
-## Windows
-############
-
-# Windows image file caches
-Thumbs.db
-
-# Folder config file
-Desktop.ini
-
-# Recycle Bin used on file shares
-$RECYCLE.BIN/
+.gradle
+.settings
+/.idea/
+/run/
+/build/
+/eclipse/
+.classpath
+.project
+/bin/
+/config/
+/crash-reports/
+/logs/
+options.txt
+/saves/
+usernamecache.json
+banned-ips.json
+banned-players.json
+eula.txt
+ops.json
+server.properties
+servers.dat
+usercache.json
+whitelist.json
+/out/
+*.iml
+*.ipr
+*.iws
+src/main/resources/mixins.*.json
+*.bat
+*.DS_Store
+!gradlew.bat

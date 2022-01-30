@@ -16,7 +16,7 @@ The mod's downloads can be found at https://wiki.vexatos.com/wiki:computronics.
 ### License
 The mod's license can be found [here](https://wiki.vexatos.com/wiki:licensing).
 
-This is the repository for the Computronics Minecraft mod. 
+This is the repository for the GTNH fork of the Computronics Minecraft mod.
 
 ### Mods required to compile
 

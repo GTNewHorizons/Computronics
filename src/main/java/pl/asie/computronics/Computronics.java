@@ -97,7 +97,7 @@ import java.util.Random;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
 
-@Mod(modid = Mods.Computronics, name = Mods.Computronics_NAME, version = "@VERSION@",
+@Mod(modid = Mods.Computronics, name = Mods.Computronics_NAME, version = Mods.Computronics_VERSION,
 	dependencies = "required-after:asielib@[0.4.9,);required-after:Forge@[10.13.2.1291,);"
 		+ "after:ComputerCraft@[1.75,);after:OpenComputers@[1.6.2,);after:tis3d@[0.8.2.61,);"
 		+ "before:OpenPeripheralCore@[1.1,);before:OpenPeripheralApi@[3.2,);"

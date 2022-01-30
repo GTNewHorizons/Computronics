@@ -1,0 +1,47 @@
+// Add any additional repositories for your dependencies here
+
+repositories {
+    mavenCentral()
+    jcenter() // Needed for Mary TTS
+    maven {
+        name = "GTNH Maven"
+        url = "http://jenkins.usrv.eu:8081/nexus/content/groups/public/"
+    }
+    maven {
+        name = "ic2"
+        url = "http://maven.ic2.player.to/"
+        metadataSources {
+            mavenPom()
+            artifact()
+        }
+    }
+    maven {
+        name "CurseForge Maven"
+        url "https://minecraft.curseforge.com/api/maven/"
+        metadataSources {
+            mavenPom()
+            artifact()
+        }
+    }
+    maven {
+        url "https://cursemaven.com"
+    }
+    maven {
+        url = "https://jitpack.io"
+    }
+    maven {
+        name = "OC repo"
+        url = "http://maven.cil.li/"
+    }
+    ivy {
+        name = "BuildCraft"
+        artifactPattern "http://www.mod-buildcraft.com/releases/BuildCraft/[revision]/[module]-[revision]-[classifier].[ext]"
+    }
+    ivy {
+        name "Vexatos Github"
+        metadataSources {
+            artifact()
+        }
+        artifactPattern "https://github.com/Vexatos/[module]/releases/download/v[revision]/[module]-1.7.10-[revision].jar"
+    }
+}
