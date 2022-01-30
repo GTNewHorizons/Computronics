@@ -30,6 +30,6 @@ dependencies {
     compileOnly("curse.maven:armorers-workshop-229523:3005075") {
         transitive = false
     }
-    compileOnly("com.github.GTNewHorizons:AsieLib:0.5.0:dev")
+    compileOnly("com.github.GTNewHorizons:AsieLib:0.5.1:dev")
     compile fileTree('libs') { include '*' }
 }
