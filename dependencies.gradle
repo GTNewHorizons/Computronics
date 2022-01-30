@@ -27,5 +27,8 @@ dependencies {
     compileOnly("curse.maven:cofh-lib-220333:2388748") {
         transitive = false
     }
+    compileOnly("curse.maven:armorers-workshop-229523:3005075") {
+        transitive = false
+    }
     compile fileTree('libs') { include '*' }
 }
