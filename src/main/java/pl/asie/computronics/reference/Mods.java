@@ -12,8 +12,9 @@ public class Mods {
 
 	//The mod itself
 	public static final String
-		Computronics = "computronics",
-		Computronics_NAME = "Computronics";
+		Computronics = "GRADLETOKEN_MODID",
+		Computronics_NAME = "GRADLETOKEN_MODNAME",
+		Computronics_VERSION = "GRADLETOKEN_VERSION";
 
 	//Computer mods
 	public static final String

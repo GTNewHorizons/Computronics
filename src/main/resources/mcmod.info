@@ -1,12 +1,12 @@
 [
 {
-  "modid": "computronics",
-  "name": "Computronics",
+  "modid":, "${modId}",
+  "name":, "${modName}",
   "description": "A ComputerCraft/OpenComputers addon mod.",
-  "version": "${version}",
+  "version":, "${modVersion}",
   "credits": "",
   "logoFile": "",
-  "mcversion": "${mcversion}",
+  "mcversion":, "${minecraftVersion}",
   "url": "",
   "updateUrl": "",
   "authorList": [ "asiekierka", "Techokami", "Vexatos" ],
