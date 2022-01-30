@@ -1,17 +1,15 @@
-[
-{
-  "modid":, "${modId}",
-  "name":, "${modName}",
+[{
+  "modid": "${modId}",
+  "name": "${modName}",
   "description": "A ComputerCraft/OpenComputers addon mod.",
-  "version":, "${modVersion}",
+  "version": "${modVersion}",
   "credits": "",
   "logoFile": "",
-  "mcversion":, "${minecraftVersion}",
+  "mcversion": "${minecraftVersion}",
   "url": "",
   "updateUrl": "",
   "authorList": [ "asiekierka", "Techokami", "Vexatos" ],
   "parent":"",
   "screenshots": [],
   "dependencies": []
-}
-]
+}]
