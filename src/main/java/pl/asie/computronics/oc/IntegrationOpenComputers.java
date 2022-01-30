@@ -339,164 +339,200 @@ public class IntegrationOpenComputers {
 
 	@Optional.Method(modid = Mods.OpenComputers)
 	public void postInit() {
-		if(Config.OC_UPGRADE_CAMERA) {
-			if(camera != null) {
-				RecipeUtils.addShapedRecipe(new ItemStack(itemOCParts, 1, 0),
-					"idi", "mcm", "ibi",
-					'c', camera,
-					'd', "oc:materialTransistor",
-					'm', "oc:circuitChip2",
-					'i', "ingotIron",
-					'b', "oc:materialCircuitBoardPrinted"
-				);
+		if (Config.OC_UPGRADE_CAMERA) {
+			if (camera != null) {
+				if (!Computronics.isGTNHLoaded) {
+					RecipeUtils.addShapedRecipe(new ItemStack(itemOCParts, 1, 0),
+							"idi", "mcm", "ibi",
+							'c', camera,
+							'd', "oc:materialTransistor",
+							'm', "oc:circuitChip2",
+							'i', "ingotIron",
+							'b', "oc:materialCircuitBoardPrinted"
+					);
+				}
 			} else {
 				log.warn("Could not add Camera Upgrade Recipe because Camera is disabled in the config.");
 			}
 		}
-		if(Config.OC_UPGRADE_CHATBOX) {
-			if(chatBox != null) {
-				RecipeUtils.addShapedRecipe(new ItemStack(itemOCParts, 1, 1),
-					"idi", "mcm", "ibi",
-					'c', new ItemStack(chatBox, 1, 0),
-					'd', "oc:materialTransistor",
-					'm', "oc:circuitChip2",
-					'i', "ingotIron",
-					'b', "oc:materialCircuitBoardPrinted"
-				);
+		if (Config.OC_UPGRADE_CHATBOX) {
+			if (chatBox != null) {
+				if (!Computronics.isGTNHLoaded) {
+					RecipeUtils.addShapedRecipe(new ItemStack(itemOCParts, 1, 1),
+							"idi", "mcm", "ibi",
+							'c', new ItemStack(chatBox, 1, 0),
+							'd', "oc:materialTransistor",
+							'm', "oc:circuitChip2",
+							'i', "ingotIron",
+							'b', "oc:materialCircuitBoardPrinted"
+					);
+				}
 			} else {
 				log.warn("Could not add Chat Box Upgrade Recipe because Chat Box is disabled in the config.");
 			}
 		}
-		if(Config.OC_UPGRADE_RADAR) {
-			if(radar != null) {
-				RecipeUtils.addShapedRecipe(new ItemStack(itemOCParts, 1, 2),
-					"idi", "mcm", "ibi",
-					'c', radar,
-					'd', "oc:materialInterweb",
-					'm', "oc:circuitChip3",
-					'i', "ingotGold",
-					'b', "oc:materialCircuitBoardPrinted"
-				);
+		if (Config.OC_UPGRADE_RADAR) {
+			if (radar != null) {
+				if (!Computronics.isGTNHLoaded) {
+					RecipeUtils.addShapedRecipe(new ItemStack(itemOCParts, 1, 2),
+							"idi", "mcm", "ibi",
+							'c', radar,
+							'd', "oc:materialInterweb",
+							'm', "oc:circuitChip3",
+							'i', "ingotGold",
+							'b', "oc:materialCircuitBoardPrinted"
+					);
+				}
 			} else {
 				log.warn("Could not add Radar Upgrade Recipe because Radar is disabled in the config.");
 			}
 		}
-		if(Config.OC_CARD_FX) {
-			RecipeUtils.addShapedRecipe(new ItemStack(itemOCParts, 1, 3),
-				"mf", " b",
-				'm', "oc:circuitChip2",
-				'f', Items.firework_charge,
-				'b', "oc:materialCard");
+		if (Config.OC_CARD_FX) {
+			if (!Computronics.isGTNHLoaded) {
+				RecipeUtils.addShapedRecipe(new ItemStack(itemOCParts, 1, 3),
+						"mf", " b",
+						'm', "oc:circuitChip2",
+						'f', Items.firework_charge,
+						'b', "oc:materialCard"
+				);
+			}
 
 		}
-		if(Config.OC_CARD_SPOOF) {
-			RecipeUtils.addShapedRecipe(new ItemStack(itemOCParts, 1, 4),
-				"mfl", "pb ", "   ",
-				'm', "oc:ram2",
-				'f', "oc:circuitChip2",
-				'b', "oc:lanCard",
-				'p', "oc:materialCircuitBoardPrinted",
-				'l', Items.brick);
-		}
-		if(Config.OC_CARD_BEEP) {
-			RecipeUtils.addShapedRecipe(new ItemStack(itemOCParts, 1, 5),
-				" l ", "mb ", " f ",
-				'm', "oc:circuitChip1",
-				'f', speaker != null ? speaker : ironNote != null ? ironNote : Blocks.noteblock,
-				'b', "oc:materialCard",
-				'l', "oc:materialCU");
-		}
-		if(Config.OC_CARD_BOOM) {
-			RecipeUtils.addShapedRecipe(new ItemStack(itemOCParts, 1, 6),
-				"mf", "fb",
-				'm', "oc:materialCU",
-				'f', Blocks.tnt,
-				'b', "oc:redstoneCard1");
-
-		}
-		if(Config.OC_UPGRADE_COLORFUL) {
-			RecipeUtils.addShapedRecipe(new ItemStack(itemOCParts, 1, 7),
-				"fdf", "mcm", "fbf",
-				'c', colorfulLamp != null ? colorfulLamp : "glowstone",
-				'd', "oc:materialTransistor",
-				'm', "oc:circuitChip2",
-				'f', "oc:chamelium",
-				'b', "oc:materialCircuitBoardPrinted"
-			);
-		}
-		if(Config.OC_CARD_NOISE) {
-			RecipeUtils.addShapedRecipe(new ItemStack(itemOCParts, 1, 8),
-				" l ", "mbn", " f ",
-				'm', "oc:ram1",
-				'f', "oc:materialALU",
-				'b', Config.OC_CARD_BEEP ? new ItemStack(itemOCParts, 1, 5) : speaker != null ? speaker : ironNote != null ? ironNote : Blocks.noteblock,
-				'l', "oc:circuitChip2",
-				'n', "gemQuartz");
-		}
-		if(Config.OC_CARD_SOUND) {
-			RecipeUtils.addShapedRecipe(new ItemStack(itemOCParts, 1, 9),
-				" l ", "mb ", " f ",
-				'm', "oc:ram5",
-				'f', "oc:cpu1",
-				'b', Config.OC_CARD_NOISE ? new ItemStack(itemOCParts, 1, 8) :
-					Config.OC_CARD_BEEP ? new ItemStack(itemOCParts, 1, 5) : speaker != null ? speaker : ironNote != null ? ironNote : Blocks.noteblock,
-				'l', "oc:circuitChip2");
-		}
-		if(Config.OC_BOARD_LIGHT) {
-			RecipeUtils.addShapedRecipe(new ItemStack(itemOCParts, 1, 10),
-				"oso", "gcg", "opo",
-				's', "paneGlassColorless",
-				'g', "oc:circuitChip1",
-				'c', colorfulLamp != null ? colorfulLamp : "glowstone",
-				'o', "obsidian",
-				'p', "oc:materialCircuitBoardPrinted"
-			);
-		}
-		if(Config.OC_BOARD_BOOM) {
-			RecipeUtils.addShapedRecipe(new ItemStack(itemOCParts, 1, 11),
-				"lsl", "gcg", "opo",
-				's', "oc:circuitChip1",
-				'g', Config.OC_CARD_BOOM ? new ItemStack(itemOCParts, 1, 6) : Items.blaze_powder,
-				'c', Blocks.tnt,
-				'o', "obsidian",
-				'l', Items.gunpowder,
-				'p', "oc:materialCircuitBoardPrinted"
-			);
-		}
-		if(Config.OC_BOARD_CAPACITOR) {
-			RecipeUtils.addShapedRecipe(new ItemStack(itemOCParts, 1, 12),
-				"lsl", "gcg", "opo",
-				's', "oc:circuitChip1",
-				'g', "nuggetGold",
-				'c', "oc:capacitor",
-				'o', "obsidian",
-				'l', "ingotIron",
-				'p', "oc:materialCircuitBoardPrinted"
-			);
-		}
-		if(Config.OC_BOARD_SWITCH) {
-			RecipeUtils.addShapedRecipe(new ItemStack(itemOCParts, 1, 13),
-				"oso", "gcg", "opo",
-				's', "paneGlassColorless",
-				'g', "oc:circuitChip1",
-				'c', "oc:materialButtonGroup",
-				'o', "obsidian",
-				'p', "oc:materialCircuitBoardPrinted"
-			);
-		}
-		if(Config.OC_UPGRADE_SPEECH) {
-			if(speechBox != null) {
-				RecipeUtils.addShapedRecipe(new ItemStack(itemOCParts, 1, 14),
-					"idi", "mcm", "ibi",
-					'c', speechBox,
-					'd', "oc:materialTransistor",
-					'm', "oc:circuitChip2",
-					'i', "ingotIron",
-					'b', "oc:materialCircuitBoardPrinted"
+		if (Config.OC_CARD_SPOOF) {
+			if (!Computronics.isGTNHLoaded) {
+				RecipeUtils.addShapedRecipe(new ItemStack(itemOCParts, 1, 4),
+						"mfl", "pb ", "   ",
+						'm', "oc:ram2",
+						'f', "oc:circuitChip2",
+						'b', "oc:lanCard",
+						'p', "oc:materialCircuitBoardPrinted",
+						'l', Items.brick
 				);
 			}
 		}
-		if(Computronics.buildcraft != null) {
+		if (Config.OC_CARD_BEEP) {
+			if (!Computronics.isGTNHLoaded) {
+				RecipeUtils.addShapedRecipe(new ItemStack(itemOCParts, 1, 5),
+						" l ", "mb ", " f ",
+						'm', "oc:circuitChip1",
+						'f', speaker != null ? speaker : ironNote != null ? ironNote : Blocks.noteblock,
+						'b', "oc:materialCard",
+						'l', "oc:materialCU"
+				);
+			}
+		}
+		if (Config.OC_CARD_BOOM) {
+			if (!Computronics.isGTNHLoaded) {
+				RecipeUtils.addShapedRecipe(new ItemStack(itemOCParts, 1, 6),
+						"mf", "fb",
+						'm', "oc:materialCU",
+						'f', Blocks.tnt,
+						'b', "oc:redstoneCard1"
+				);
+			}
+
+		}
+		if (Config.OC_UPGRADE_COLORFUL) {
+			if (!Computronics.isGTNHLoaded) {
+				RecipeUtils.addShapedRecipe(new ItemStack(itemOCParts, 1, 7),
+						"fdf", "mcm", "fbf",
+						'c', colorfulLamp != null ? colorfulLamp : "glowstone",
+						'd', "oc:materialTransistor",
+						'm', "oc:circuitChip2",
+						'f', "oc:chamelium",
+						'b', "oc:materialCircuitBoardPrinted"
+				);
+			}
+		}
+		if (Config.OC_CARD_NOISE) {
+			if (!Computronics.isGTNHLoaded) {
+				RecipeUtils.addShapedRecipe(new ItemStack(itemOCParts, 1, 8),
+						" l ", "mbn", " f ",
+						'm', "oc:ram1",
+						'f', "oc:materialALU",
+						'b', Config.OC_CARD_BEEP ? new ItemStack(itemOCParts, 1, 5) : speaker != null ? speaker : ironNote != null ? ironNote : Blocks.noteblock,
+						'l', "oc:circuitChip2",
+						'n', "gemQuartz"
+				);
+			}
+		}
+		if (Config.OC_CARD_SOUND) {
+			if (!Computronics.isGTNHLoaded) {
+				RecipeUtils.addShapedRecipe(new ItemStack(itemOCParts, 1, 9),
+						" l ", "mb ", " f ",
+						'm', "oc:ram5",
+						'f', "oc:cpu1",
+						'b', Config.OC_CARD_NOISE ? new ItemStack(itemOCParts, 1, 8) :
+								Config.OC_CARD_BEEP ? new ItemStack(itemOCParts, 1, 5) : speaker != null ? speaker : ironNote != null ? ironNote : Blocks.noteblock,
+						'l', "oc:circuitChip2"
+				);
+			}
+		}
+		if (Config.OC_BOARD_LIGHT) {
+			if (!Computronics.isGTNHLoaded) {
+				RecipeUtils.addShapedRecipe(new ItemStack(itemOCParts, 1, 10),
+						"oso", "gcg", "opo",
+						's', "paneGlassColorless",
+						'g', "oc:circuitChip1",
+						'c', colorfulLamp != null ? colorfulLamp : "glowstone",
+						'o', "obsidian",
+						'p', "oc:materialCircuitBoardPrinted"
+				);
+			}
+		}
+		if (Config.OC_BOARD_BOOM) {
+			if (!Computronics.isGTNHLoaded) {
+				RecipeUtils.addShapedRecipe(new ItemStack(itemOCParts, 1, 11),
+						"lsl", "gcg", "opo",
+						's', "oc:circuitChip1",
+						'g', Config.OC_CARD_BOOM ? new ItemStack(itemOCParts, 1, 6) : Items.blaze_powder,
+						'c', Blocks.tnt,
+						'o', "obsidian",
+						'l', Items.gunpowder,
+						'p', "oc:materialCircuitBoardPrinted"
+				);
+			}
+		}
+		if (Config.OC_BOARD_CAPACITOR) {
+			if (!Computronics.isGTNHLoaded) {
+				RecipeUtils.addShapedRecipe(new ItemStack(itemOCParts, 1, 12),
+						"lsl", "gcg", "opo",
+						's', "oc:circuitChip1",
+						'g', "nuggetGold",
+						'c', "oc:capacitor",
+						'o', "obsidian",
+						'l', "ingotIron",
+						'p', "oc:materialCircuitBoardPrinted"
+				);
+			}
+		}
+		if (Config.OC_BOARD_SWITCH) {
+			if (!Computronics.isGTNHLoaded) {
+				RecipeUtils.addShapedRecipe(new ItemStack(itemOCParts, 1, 13),
+						"oso", "gcg", "opo",
+						's', "paneGlassColorless",
+						'g', "oc:circuitChip1",
+						'c', "oc:materialButtonGroup",
+						'o', "obsidian",
+						'p', "oc:materialCircuitBoardPrinted"
+				);
+			}
+		}
+		if (Config.OC_UPGRADE_SPEECH) {
+			if (speechBox != null) {
+				if (!Computronics.isGTNHLoaded) {
+					RecipeUtils.addShapedRecipe(new ItemStack(itemOCParts, 1, 14),
+							"idi", "mcm", "ibi",
+							'c', speechBox,
+							'd', "oc:materialTransistor",
+							'm', "oc:circuitChip2",
+							'i', "ingotIron",
+							'b', "oc:materialCircuitBoardPrinted"
+					);
+				}
+			}
+		}
+		if (Computronics.buildcraft != null) {
 			Computronics.buildcraft.postInitOC();
 		}
 	}
