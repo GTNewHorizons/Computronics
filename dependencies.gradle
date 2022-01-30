@@ -30,6 +30,9 @@ dependencies {
     compileOnly("curse.maven:armorers-workshop-229523:3005075") {
         transitive = false
     }
+    compileOnly("curse.maven:openperipheralcore-228817:2386735") {
+        transitive = false
+    }
     compile ("com.github.GTNewHorizons:AsieLib:0.5.1:dev")
     compile fileTree('libs') { include '*' }
 }
