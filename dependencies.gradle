@@ -33,6 +33,9 @@ dependencies {
     compileOnly("curse.maven:openperipheralcore-228817:2386735") {
         transitive = false
     }
+    compileOnly("curse.maven:factorization-392300:2990432") {
+        transitive = false
+    }
     compile ("com.github.GTNewHorizons:AsieLib:0.5.1:dev")
     compileOnly group:"Vexatos", name:"Flamingo", version:"1.3"
     compile fileTree('libs') { include '*' }
