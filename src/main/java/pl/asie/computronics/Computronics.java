@@ -2,12 +2,9 @@ package pl.asie.computronics;
 
 import com.google.common.collect.ImmutableList;
 import com.google.common.util.concurrent.ThreadFactoryBuilder;
-import cpw.mods.fml.common.FMLCommonHandler;
-import cpw.mods.fml.common.Mod;
+import cpw.mods.fml.common.*;
 import cpw.mods.fml.common.Mod.EventHandler;
 import cpw.mods.fml.common.Mod.Instance;
-import cpw.mods.fml.common.Optional;
-import cpw.mods.fml.common.SidedProxy;
 import cpw.mods.fml.common.event.FMLInitializationEvent;
 import cpw.mods.fml.common.event.FMLInterModComms;
 import cpw.mods.fml.common.event.FMLMissingMappingsEvent;
@@ -169,6 +166,8 @@ public class Computronics {
 		}
 	};
 
+	public static boolean isGTNHLoaded;
+
 	public boolean isEnabled(String name, boolean def) {
 		return config.isEnabled(name, def);
 	}
@@ -192,6 +191,8 @@ public class Computronics {
 	@EventHandler
 	public void preInit(FMLPreInitializationEvent event) {
 		log = LogManager.getLogger(Mods.Computronics);
+
+		isGTNHLoaded = Loader.isModLoaded("dreamcraft");
 
 		config = new Config(event);
 
