@@ -1,57 +1,56 @@
 // Add your dependencies here
 
 dependencies {
-    compile "com.github.GTNewHorizons:OpenComputers:1.7.5.20-GTNH:dev"
-    compile "li.cil.tis3d:TIS-3D:MC1.7.10-1.2.4.70:dev"
-    compileOnly "net.industrial-craft:industrialcraft-2:2.2.828-experimental:dev"
-    compileOnly "com.github.GTNewHorizons:GT5-Unofficial:5.09.40.19:dev"
-    compileOnly "com.github.GTNewHorizons:StructureLib:1.0.15:dev"
-    compile "com.mod-buildcraft:buildcraft:7.1.23:dev"
-    compileOnly "com.github.GTNewHorizons:Railcraft:9.13.5:dev"
-    compileOnly "com.gregoriust.gregtech:gregtech_1.7.10:6.04.06:dev"
-    compileOnly "com.github.GTNewHorizons:Draconic-Evolution:1.1.2:api"
-    compileOnly "com.github.GTNewHorizons:StorageDrawers:1.11.11-GTNH:api"
-    compile "com.github.GTNewHorizons:waila:1.5.18:dev"
-    compile "com.github.GTNewHorizons:EnderCore:0.2.6:dev"
-    compileOnly ("com.github.GTNewHorizons:EnderIO:2.3.1.27:dev") {
+    compile 'com.github.GTNewHorizons:OpenComputers:1.7.5.21-GTNH:dev'
+    compile 'com.github.GTNewHorizons:AsieLib:0.5.2:dev'
+    compile 'com.github.GTNewHorizons:BuildCraft:7.1.25:dev'
+    compile 'com.github.GTNewHorizons:waila:1.5.18:dev'
+    compile 'com.github.GTNewHorizons:EnderCore:0.2.6:dev'
+    compile 'li.cil.tis3d:TIS-3D:MC1.7.10-1.2.4.70:dev'
+    compile ('com.github.GTNewHorizons:Applied-Energistics-2-Unofficial:rv3-beta-75-GTNH:dev') {
         transitive = false
     }
-    compile ("com.github.GTNewHorizons:ForestryMC:4.4.5:dev") {
+    compileOnly 'net.industrial-craft:industrialcraft-2:2.2.828-experimental:dev'
+    compileOnly 'com.gregoriust.gregtech:gregtech_1.7.10:6.04.06:dev'
+    compileOnly 'com.github.GTNewHorizons:GT5-Unofficial:5.09.40.31:dev'
+    compileOnly 'com.github.GTNewHorizons:StructureLib:1.0.15:dev'
+    compileOnly 'com.github.GTNewHorizons:Railcraft:9.13.5:dev'
+    compileOnly 'com.github.GTNewHorizons:Draconic-Evolution:1.1.2:api'
+    compileOnly 'com.github.GTNewHorizons:StorageDrawers:1.11.11-GTNH:api'
+    compileOnly 'com.github.GTNewHorizons:gendustry:1.6.5.3-GTNH:dev'
+    compileOnly ('com.github.GTNewHorizons:EnderIO:2.3.1.28:dev') {
         transitive = false
     }
-    compileOnly "com.github.GTNewHorizons:gendustry:1.6.5.3-GTNH:dev"
-    compileOnly("com.github.GTNewHorizons:ProjectRed:4.7.4:dev") {
+    compile ('com.github.GTNewHorizons:ForestryMC:4.4.5:dev') {
         transitive = false
     }
-    compile ("com.github.GTNewHorizons:Applied-Energistics-2-Unofficial:rv3-beta-70-GTNH:dev") {
+    compileOnly('com.github.GTNewHorizons:ProjectRed:4.7.4:dev') {
         transitive = false
     }
-    compile ("de.dfki.mary:voice-cmu-slt-hsmm:5.2") {
-        exclude module: "commons-io"
+    compile ('de.dfki.mary:voice-cmu-slt-hsmm:5.2') {
+        exclude module: 'commons-io'
     }
-    compileOnly("curse.maven:cofh-lib-220333:2388748") {
+    compileOnly('curse.maven:cofh-lib-220333:2388748') {
         transitive = false
     }
-    compileOnly("curse.maven:betterstorage-api-232919:2731636") {
+    compileOnly('curse.maven:betterstorage-api-232919:2731636') {
         transitive = false
     }
-    compileOnly(deobf("https://github.com/copygirl/BetterStorage/releases/download/v0.9.4.111/BetterStorage-1.7.10-0.9.4.111.jar"))
-    compileOnly("curse.maven:minefactory-reloaded-66672:2366150") {
+    compileOnly(deobf('https://github.com/copygirl/BetterStorage/releases/download/v0.9.4.111/BetterStorage-1.7.10-0.9.4.111.jar'))
+    compileOnly('curse.maven:minefactory-reloaded-66672:2366150') {
         transitive = false
     }
-    compileOnly(deobf("https://media.forgecdn.net/files/3005/75/Armourers-Workshop-1.7.10-0.48.5.jar"))
-    compileOnly(deobf("https://media.forgecdn.net/files/2269/339/ComputerCraft1.75.jar"))
-    compileOnly(deobf("https://media.forgecdn.net/files/2301/651/FSP-1.7.10-0.29.3.jar"))
-    compileOnly(deobf("http://immibis.com/mcmoddl/files/redlogic-59.1.13.jar"))
-    compileOnly("curse.maven:openperipheralcore-228817:2386737") {
+    compileOnly(deobf('https://media.forgecdn.net/files/3005/75/Armourers-Workshop-1.7.10-0.48.5.jar'))
+    compileOnly(deobf('https://media.forgecdn.net/files/2269/339/ComputerCraft1.75.jar'))
+    compileOnly(deobf('https://media.forgecdn.net/files/2301/651/FSP-1.7.10-0.29.3.jar'))
+    compileOnly(deobf('http://immibis.com/mcmoddl/files/redlogic-59.1.13.jar'))
+    compileOnly('curse.maven:openperipheralcore-228817:2386737') {
         transitive = false
     }
-    compileOnly(deobf("https://github.com/purpleposeidon/fz_archive/raw/master/old/Factorization-1.7.10-0.8.108.jar"))
-    compileOnly(deobf("https://media.forgecdn.net/files/2799/208/IC2Classic+Version+1.2.2.0.jar"))
-    compileOnly("curse.maven:mekanism-268560:2475797") {
+    compileOnly(deobf('https://github.com/purpleposeidon/fz_archive/raw/master/old/Factorization-1.7.10-0.8.108.jar'))
+    compileOnly(deobf('https://media.forgecdn.net/files/2799/208/IC2Classic+Version+1.2.2.0.jar'))
+    compileOnly('curse.maven:mekanism-268560:2475797') {
         transitive = false
     }
-    compile ("com.github.GTNewHorizons:AsieLib:0.5.1:dev")
-    compileOnly group:"Vexatos", name:"Flamingo", version:"1.3"
-    compile fileTree('libs') { include '*' }
+    compileOnly group:'Vexatos', name:'Flamingo', version:'1.3'
 }
