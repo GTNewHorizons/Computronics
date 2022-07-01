@@ -9,6 +9,7 @@ import li.cil.oc.api.prefab.DriverSidedTileEntity;
 import net.minecraft.world.World;
 import net.minecraftforge.common.util.ForgeDirection;
 import pl.asie.computronics.integration.ManagedEnvironmentOCTile;
+import pl.asie.computronics.reference.Config;
 
 public class DriverMachine extends DriverSidedTileEntity {
 
@@ -59,6 +60,14 @@ public class DriverMachine extends DriverSidedTileEntity {
 		public Object[] isMachineActive(Context c, Arguments a) {
 			return new Object[] { tile.isActive() };
 		}
+
+        @Callback(doc = "function():table; Returns machine coordinates", direct = true)
+        public Object[] getCoordinates(Context c, Arguments a) {
+		    if (Config.GT_COORDINATES)
+		        return new Object[] { tile.getXCoord(), tile.getYCoord(), tile.getZCoord() };
+		    else
+                return new Object[] {};
+        }
 	}
 
 	@Override

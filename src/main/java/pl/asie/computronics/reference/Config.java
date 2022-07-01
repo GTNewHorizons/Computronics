@@ -46,8 +46,9 @@ public class Config {
 	public static boolean NON_OC_RECIPES = false;
 	public static boolean FORESTRY_BEES = true;
 	public static boolean BUILDCRAFT_STATION = true;
+    public static boolean GT_COORDINATES = true;
 
-	public static int SOUND_SAMPLE_RATE = 44100;
+    public static int SOUND_SAMPLE_RATE = 44100;
 	public static byte SOUND_VOLUME = 32;
 	public static int SOUND_RADIUS = 24;
 	public static int SOUND_CARD_MAX_DELAY = 5000; // TODO
@@ -197,6 +198,8 @@ public class Config {
 			if(Mods.isLoaded(Mods.BuildCraftTransport) && Mods.isLoaded(Mods.BuildCraftCore)) {
 				BUILDCRAFT_STATION = config.getBoolean("droneDockingStation", "enable.buildcraft", true, "Set this to false to disable the Drone Docking Station for OpenComputers");
 			}
+            if (Mods.isLoaded(Mods.GregTech))
+                GT_COORDINATES = config.getBoolean("GregtechMachineCoordinates", "gregtech", true, "Set this to false to disable the coordinates function for Gregtech machines");
 		}
 
 		if(Mods.isLoaded(Mods.ComputerCraft)) {
