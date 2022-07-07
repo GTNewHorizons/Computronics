@@ -189,8 +189,6 @@ public class GregTech5Recipes extends ModRecipes {
 		RecipeUtils.addShapedRecipe(new ItemStack(Computronics.itemPartsGreg, 1, 0),
 			"srs", "fff", "hch", 's', "foilStainlessSteel", 'f', "foilChromiumDioxide", 'c', "craftingToolWireCutter", 'r', "ringNiobiumTitanium", 'h', "cellArgon");
 
-		//ChromiumDioxide(255, Textures.SET_DULL, 11.0F, 256, 3, 1 | 2, 230, 200, 200, 0, "ChromiumDioxide", 0, 0, 0, 0, 375, 0, false, false, 1, 1, 1, Dyes.dyePink, 1, Arrays.asList(new MaterialStack(Materials.Chrome, 1), new MaterialStack(Materials.Oxygen, 2)), Arrays.asList(new TC_Aspects.TC_AspectStack(TC_Aspects.METALLUM, 2), new TC_Aspects.TC_AspectStack(TC_Aspects.MACHINA, 1)));
-
 		GT_Mod.gregtechproxy.addFluid("Argon", "Argon", Materials.Argon,
 			2, 295, GT_OreDictUnificator.get(OrePrefixes.cell, Materials.Argon, 1L), GT_OreDictUnificator.get(OrePrefixes.cell, Materials.Empty, 1L), 1000);
 
@@ -199,14 +197,11 @@ public class GregTech5Recipes extends ModRecipes {
 		Materials.ChromiumDioxide.mBlastFurnaceTemp = 650;
 		Materials.ChromiumDioxide.mMeltingPoint = 650;
 
-		//GT_Values.RA.addDistilleryRecipe(ItemList.Circuit_Integrated.getWithDamage(0L, 1L), Materials.Air.getGas(1000L), Materials.Nitrogen.getGas(780L), 1600, 32, false);
-		//GT_Values.RA.addDistilleryRecipe(ItemList.Circuit_Integrated.getWithDamage(0L, 2L), Materials.Air.getGas(1000L), Materials.Oxygen.getGas(210L), 1600, 128, false);
-		//GT_Values.RA.addDistilleryRecipe(ItemList.Circuit_Integrated.getWithDamage(0L, 3L), Materials.Air.getGas(1000L), Materials.Argon.getGas(5L), 6000, 512, false);
-
 		GT_Values.RA.addElectrolyzerRecipe(ItemList.Cell_Air.get(1), null, null, Materials.Air.getGas(2000L), ItemList.Cell_Empty.get(1),
 			null, null, null, null, null, null, 800, 30);
 
+        //Cr + 2O = CrO2
 		GT_Values.RA.addChemicalRecipe(GT_OreDictUnificator.get(OrePrefixes.dust, Materials.Chrome, 1),
-				GT_Utility.getIntegratedCircuit(1), Materials.Oxygen.getGas(2000), null, GT_OreDictUnificator.get(OrePrefixes.dust, Materials.ChromiumDioxide, 1), 800);
+				GT_Utility.getIntegratedCircuit(1), Materials.Oxygen.getGas(2000), null, GT_OreDictUnificator.get(OrePrefixes.dust, Materials.ChromiumDioxide, 3), 800);
 	}
 }
