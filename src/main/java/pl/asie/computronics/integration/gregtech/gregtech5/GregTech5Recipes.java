@@ -58,7 +58,7 @@ public class GregTech5Recipes extends ModRecipes {
 			RecipeUtils.addShapedRecipe(new ItemStack(Computronics.speechBox, 1, 0),
 				"crc", "mim", "tat", 'i', ItemList.Hull_MV.get(1), 'r', "circuitElite",
 				'a', Computronics.speaker != null ? Computronics.speaker : Computronics.ironNote != null ? Computronics.ironNote : Blocks.noteblock,
-				'm', "plateSilicon", 't', "wireGt02Gold", 'c', "screwAluminium"
+				'm', "plateSiliconSolarGrade", 't', "wireGt02Gold", 'c', "screwAluminium"
 			);
 		}
 		if(Computronics.tapeReader != null) {
@@ -69,7 +69,7 @@ public class GregTech5Recipes extends ModRecipes {
 		}
 		if(Computronics.cipher != null) {
 			RecipeUtils.addShapedRecipe(new ItemStack(Computronics.cipher, 1, 0),
-				"isi", "trt", "ele", 'i', "cableGt01Copper", 'r', ItemList.Robot_Arm_MV.get(1), 'e', "circuitElite", 's', ItemList.Hull_MV.get(1), 'l', "plateSilicon", 't', "screwAluminium");
+				"isi", "trt", "ele", 'i', "cableGt01Copper", 'r', ItemList.Robot_Arm_MV.get(1), 'e', "circuitElite", 's', ItemList.Hull_MV.get(1), 'l', "plateSiliconSolarGrade", 't', "screwAluminium");
 		}
 		if(Computronics.radar != null) {
 			RecipeUtils.addShapedRecipe(new ItemStack(Computronics.radar, 1, 0),
