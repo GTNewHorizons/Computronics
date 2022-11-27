@@ -68,6 +68,15 @@ public class DriverMachine extends DriverSidedTileEntity {
 		    else
                 return new Object[] {};
         }
+
+        @Callback(doc = "function():string; Returns the machine's name", direct = true)
+        public Object[] getName(Context c, Arguments a) {
+            return new Object[] {
+                tile.getIGregTechTileEntity(tile.getXCoord(), tile.getYCoord(), tile.getZCoord())
+                .getMetaTileEntity()
+                .getMetaName()
+            };
+        }
 	}
 
 	@Override
