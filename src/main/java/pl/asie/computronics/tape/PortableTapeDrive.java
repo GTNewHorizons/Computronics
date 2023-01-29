@@ -1,8 +1,5 @@
 package pl.asie.computronics.tape;
 
-import cpw.mods.fml.client.FMLClientHandler;
-import cpw.mods.fml.relauncher.Side;
-import cpw.mods.fml.relauncher.SideOnly;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.inventory.IInventory;
@@ -13,6 +10,7 @@ import net.minecraft.util.ResourceLocation;
 import net.minecraft.util.Vec3;
 import net.minecraft.world.World;
 import net.minecraftforge.common.util.ForgeDirection;
+
 import pl.asie.computronics.Computronics;
 import pl.asie.computronics.api.audio.AudioPacket;
 import pl.asie.computronics.api.audio.IAudioReceiver;
@@ -24,400 +22,410 @@ import pl.asie.computronics.reference.Config;
 import pl.asie.computronics.reference.Mods;
 import pl.asie.computronics.tile.TapeDriveState;
 import pl.asie.lib.network.Packet;
+import cpw.mods.fml.client.FMLClientHandler;
+import cpw.mods.fml.relauncher.Side;
+import cpw.mods.fml.relauncher.SideOnly;
 
 /**
  * @author Vexatos
  */
 public class PortableTapeDrive implements IAudioSource {
 
-	protected World world;
-	protected Vec3 pos;
-	protected Entity carrier;
-	protected ItemStack self;
-	protected int time = 0;
+    protected World world;
+    protected Vec3 pos;
+    protected Entity carrier;
+    protected ItemStack self;
+    protected int time = 0;
 
-	private String storageName = "";
-	private TapeDriveState state = new TapeDriveState();
-	private ItemStack inventory;
+    private String storageName = "";
+    private TapeDriveState state = new TapeDriveState();
+    private ItemStack inventory;
 
-	public PortableTapeDrive() {
-	}
+    public PortableTapeDrive() {}
 
-	public void updateCarrier(Entity carrier, ItemStack self) {
-		this.world = carrier.worldObj;
-		this.pos = Vec3.createVectorHelper(carrier.posX, carrier.posY, carrier.posZ);
-		this.carrier = carrier;
-		this.self = self;
-	}
+    public void updateCarrier(Entity carrier, ItemStack self) {
+        this.world = carrier.worldObj;
+        this.pos = Vec3.createVectorHelper(carrier.posX, carrier.posY, carrier.posZ);
+        this.carrier = carrier;
+        this.self = self;
+    }
 
-	public TapeDriveState.State getEnumState() {
-		return this.state.getState();
-	}
+    public TapeDriveState.State getEnumState() {
+        return this.state.getState();
+    }
 
-	public void switchState(TapeDriveState.State s) {
-		//System.out.println("Switchy switch to " + s.name());
-		if(this.getEnumState() != s) {
-			this.state.switchState(world, s);
-			updateState();
-		}
-	}
+    public void switchState(TapeDriveState.State s) {
+        // System.out.println("Switchy switch to " + s.name());
+        if (this.getEnumState() != s) {
+            this.state.switchState(world, s);
+            updateState();
+        }
+    }
 
-	public void resetTime() {
-		this.time = 0;
-	}
+    public void resetTime() {
+        this.time = 0;
+    }
 
-	public void update() {
-		if(world.isRemote) {
-			updateSound();
-		}
-		TapeDriveState.State st = getEnumState();
-		AudioPacket pkt = state.update(this, world);
-		if(pkt != null) {
-			internalSpeaker.receivePacket(pkt, ForgeDirection.UNKNOWN);
+    public void update() {
+        if (world.isRemote) {
+            updateSound();
+        }
+        TapeDriveState.State st = getEnumState();
+        AudioPacket pkt = state.update(this, world);
+        if (pkt != null) {
+            internalSpeaker.receivePacket(pkt, ForgeDirection.UNKNOWN);
 
-			pkt.sendPacket();
-		}
-		if(!world.isRemote && st != getEnumState()) {
-			updateState();
-		}
-	}
+            pkt.sendPacket();
+        }
+        if (!world.isRemote && st != getEnumState()) {
+            updateState();
+        }
+    }
 
-	public NBTTagCompound getTag() {
-		NBTTagCompound tag = self.getTagCompound();
-		if(tag == null) {
-			tag = new NBTTagCompound();
-			self.setTagCompound(tag);
-		}
-		return tag;
-	}
+    public NBTTagCompound getTag() {
+        NBTTagCompound tag = self.getTagCompound();
+        if (tag == null) {
+            tag = new NBTTagCompound();
+            self.setTagCompound(tag);
+        }
+        return tag;
+    }
 
-	public ItemStack getSelf() {
-		return self;
-	}
+    public ItemStack getSelf() {
+        return self;
+    }
 
-	protected void updateState() {
-		if(world.isRemote) {
-			return;
-		}
+    protected void updateState() {
+        if (world.isRemote) {
+            return;
+        }
 
-		save(getTag());
-		sendState();
-	}
+        save(getTag());
+        sendState();
+    }
 
-	protected void sendState() {
-		String id = PortableDriveManager.INSTANCE.getID(this, world.isRemote);
-		if(id != null) {
-			try {
-				Packet packet = Computronics.packet.create(PacketType.PORTABLE_TAPE_STATE.ordinal())
-					.writeString(id)
-					.writeByte((byte) state.getState().ordinal())
-					.writeInt(getSourceId());
-				//.writeByte((byte)soundVolume);
-				Computronics.packet.sendToAllAround(packet, carrier, 64.0D);
-			} catch(Exception e) {
-				e.printStackTrace();
-			}
-		}
-	}
+    protected void sendState() {
+        String id = PortableDriveManager.INSTANCE.getID(this, world.isRemote);
+        if (id != null) {
+            try {
+                Packet packet = Computronics.packet.create(PacketType.PORTABLE_TAPE_STATE.ordinal()).writeString(id)
+                        .writeByte((byte) state.getState().ordinal()).writeInt(getSourceId());
+                // .writeByte((byte)soundVolume);
+                Computronics.packet.sendToAllAround(packet, carrier, 64.0D);
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
+        }
+    }
 
-	@SideOnly(Side.CLIENT)
-	private MachineSound sound;
+    @SideOnly(Side.CLIENT)
+    private MachineSound sound;
 
-	private ResourceLocation soundRes = new ResourceLocation(Mods.Computronics, "tape_rewind");
+    private ResourceLocation soundRes = new ResourceLocation(Mods.Computronics, "tape_rewind");
 
-	public float getVolume() {
-		return 1.0f;
-	}
+    public float getVolume() {
+        return 1.0f;
+    }
 
-	public float getPitch() {
-		return 1.0f;
-	}
+    public float getPitch() {
+        return 1.0f;
+    }
 
-	public boolean shouldRepeat() {
-		return true;
-	}
+    public boolean shouldRepeat() {
+        return true;
+    }
 
-	@SideOnly(Side.CLIENT)
-	protected void updateSound() {
-		if(shouldPlaySound()) {
-			if(sound == null) {
-				sound = new MachineSound(soundRes, (float) pos.xCoord, (float) pos.yCoord, (float) pos.zCoord, getVolume(), getPitch(), shouldRepeat()) {
-					@Override
-					public void update() {
-						this.xPosF = (float) PortableTapeDrive.this.pos.xCoord;
-						this.yPosF = (float) PortableTapeDrive.this.pos.yCoord;
-						this.zPosF = (float) PortableTapeDrive.this.pos.zCoord;
-					}
-				};
-				FMLClientHandler.instance().getClient().getSoundHandler().playSound(sound);
-			}
-		} else if(sound != null) {
-			sound.endPlaying();
-			sound = null;
-		}
-	}
+    @SideOnly(Side.CLIENT)
+    protected void updateSound() {
+        if (shouldPlaySound()) {
+            if (sound == null) {
+                sound = new MachineSound(
+                        soundRes,
+                        (float) pos.xCoord,
+                        (float) pos.yCoord,
+                        (float) pos.zCoord,
+                        getVolume(),
+                        getPitch(),
+                        shouldRepeat()) {
 
-	public boolean shouldPlaySound() {
-		switch(getEnumState()) {
-			case REWINDING:
-			case FORWARDING:
-				return true;
-			default:
-				return false;
-		}
-	}
+                    @Override
+                    public void update() {
+                        this.xPosF = (float) PortableTapeDrive.this.pos.xCoord;
+                        this.yPosF = (float) PortableTapeDrive.this.pos.yCoord;
+                        this.zPosF = (float) PortableTapeDrive.this.pos.zCoord;
+                    }
+                };
+                FMLClientHandler.instance().getClient().getSoundHandler().playSound(sound);
+            }
+        } else if (sound != null) {
+            sound.endPlaying();
+            sound = null;
+        }
+    }
 
-	// Storage handling
+    public boolean shouldPlaySound() {
+        switch (getEnumState()) {
+            case REWINDING:
+            case FORWARDING:
+                return true;
+            default:
+                return false;
+        }
+    }
 
-	private void loadStorage() {
-		if(world != null && world.isRemote) {
-			return;
-		}
+    // Storage handling
 
-		if(state.getStorage() != null) {
-			unloadStorage();
-		}
-		ItemStack stack = this.inventory;
-		if(stack != null) {
-			// Get Storage.
-			Item item = stack.getItem();
-			if(item instanceof IItemTapeStorage) {
-				state.setStorage(((IItemTapeStorage) item).getStorage(stack));
-			}
+    private void loadStorage() {
+        if (world != null && world.isRemote) {
+            return;
+        }
 
-			// Get possible label.
-			if(stack.getTagCompound() != null) {
-				NBTTagCompound tag = stack.getTagCompound();
-				storageName = tag.hasKey("label") ? tag.getString("label") : "";
-			} else {
-				storageName = "";
-			}
-		}
-	}
+        if (state.getStorage() != null) {
+            unloadStorage();
+        }
+        ItemStack stack = this.inventory;
+        if (stack != null) {
+            // Get Storage.
+            Item item = stack.getItem();
+            if (item instanceof IItemTapeStorage) {
+                state.setStorage(((IItemTapeStorage) item).getStorage(stack));
+            }
 
-	public void saveStorage() {
-		unloadStorage();
-	}
+            // Get possible label.
+            if (stack.getTagCompound() != null) {
+                NBTTagCompound tag = stack.getTagCompound();
+                storageName = tag.hasKey("label") ? tag.getString("label") : "";
+            } else {
+                storageName = "";
+            }
+        }
+    }
 
-	private void unloadStorage() {
-		if(world.isRemote || state.getStorage() == null) {
-			return;
-		}
+    public void saveStorage() {
+        unloadStorage();
+    }
 
-		switchState(TapeDriveState.State.STOPPED);
-		try {
-			state.getStorage().onStorageUnload();
-		} catch(Exception e) {
-			e.printStackTrace();
-		}
-		state.setStorage(null);
-	}
+    private void unloadStorage() {
+        if (world.isRemote || state.getStorage() == null) {
+            return;
+        }
 
-	public void onInvUpdate() {
-		if(this.inventory == null) {
-			if(state.getStorage() != null) { // Tape was inserted
-				// Play eject sound
-				world.playSoundEffect(pos.xCoord, pos.yCoord, pos.zCoord, "computronics:tape_eject", 1, 0);
-			}
-			unloadStorage();
-		} else {
-			loadStorage();
-			if(this.inventory.getItem() instanceof IItemTapeStorage) {
-				// Play insert sound
-				world.playSoundEffect(pos.xCoord, pos.yCoord, pos.zCoord, "computronics:tape_insert", 1, 0);
-			}
-		}
-		save(getTag());
-	}
+        switchState(TapeDriveState.State.STOPPED);
+        try {
+            state.getStorage().onStorageUnload();
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        state.setStorage(null);
+    }
 
-	protected int clientId = -1;
+    public void onInvUpdate() {
+        if (this.inventory == null) {
+            if (state.getStorage() != null) { // Tape was inserted
+                // Play eject sound
+                world.playSoundEffect(pos.xCoord, pos.yCoord, pos.zCoord, "computronics:tape_eject", 1, 0);
+            }
+            unloadStorage();
+        } else {
+            loadStorage();
+            if (this.inventory.getItem() instanceof IItemTapeStorage) {
+                // Play insert sound
+                world.playSoundEffect(pos.xCoord, pos.yCoord, pos.zCoord, "computronics:tape_insert", 1, 0);
+            }
+        }
+        save(getTag());
+    }
 
-	public void load(NBTTagCompound tag) {
-		if(tag.hasKey("inv")) {
-			this.inventory = ItemStack.loadItemStackFromNBT(tag.getCompoundTag("inv"));
-		}
-		if(tag.hasKey("state")) {
-			this.state.setState(TapeDriveState.State.VALUES[tag.getByte("state")]);
-		}
-		if(tag.hasKey("sp")) {
-			this.state.packetSize = tag.getShort("sp");
-		}
-		if(tag.hasKey("vo")) {
-			this.state.soundVolume = tag.getByte("vo");
-		} else {
-			this.state.soundVolume = 127;
-		}
-		if(tag.hasKey("cId")) {
-			this.clientId = tag.getInteger("cId");
-		}
-		loadStorage();
-	}
+    protected int clientId = -1;
 
-	public void save(NBTTagCompound tag) {
-		NBTTagCompound inv = new NBTTagCompound();
-		if(inventory != null) {
-			inventory.writeToNBT(inv);
-		}
-		tag.setTag("inv", inv);
-		tag.setShort("sp", (short) this.state.packetSize);
-		tag.setByte("state", (byte) this.state.getState().ordinal());
-		if(this.state.soundVolume != 127) {
-			tag.setByte("vo", (byte) this.state.soundVolume);
-		}
-		tag.setInteger("cId", clientId);
-	}
+    public void load(NBTTagCompound tag) {
+        if (tag.hasKey("inv")) {
+            this.inventory = ItemStack.loadItemStackFromNBT(tag.getCompoundTag("inv"));
+        }
+        if (tag.hasKey("state")) {
+            this.state.setState(TapeDriveState.State.VALUES[tag.getByte("state")]);
+        }
+        if (tag.hasKey("sp")) {
+            this.state.packetSize = tag.getShort("sp");
+        }
+        if (tag.hasKey("vo")) {
+            this.state.soundVolume = tag.getByte("vo");
+        } else {
+            this.state.soundVolume = 127;
+        }
+        if (tag.hasKey("cId")) {
+            this.clientId = tag.getInteger("cId");
+        }
+        loadStorage();
+    }
 
-	private final IAudioReceiver internalSpeaker = new IAudioReceiver() {
-		@Override
-		public boolean connectsAudio(ForgeDirection side) {
-			return false;
-		}
+    public void save(NBTTagCompound tag) {
+        NBTTagCompound inv = new NBTTagCompound();
+        if (inventory != null) {
+            inventory.writeToNBT(inv);
+        }
+        tag.setTag("inv", inv);
+        tag.setShort("sp", (short) this.state.packetSize);
+        tag.setByte("state", (byte) this.state.getState().ordinal());
+        if (this.state.soundVolume != 127) {
+            tag.setByte("vo", (byte) this.state.soundVolume);
+        }
+        tag.setInteger("cId", clientId);
+    }
 
-		@Override
-		public World getSoundWorld() {
-			return world;
-		}
+    private final IAudioReceiver internalSpeaker = new IAudioReceiver() {
 
-		@Override
-		public Vec3 getSoundPos() {
-			return pos;
-		}
+        @Override
+        public boolean connectsAudio(ForgeDirection side) {
+            return false;
+        }
 
-		@Override
-		public int getSoundDistance() {
-			return Config.PORTABLE_TAPEDRIVE_DISTANCE;
-		}
+        @Override
+        public World getSoundWorld() {
+            return world;
+        }
 
-		@Override
-		public void receivePacket(AudioPacket packet, ForgeDirection direction) {
-			packet.addReceiver(this);
-		}
+        @Override
+        public Vec3 getSoundPos() {
+            return pos;
+        }
 
-		@Override
-		public String getID() {
-			return ""; // Not needed since there is always only this one receiver.
-		}
+        @Override
+        public int getSoundDistance() {
+            return Config.PORTABLE_TAPEDRIVE_DISTANCE;
+        }
 
-	};
+        @Override
+        public void receivePacket(AudioPacket packet, ForgeDirection direction) {
+            packet.addReceiver(this);
+        }
 
-	@Override
-	public int getSourceId() {
-		return state.getId();
-	}
+        @Override
+        public String getID() {
+            return ""; // Not needed since there is always only this one receiver.
+        }
 
-	public int getSourceIdClient() {
-		return clientId;
-	}
+    };
 
-	public void setSourceIdClient(int clientId) {
-		this.clientId = clientId;
-	}
+    @Override
+    public int getSourceId() {
+        return state.getId();
+    }
 
-	@Override
-	public boolean connectsAudio(ForgeDirection side) {
-		return true;
-	}
+    public int getSourceIdClient() {
+        return clientId;
+    }
 
-	public final IInventory fakeInventory = new IInventory() {
-		@Override
-		public int getSizeInventory() {
-			return 1;
-		}
+    public void setSourceIdClient(int clientId) {
+        this.clientId = clientId;
+    }
 
-		@Override
-		public String getInventoryName() {
-			return "portabletapedrive.inventory";
-		}
+    @Override
+    public boolean connectsAudio(ForgeDirection side) {
+        return true;
+    }
 
-		@Override
-		public int getInventoryStackLimit() {
-			return 1;
-		}
+    public final IInventory fakeInventory = new IInventory() {
 
-		@Override
-		public boolean isItemValidForSlot(int slot, ItemStack stack) {
-			return false;
-		}
+        @Override
+        public int getSizeInventory() {
+            return 1;
+        }
 
-		@Override
-		public ItemStack getStackInSlot(int slot) {
-			if(slot != 0) {
-				return null;
-			}
-			return PortableTapeDrive.this.inventory;
-		}
+        @Override
+        public String getInventoryName() {
+            return "portabletapedrive.inventory";
+        }
 
-		@Override
-		public ItemStack decrStackSize(int slot, int amount) {
-			if(slot != 0) {
-				return null;
-			}
-			if(PortableTapeDrive.this.inventory != null) {
-				ItemStack stack;
-				if(PortableTapeDrive.this.inventory.stackSize <= amount) {
-					stack = PortableTapeDrive.this.inventory;
-					PortableTapeDrive.this.inventory = null;
-					PortableTapeDrive.this.onInvUpdate();
-					return stack;
-				} else {
-					stack = PortableTapeDrive.this.inventory.splitStack(amount);
+        @Override
+        public int getInventoryStackLimit() {
+            return 1;
+        }
 
-					if(PortableTapeDrive.this.inventory.stackSize == 0) {
-						PortableTapeDrive.this.inventory = null;
-					}
+        @Override
+        public boolean isItemValidForSlot(int slot, ItemStack stack) {
+            return false;
+        }
 
-					PortableTapeDrive.this.onInvUpdate();
+        @Override
+        public ItemStack getStackInSlot(int slot) {
+            if (slot != 0) {
+                return null;
+            }
+            return PortableTapeDrive.this.inventory;
+        }
 
-					return stack;
-				}
-			} else {
-				return null;
-			}
-		}
+        @Override
+        public ItemStack decrStackSize(int slot, int amount) {
+            if (slot != 0) {
+                return null;
+            }
+            if (PortableTapeDrive.this.inventory != null) {
+                ItemStack stack;
+                if (PortableTapeDrive.this.inventory.stackSize <= amount) {
+                    stack = PortableTapeDrive.this.inventory;
+                    PortableTapeDrive.this.inventory = null;
+                    PortableTapeDrive.this.onInvUpdate();
+                    return stack;
+                } else {
+                    stack = PortableTapeDrive.this.inventory.splitStack(amount);
 
-		@Override
-		public ItemStack getStackInSlotOnClosing(int slot) {
-			ItemStack stack = getStackInSlot(slot);
-			if(stack == null) {
-				return null;
-			}
-			PortableTapeDrive.this.inventory = null;
-			PortableTapeDrive.this.onInvUpdate();
-			return stack;
-		}
+                    if (PortableTapeDrive.this.inventory.stackSize == 0) {
+                        PortableTapeDrive.this.inventory = null;
+                    }
 
-		@Override
-		public void setInventorySlotContents(int slot, ItemStack stack) {
-			if(slot != 0) {
-				return;
-			}
-			PortableTapeDrive.this.inventory = stack;
-			PortableTapeDrive.this.onInvUpdate();
-		}
+                    PortableTapeDrive.this.onInvUpdate();
 
-		@Override
-		public boolean isUseableByPlayer(EntityPlayer player) {
-			return true;
-		}
+                    return stack;
+                }
+            } else {
+                return null;
+            }
+        }
 
-		@Override
-		public void openInventory() {
+        @Override
+        public ItemStack getStackInSlotOnClosing(int slot) {
+            ItemStack stack = getStackInSlot(slot);
+            if (stack == null) {
+                return null;
+            }
+            PortableTapeDrive.this.inventory = null;
+            PortableTapeDrive.this.onInvUpdate();
+            return stack;
+        }
 
-		}
+        @Override
+        public void setInventorySlotContents(int slot, ItemStack stack) {
+            if (slot != 0) {
+                return;
+            }
+            PortableTapeDrive.this.inventory = stack;
+            PortableTapeDrive.this.onInvUpdate();
+        }
 
-		@Override
-		public void closeInventory() {
+        @Override
+        public boolean isUseableByPlayer(EntityPlayer player) {
+            return true;
+        }
 
-		}
+        @Override
+        public void openInventory() {
 
-		@Override
-		public boolean hasCustomInventoryName() {
-			return false;
-		}
+        }
 
-		@Override
-		public void markDirty() {
+        @Override
+        public void closeInventory() {
 
-		}
-	};
+        }
+
+        @Override
+        public boolean hasCustomInventoryName() {
+            return false;
+        }
+
+        @Override
+        public void markDirty() {
+
+        }
+    };
 }

@@ -1,6 +1,7 @@
 package pl.asie.computronics.gui;
 
 import net.minecraft.inventory.Slot;
+
 import pl.asie.computronics.tile.TapeDriveState.State;
 
 /**
@@ -8,11 +9,11 @@ import pl.asie.computronics.tile.TapeDriveState.State;
  */
 public interface IGuiTapeDrive {
 
-	void setState(State state);
+    void setState(State state);
 
-	State getState();
+    State getState();
 
-	boolean isLocked(Slot slot, int index, int button, int shift);
+    boolean isLocked(Slot slot, int index, int button, int shift);
 
-	boolean shouldCheckHotbarKeys();
+    boolean shouldCheckHotbarKeys();
 }

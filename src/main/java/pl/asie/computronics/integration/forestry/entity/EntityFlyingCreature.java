@@ -9,74 +9,79 @@ import net.minecraft.world.World;
  * Combination of EntityAmbientCreature and EntityFlying
  */
 public class EntityFlyingCreature extends EntityAmbientCreature {
-	public EntityFlyingCreature(World par1World) {
-		super(par1World);
-	}
 
-	@Override
-	protected void fall(float par1) {
-	}
+    public EntityFlyingCreature(World par1World) {
+        super(par1World);
+    }
 
-	@Override
-	protected void updateFallState(double par1, boolean par3) {
-	}
+    @Override
+    protected void fall(float par1) {}
 
-	@Override
-	public void moveEntityWithHeading(float par1, float par2) {
-		if(this.isInWater()) {
-			this.moveFlying(par1, par2, 0.02F);
-			this.moveEntity(this.motionX, this.motionY, this.motionZ);
-			this.motionX *= 0.800000011920929D;
-			this.motionY *= 0.800000011920929D;
-			this.motionZ *= 0.800000011920929D;
-		} else if(this.handleLavaMovement()) {
-			this.moveFlying(par1, par2, 0.02F);
-			this.moveEntity(this.motionX, this.motionY, this.motionZ);
-			this.motionX *= 0.5D;
-			this.motionY *= 0.5D;
-			this.motionZ *= 0.5D;
-		} else {
-			float f2 = 0.91F;
+    @Override
+    protected void updateFallState(double par1, boolean par3) {}
 
-			if(this.onGround) {
-				f2 = 0.54600006F;
-				Block block = this.worldObj.getBlock(MathHelper.floor_double(this.posX), MathHelper.floor_double(this.boundingBox.minY) - 1, MathHelper.floor_double(this.posZ));
+    @Override
+    public void moveEntityWithHeading(float par1, float par2) {
+        if (this.isInWater()) {
+            this.moveFlying(par1, par2, 0.02F);
+            this.moveEntity(this.motionX, this.motionY, this.motionZ);
+            this.motionX *= 0.800000011920929D;
+            this.motionY *= 0.800000011920929D;
+            this.motionZ *= 0.800000011920929D;
+        } else if (this.handleLavaMovement()) {
+            this.moveFlying(par1, par2, 0.02F);
+            this.moveEntity(this.motionX, this.motionY, this.motionZ);
+            this.motionX *= 0.5D;
+            this.motionY *= 0.5D;
+            this.motionZ *= 0.5D;
+        } else {
+            float f2 = 0.91F;
 
-				f2 = block.slipperiness * 0.91F;
-			}
+            if (this.onGround) {
+                f2 = 0.54600006F;
+                Block block = this.worldObj.getBlock(
+                        MathHelper.floor_double(this.posX),
+                        MathHelper.floor_double(this.boundingBox.minY) - 1,
+                        MathHelper.floor_double(this.posZ));
 
-			float f3 = 0.16277136F / (f2 * f2 * f2);
-			this.moveFlying(par1, par2, this.onGround ? 0.1F * f3 : 0.02F);
-			f2 = 0.91F;
+                f2 = block.slipperiness * 0.91F;
+            }
 
-			if(this.onGround) {
-				f2 = 0.54600006F;
-				Block block = this.worldObj.getBlock(MathHelper.floor_double(this.posX), MathHelper.floor_double(this.boundingBox.minY) - 1, MathHelper.floor_double(this.posZ));
+            float f3 = 0.16277136F / (f2 * f2 * f2);
+            this.moveFlying(par1, par2, this.onGround ? 0.1F * f3 : 0.02F);
+            f2 = 0.91F;
 
-				f2 = block.slipperiness * 0.91F;
-			}
+            if (this.onGround) {
+                f2 = 0.54600006F;
+                Block block = this.worldObj.getBlock(
+                        MathHelper.floor_double(this.posX),
+                        MathHelper.floor_double(this.boundingBox.minY) - 1,
+                        MathHelper.floor_double(this.posZ));
 
-			this.moveEntity(this.motionX, this.motionY, this.motionZ);
-			this.motionX *= (double) f2;
-			this.motionY *= (double) f2;
-			this.motionZ *= (double) f2;
-		}
+                f2 = block.slipperiness * 0.91F;
+            }
 
-		this.prevLimbSwingAmount = this.limbSwingAmount;
-		double d0 = this.posX - this.prevPosX;
-		double d1 = this.posZ - this.prevPosZ;
-		float f4 = MathHelper.sqrt_double(d0 * d0 + d1 * d1) * 4.0F;
+            this.moveEntity(this.motionX, this.motionY, this.motionZ);
+            this.motionX *= (double) f2;
+            this.motionY *= (double) f2;
+            this.motionZ *= (double) f2;
+        }
 
-		if(f4 > 1.0F) {
-			f4 = 1.0F;
-		}
+        this.prevLimbSwingAmount = this.limbSwingAmount;
+        double d0 = this.posX - this.prevPosX;
+        double d1 = this.posZ - this.prevPosZ;
+        float f4 = MathHelper.sqrt_double(d0 * d0 + d1 * d1) * 4.0F;
 
-		this.limbSwingAmount += (f4 - this.limbSwingAmount) * 0.4F;
-		this.limbSwing += this.limbSwingAmount;
-	}
+        if (f4 > 1.0F) {
+            f4 = 1.0F;
+        }
 
-	@Override
-	public boolean isOnLadder() {
-		return false;
-	}
+        this.limbSwingAmount += (f4 - this.limbSwingAmount) * 0.4F;
+        this.limbSwing += this.limbSwingAmount;
+    }
+
+    @Override
+    public boolean isOnLadder() {
+        return false;
+    }
 }

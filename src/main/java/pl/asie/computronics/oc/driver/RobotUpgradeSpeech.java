@@ -1,7 +1,9 @@
 package pl.asie.computronics.oc.driver;
 
-import com.google.common.base.Throwables;
-import cpw.mods.fml.common.Optional;
+import java.io.ByteArrayInputStream;
+import java.io.IOException;
+import java.util.Arrays;
+
 import li.cil.oc.api.Network;
 import li.cil.oc.api.machine.Arguments;
 import li.cil.oc.api.machine.Callback;
@@ -10,11 +12,13 @@ import li.cil.oc.api.network.EnvironmentHost;
 import li.cil.oc.api.network.Message;
 import li.cil.oc.api.network.Node;
 import li.cil.oc.api.network.Visibility;
+
 import net.minecraft.nbt.NBTTagCompound;
 import net.minecraft.tileentity.TileEntity;
 import net.minecraft.util.Vec3;
 import net.minecraft.world.World;
 import net.minecraftforge.common.util.ForgeDirection;
+
 import pl.asie.computronics.Computronics;
 import pl.asie.computronics.api.audio.AudioPacket;
 import pl.asie.computronics.api.audio.AudioPacketDFPWM;
@@ -26,258 +30,257 @@ import pl.asie.computronics.reference.Config;
 import pl.asie.computronics.reference.Mods;
 import pl.asie.computronics.util.OCUtils;
 
-import java.io.ByteArrayInputStream;
-import java.io.IOException;
-import java.util.Arrays;
+import com.google.common.base.Throwables;
+import cpw.mods.fml.common.Optional;
 
 /**
  * @author Vexatos
  */
 public class RobotUpgradeSpeech extends ManagedEnvironmentWithComponentConnector implements IAudioSource, ICanSpeak {
 
-	protected final EnvironmentHost host;
+    protected final EnvironmentHost host;
 
-	public RobotUpgradeSpeech(EnvironmentHost host) {
-		this.host = host;
-		this.setNode(Network.newNode(this, Visibility.Neighbors).
-			withComponent("speech").
-			withConnector().
-			create());
-	}
+    public RobotUpgradeSpeech(EnvironmentHost host) {
+        this.host = host;
+        this.setNode(Network.newNode(this, Visibility.Neighbors).withComponent("speech").withConnector().create());
+    }
 
-	private final IAudioReceiver internalSpeaker = new IAudioReceiver() {
-		@Override
-		public boolean connectsAudio(ForgeDirection side) {
-			return true;
-		}
+    private final IAudioReceiver internalSpeaker = new IAudioReceiver() {
 
-		@Override
-		public World getSoundWorld() {
-			return host.world();
-		}
+        @Override
+        public boolean connectsAudio(ForgeDirection side) {
+            return true;
+        }
 
-		@Override
-		public Vec3 getSoundPos() {
-			return Vec3.createVectorHelper(host.xPosition(), host.yPosition(), host.zPosition());
-		}
+        @Override
+        public World getSoundWorld() {
+            return host.world();
+        }
 
-		@Override
-		public int getSoundDistance() {
-			return Config.SOUND_RADIUS;
-		}
+        @Override
+        public Vec3 getSoundPos() {
+            return Vec3.createVectorHelper(host.xPosition(), host.yPosition(), host.zPosition());
+        }
 
-		@Override
-		public void receivePacket(AudioPacket packet, ForgeDirection direction) {
-			packet.addReceiver(this);
-		}
+        @Override
+        public int getSoundDistance() {
+            return Config.SOUND_RADIUS;
+        }
 
-		@Override
-		public String getID() {
-			return host instanceof TileEntity ? AudioUtils.positionId(host.xPosition(), host.yPosition(), host.zPosition()) : "";
-		}
+        @Override
+        public void receivePacket(AudioPacket packet, ForgeDirection direction) {
+            packet.addReceiver(this);
+        }
 
-	};
+        @Override
+        public String getID() {
+            return host instanceof TileEntity
+                    ? AudioUtils.positionId(host.xPosition(), host.yPosition(), host.zPosition())
+                    : "";
+        }
 
-	@Override
-	public boolean canUpdate() {
-		return true;
-	}
+    };
 
-	@Override
-	public void update() {
-		super.update();
-		AudioPacket pkt = null;
-		long time = System.nanoTime();
-		if((time - (250 * 1000000)) > lastCodecTime) {
-			lastCodecTime += (250 * 1000000);
-			pkt = createMusicPacket(this);
-		}
-		if(pkt != null) {
-			internalSpeaker.receivePacket(pkt, ForgeDirection.UNKNOWN);
-			pkt.sendPacket();
-		}
-	}
+    @Override
+    public boolean canUpdate() {
+        return true;
+    }
 
-	protected boolean isValid = false;
+    @Override
+    public void update() {
+        super.update();
+        AudioPacket pkt = null;
+        long time = System.nanoTime();
+        if ((time - (250 * 1000000)) > lastCodecTime) {
+            lastCodecTime += (250 * 1000000);
+            pkt = createMusicPacket(this);
+        }
+        if (pkt != null) {
+            internalSpeaker.receivePacket(pkt, ForgeDirection.UNKNOWN);
+            pkt.sendPacket();
+        }
+    }
 
-	@Override
-	public boolean isValid() {
-		return isValid;
-	}
+    protected boolean isValid = false;
 
-	@Override
-	public void onConnect(Node node) {
-		super.onConnect(node);
-		if(node == this.node()) {
-			isValid = true;
-		}
-	}
+    @Override
+    public boolean isValid() {
+        return isValid;
+    }
 
-	@Override
-	public void onDisconnect(final Node node) {
-		super.onDisconnect(node);
-		if(node == this.node()) {
-			isValid = false;
-			stopTalking();
-		}
-	}
+    @Override
+    public void onConnect(Node node) {
+        super.onConnect(node);
+        if (node == this.node()) {
+            isValid = true;
+        }
+    }
 
-	@Override
-	public void onMessage(Message message) {
-		super.onMessage(message);
-		if((message.name().equals("computer.stopped")
-			|| message.name().equals("computer.started"))
-			&& node().isNeighborOf(message.source())) {
-			if(locked || storage != null) {
-				stopTalking();
-			}
-			isValid = message.name().equals("computer.started");
-		}
-	}
+    @Override
+    public void onDisconnect(final Node node) {
+        super.onDisconnect(node);
+        if (node == this.node()) {
+            isValid = false;
+            stopTalking();
+        }
+    }
 
-	private long lastCodecTime;
-	private int codecId = -1;
-	protected int packetSize = 1024;
-	protected int soundVolume = 127;
-	private boolean locked = false;
+    @Override
+    public void onMessage(Message message) {
+        super.onMessage(message);
+        if ((message.name().equals("computer.stopped") || message.name().equals("computer.started"))
+                && node().isNeighborOf(message.source())) {
+            if (locked || storage != null) {
+                stopTalking();
+            }
+            isValid = message.name().equals("computer.started");
+        }
+    }
 
-	@Override
-	public void startTalking(byte[] data) {
-		if(host.world().isRemote) {
-			return;
-		}
-		storage = new ByteArrayInputStream(data);
-		codecId = Computronics.instance.audio.newPlayer();
-		Computronics.instance.audio.getPlayer(codecId);
-		lastCodecTime = System.nanoTime();
-	}
+    private long lastCodecTime;
+    private int codecId = -1;
+    protected int packetSize = 1024;
+    protected int soundVolume = 127;
+    private boolean locked = false;
 
-	private void stopTalking() {
-		if(host.world() != null && host.world().isRemote) {
-			return;
-		}
-		AudioUtils.removePlayer(Computronics.instance.managerId, codecId);
-		locked = false;
-		storage = null;
-	}
+    @Override
+    public void startTalking(byte[] data) {
+        if (host.world().isRemote) {
+            return;
+        }
+        storage = new ByteArrayInputStream(data);
+        codecId = Computronics.instance.audio.newPlayer();
+        Computronics.instance.audio.getPlayer(codecId);
+        lastCodecTime = System.nanoTime();
+    }
 
-	private Object[] sendNewText(String text) throws IOException {
-		if(Computronics.tts != null) {
-			locked = true;
-			Computronics.tts.say(this, text);
-		} else {
-			return new Object[] { false, "text-to-speech system not available" };
-		}
-		return new Object[] { true };
-	}
+    private void stopTalking() {
+        if (host.world() != null && host.world().isRemote) {
+            return;
+        }
+        AudioUtils.removePlayer(Computronics.instance.managerId, codecId);
+        locked = false;
+        storage = null;
+    }
 
-	private ByteArrayInputStream storage;
+    private Object[] sendNewText(String text) throws IOException {
+        if (Computronics.tts != null) {
+            locked = true;
+            Computronics.tts.say(this, text);
+        } else {
+            return new Object[] { false, "text-to-speech system not available" };
+        }
+        return new Object[] { true };
+    }
 
-	private AudioPacket createMusicPacket(IAudioSource source) {
-		if(storage == null) {
-			return null;
-		}
-		byte[] pktData = new byte[packetSize];
-		int amount = storage.read(pktData, 0, pktData.length); // read data into packet array
+    private ByteArrayInputStream storage;
 
-		if(amount > 0) {
-			return new AudioPacketDFPWM(source, (byte) soundVolume, packetSize * 8 * 4, amount == packetSize ? pktData : Arrays.copyOf(pktData, amount));
-		} else {
-			stopTalking();
-			return null;
-		}
-	}
+    private AudioPacket createMusicPacket(IAudioSource source) {
+        if (storage == null) {
+            return null;
+        }
+        byte[] pktData = new byte[packetSize];
+        int amount = storage.read(pktData, 0, pktData.length); // read data into packet array
 
-	@Override
-	public void load(NBTTagCompound tag) {
-		super.load(tag);
-		if(this.soundVolume != 127) {
-			tag.setByte("vo", (byte) this.soundVolume);
-		}
-	}
+        if (amount > 0) {
+            return new AudioPacketDFPWM(
+                    source,
+                    (byte) soundVolume,
+                    packetSize * 8 * 4,
+                    amount == packetSize ? pktData : Arrays.copyOf(pktData, amount));
+        } else {
+            stopTalking();
+            return null;
+        }
+    }
 
-	@Override
-	public void save(NBTTagCompound tag) {
-		super.save(tag);
-		if(tag.hasKey("vo")) {
-			this.soundVolume = tag.getByte("vo");
-		} else {
-			this.soundVolume = 127;
-		}
-	}
+    @Override
+    public void load(NBTTagCompound tag) {
+        super.load(tag);
+        if (this.soundVolume != 127) {
+            tag.setByte("vo", (byte) this.soundVolume);
+        }
+    }
 
-	public void setVolume(float volume) {
-		if(volume < 0.0F) {
-			volume = 0.0F;
-		}
-		if(volume > 1.0F) {
-			volume = 1.0F;
-		}
-		this.soundVolume = (int) Math.floor(volume * 127.0F);
-	}
+    @Override
+    public void save(NBTTagCompound tag) {
+        super.save(tag);
+        if (tag.hasKey("vo")) {
+            this.soundVolume = tag.getByte("vo");
+        } else {
+            this.soundVolume = 127;
+        }
+    }
 
-	@Callback(doc = "function(text:string):boolean; Say the specified message. Returns true on success, false and an error message otherwise.")
-	@Optional.Method(modid = Mods.OpenComputers)
-	public Object[] say(Context context, Arguments args) {
-		if(locked || storage != null) {
-			return new Object[] { false, "already processing" };
-		}
-		String text = args.checkString(0);
-		if(text.length() > Config.TTS_MAX_LENGTH) {
-			return new Object[] { false, "text too long" };
-		}
-		try {
-			return this.sendNewText(text);
-		} catch(IOException e) {
-			throw new IllegalArgumentException("could not send string");
-		} catch(Exception e) {
-			e.printStackTrace();
-			Throwables.propagate(e);
-		}
-		return new Object[] { false };
-	}
+    public void setVolume(float volume) {
+        if (volume < 0.0F) {
+            volume = 0.0F;
+        }
+        if (volume > 1.0F) {
+            volume = 1.0F;
+        }
+        this.soundVolume = (int) Math.floor(volume * 127.0F);
+    }
 
-	@Callback(doc = "function():boolean; Stops the currently spoken phrase. Returns true on success, false and an error message otherwise.")
-	@Optional.Method(modid = Mods.OpenComputers)
-	public Object[] stop(Context context, Arguments args) {
-		if(locked || storage != null) {
-			stopTalking();
-			return new Object[] { true };
-		}
-		return new Object[] { false, "not talking" };
-	}
+    @Callback(
+            doc = "function(text:string):boolean; Say the specified message. Returns true on success, false and an error message otherwise.")
+    @Optional.Method(modid = Mods.OpenComputers)
+    public Object[] say(Context context, Arguments args) {
+        if (locked || storage != null) {
+            return new Object[] { false, "already processing" };
+        }
+        String text = args.checkString(0);
+        if (text.length() > Config.TTS_MAX_LENGTH) {
+            return new Object[] { false, "text too long" };
+        }
+        try {
+            return this.sendNewText(text);
+        } catch (IOException e) {
+            throw new IllegalArgumentException("could not send string");
+        } catch (Exception e) {
+            e.printStackTrace();
+            Throwables.propagate(e);
+        }
+        return new Object[] { false };
+    }
 
-	@Callback(doc = "function():boolean; Returns true if the device is currently processing text.", direct = true)
-	@Optional.Method(modid = Mods.OpenComputers)
-	public Object[] isProcessing(Context context, Arguments args) {
-		return new Object[] { locked || storage != null };
-	}
+    @Callback(
+            doc = "function():boolean; Stops the currently spoken phrase. Returns true on success, false and an error message otherwise.")
+    @Optional.Method(modid = Mods.OpenComputers)
+    public Object[] stop(Context context, Arguments args) {
+        if (locked || storage != null) {
+            stopTalking();
+            return new Object[] { true };
+        }
+        return new Object[] { false, "not talking" };
+    }
 
-	@Callback(doc = "function(speed:number); Sets the volume of the speech box. Needs to be beween 0 and 1")
-	@Optional.Method(modid = Mods.OpenComputers)
-	public Object[] setVolume(Context context, Arguments args) {
-		this.setVolume((float) args.checkDouble(0));
-		return new Object[] {};
-	}
+    @Callback(doc = "function():boolean; Returns true if the device is currently processing text.", direct = true)
+    @Optional.Method(modid = Mods.OpenComputers)
+    public Object[] isProcessing(Context context, Arguments args) {
+        return new Object[] { locked || storage != null };
+    }
 
-	@Override
-	public boolean connectsAudio(ForgeDirection side) {
-		return false;
-	}
+    @Callback(doc = "function(speed:number); Sets the volume of the speech box. Needs to be beween 0 and 1")
+    @Optional.Method(modid = Mods.OpenComputers)
+    public Object[] setVolume(Context context, Arguments args) {
+        this.setVolume((float) args.checkDouble(0));
+        return new Object[] {};
+    }
 
-	@Override
-	public int getSourceId() {
-		return codecId;
-	}
+    @Override
+    public boolean connectsAudio(ForgeDirection side) {
+        return false;
+    }
 
-	@Override
-	@Optional.Method(modid = Mods.OpenComputers)
-	protected OCUtils.Device deviceInfo() {
-		return new OCUtils.Device(
-			DeviceClass.Multimedia,
-			"Text-To-Speech Interface",
-			OCUtils.Vendors.DFKI,
-			"Mary"
-		);
-	}
+    @Override
+    public int getSourceId() {
+        return codecId;
+    }
+
+    @Override
+    @Optional.Method(modid = Mods.OpenComputers)
+    protected OCUtils.Device deviceInfo() {
+        return new OCUtils.Device(DeviceClass.Multimedia, "Text-To-Speech Interface", OCUtils.Vendors.DFKI, "Mary");
+    }
 }

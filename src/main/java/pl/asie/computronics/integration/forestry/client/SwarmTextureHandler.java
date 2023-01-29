@@ -1,40 +1,43 @@
 package pl.asie.computronics.integration.forestry.client;
 
-import cpw.mods.fml.common.eventhandler.SubscribeEvent;
 import net.minecraft.client.renderer.texture.IIconRegister;
 import net.minecraft.util.IIcon;
 import net.minecraftforge.client.event.TextureStitchEvent;
+
+import cpw.mods.fml.common.eventhandler.SubscribeEvent;
 
 /**
  * @author Vexatos
  */
 public class SwarmTextureHandler {
-	@SubscribeEvent
-	public void textureHook(TextureStitchEvent.Pre event) {
-		if(event.map.getTextureType() == 1) {
-			for(Textures t : Textures.VALUES) {
-				t.registerIcon(event.map);
-			}
-		}
-	}
 
-	public enum Textures {
-		BEE_FX("forestry:particles/swarm_bee");
+    @SubscribeEvent
+    public void textureHook(TextureStitchEvent.Pre event) {
+        if (event.map.getTextureType() == 1) {
+            for (Textures t : Textures.VALUES) {
+                t.registerIcon(event.map);
+            }
+        }
+    }
 
-		private IIcon icon;
-		private final String location;
-		public static final Textures[] VALUES = values();
+    public enum Textures {
 
-		Textures(String location) {
-			this.location = location;
-		}
+        BEE_FX("forestry:particles/swarm_bee");
 
-		public IIcon getIcon() {
-			return icon;
-		}
+        private IIcon icon;
+        private final String location;
+        public static final Textures[] VALUES = values();
 
-		public void registerIcon(IIconRegister iconRegister) {
-			this.icon = iconRegister.registerIcon(location);
-		}
-	}
+        Textures(String location) {
+            this.location = location;
+        }
+
+        public IIcon getIcon() {
+            return icon;
+        }
+
+        public void registerIcon(IIconRegister iconRegister) {
+            this.icon = iconRegister.registerIcon(location);
+        }
+    }
 }

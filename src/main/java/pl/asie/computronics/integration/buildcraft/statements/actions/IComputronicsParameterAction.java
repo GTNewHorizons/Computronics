@@ -7,6 +7,6 @@ import buildcraft.api.statements.IStatementParameter;
  */
 public interface IComputronicsParameterAction extends IComputronicsAction {
 
-	public IStatementParameter createParameter(int index);
+    public IStatementParameter createParameter(int index);
 
 }

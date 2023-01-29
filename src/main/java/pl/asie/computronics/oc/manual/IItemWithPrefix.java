@@ -7,5 +7,5 @@ import net.minecraft.item.ItemStack;
  */
 public interface IItemWithPrefix extends IItemWithDocumentation {
 
-	public String getPrefix(ItemStack stack);
+    public String getPrefix(ItemStack stack);
 }

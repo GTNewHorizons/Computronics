@@ -7,5 +7,5 @@ import net.minecraft.item.ItemStack;
  */
 public interface IModuleWithPrefix extends IModuleWithDocumentation {
 
-	public String getPrefix(ItemStack stack);
+    public String getPrefix(ItemStack stack);
 }

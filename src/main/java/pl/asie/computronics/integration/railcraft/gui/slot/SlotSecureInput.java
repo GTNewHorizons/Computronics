@@ -2,6 +2,7 @@ package pl.asie.computronics.integration.railcraft.gui.slot;
 
 import mods.railcraft.api.core.items.IStackFilter;
 import mods.railcraft.common.gui.slots.SlotSecure;
+
 import net.minecraft.inventory.IInventory;
 
 /**
@@ -9,12 +10,12 @@ import net.minecraft.inventory.IInventory;
  */
 public class SlotSecureInput extends SlotSecure {
 
-	public SlotSecureInput(IStackFilter filter, IInventory contents, int id, int x, int y) {
-		super(filter, contents, id, x, y);
-	}
+    public SlotSecureInput(IStackFilter filter, IInventory contents, int id, int x, int y) {
+        super(filter, contents, id, x, y);
+    }
 
-	@Override
-	public int getSlotStackLimit() {
-		return 64;
-	}
+    @Override
+    public int getSlotStackLimit() {
+        return 64;
+    }
 }

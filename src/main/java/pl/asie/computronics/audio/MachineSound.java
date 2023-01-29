@@ -9,37 +9,36 @@ import net.minecraft.util.ResourceLocation;
  */
 public class MachineSound extends PositionedSound implements ITickableSound {
 
-	private boolean donePlaying;
+    private boolean donePlaying;
 
-	public MachineSound(ResourceLocation sound, float x, float y, float z, float volume, float pitch) {
-		this(sound, x, y, z, volume, pitch, true);
-	}
+    public MachineSound(ResourceLocation sound, float x, float y, float z, float volume, float pitch) {
+        this(sound, x, y, z, volume, pitch, true);
+    }
 
-	public MachineSound(ResourceLocation sound, float x, float y, float z, float volume, float pitch, boolean repeat) {
-		super(sound);
-		this.xPosF = x;
-		this.yPosF = y;
-		this.zPosF = z;
-		this.volume = volume;
-		this.field_147663_c = pitch;
-		this.repeat = repeat;
-	}
+    public MachineSound(ResourceLocation sound, float x, float y, float z, float volume, float pitch, boolean repeat) {
+        super(sound);
+        this.xPosF = x;
+        this.yPosF = y;
+        this.zPosF = z;
+        this.volume = volume;
+        this.field_147663_c = pitch;
+        this.repeat = repeat;
+    }
 
-	@Override
-	public void update() {
-	}
+    @Override
+    public void update() {}
 
-	public void endPlaying() {
-		donePlaying = true;
-	}
+    public void endPlaying() {
+        donePlaying = true;
+    }
 
-	public void startPlaying() {
-		donePlaying = false;
-	}
+    public void startPlaying() {
+        donePlaying = false;
+    }
 
-	@Override
-	public boolean isDonePlaying() {
-		return donePlaying;
-	}
+    @Override
+    public boolean isDonePlaying() {
+        return donePlaying;
+    }
 
 }

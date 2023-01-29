@@ -7,5 +7,5 @@ import net.minecraft.item.ItemStack;
  */
 public interface IModuleWithDocumentation {
 
-	public String getDocumentationName(ItemStack stack);
+    public String getDocumentationName(ItemStack stack);
 }

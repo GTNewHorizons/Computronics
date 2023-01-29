@@ -9,12 +9,12 @@ import java.util.Set;
  */
 public class TableUtils {
 
-	public static <T> Map<Integer, T> convertSetToMap(Set<T> set) {
-		HashMap<Integer, T> map = new HashMap<Integer, T>();
-		int i = 1;
-		for(T m : set) {
-			map.put(i++, m);
-		}
-		return map;
-	}
+    public static <T> Map<Integer, T> convertSetToMap(Set<T> set) {
+        HashMap<Integer, T> map = new HashMap<Integer, T>();
+        int i = 1;
+        for (T m : set) {
+            map.put(i++, m);
+        }
+        return map;
+    }
 }
