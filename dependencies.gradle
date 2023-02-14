@@ -15,7 +15,7 @@ dependencies {
     compileOnly 'com.github.GTNewHorizons:GT5-Unofficial:5.09.41.277:dev'
     compileOnly 'com.github.GTNewHorizons:StructureLib:1.2.2:dev'
     compileOnly 'com.github.GTNewHorizons:Railcraft:9.13.18:dev'
-    compileOnly 'com.github.GTNewHorizons:Draconic-Evolution:1.1.13:api'
+    compileOnly 'com.github.GTNewHorizons:Draconic-Evolution:1.1.13-GTNH:api'
     compileOnly 'com.github.GTNewHorizons:StorageDrawers:1.11.19-GTNH:api'
     compileOnly 'com.github.GTNewHorizons:gendustry:1.6.5.5-GTNH:dev'
     compileOnly ('com.github.GTNewHorizons:EnderIO:2.3.1.58:dev') {
@@ -24,7 +24,7 @@ dependencies {
     compile ('com.github.GTNewHorizons:ForestryMC:4.5.6:dev') {
         transitive = false
     }
-    compileOnly('com.github.GTNewHorizons:ProjectRed:4.7.9:dev') {
+    compileOnly('com.github.GTNewHorizons:ProjectRed:4.7.9-GTNH:dev') {
         transitive = false
     }
     compile ('de.dfki.mary:voice-cmu-slt-hsmm:5.2') {
