@@ -2,24 +2,23 @@ package pl.asie.computronics.oc;
 
 import java.util.Locale;
 
-import li.cil.oc.api.event.RobotAnalyzeEvent;
-import li.cil.oc.api.event.RobotRenderEvent;
-import li.cil.oc.api.internal.Agent;
-import li.cil.oc.api.internal.Robot;
-import li.cil.oc.api.network.Node;
-
 import net.minecraft.item.ItemStack;
 import net.minecraft.nbt.NBTTagCompound;
 import net.minecraft.util.ChatComponentTranslation;
 
 import org.lwjgl.opengl.GL11;
 
-import pl.asie.computronics.item.ItemOpenComputers;
-import pl.asie.computronics.oc.driver.RobotUpgradeColorful;
-import pl.asie.computronics.reference.Mods;
 import cpw.mods.fml.common.Optional;
 import cpw.mods.fml.common.eventhandler.EventPriority;
 import cpw.mods.fml.common.eventhandler.SubscribeEvent;
+import li.cil.oc.api.event.RobotAnalyzeEvent;
+import li.cil.oc.api.event.RobotRenderEvent;
+import li.cil.oc.api.internal.Agent;
+import li.cil.oc.api.internal.Robot;
+import li.cil.oc.api.network.Node;
+import pl.asie.computronics.item.ItemOpenComputers;
+import pl.asie.computronics.oc.driver.RobotUpgradeColorful;
+import pl.asie.computronics.reference.Mods;
 
 /**
  * @author Vexatos

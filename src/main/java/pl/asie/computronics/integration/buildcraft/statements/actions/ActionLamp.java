@@ -4,10 +4,10 @@ import net.minecraft.item.ItemStack;
 import net.minecraft.tileentity.TileEntity;
 import net.minecraftforge.common.util.ForgeDirection;
 
-import pl.asie.computronics.integration.buildcraft.statements.parameters.ActionParameterLampColor;
-import pl.asie.computronics.tile.TileColorfulLamp;
 import buildcraft.api.statements.IStatementContainer;
 import buildcraft.api.statements.IStatementParameter;
+import pl.asie.computronics.integration.buildcraft.statements.parameters.ActionParameterLampColor;
+import pl.asie.computronics.tile.TileColorfulLamp;
 
 /**
  * @author Vexatos

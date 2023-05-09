@@ -2,10 +2,6 @@ package pl.asie.computronics.util.achievements;
 
 import java.util.HashMap;
 
-import mods.railcraft.common.carts.EntityLocomotiveElectric;
-import mods.railcraft.common.carts.EnumCart;
-import mods.railcraft.common.carts.ItemLocomotive;
-
 import net.minecraft.entity.item.EntityItem;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.ItemStack;
@@ -19,15 +15,18 @@ import net.minecraftforge.event.entity.item.ItemExpireEvent;
 import net.minecraftforge.event.entity.item.ItemTossEvent;
 import net.minecraftforge.event.entity.player.AttackEntityEvent;
 
-import pl.asie.computronics.Computronics;
-import pl.asie.computronics.integration.railcraft.tile.TileLocomotiveRelay;
-import pl.asie.computronics.reference.Config;
-import pl.asie.computronics.reference.Mods;
 import cpw.mods.fml.common.FMLCommonHandler;
 import cpw.mods.fml.common.eventhandler.SubscribeEvent;
 import cpw.mods.fml.common.gameevent.PlayerEvent;
 import gregapi.data.IL;
 import gregtech.api.enums.ItemList;
+import mods.railcraft.common.carts.EntityLocomotiveElectric;
+import mods.railcraft.common.carts.EnumCart;
+import mods.railcraft.common.carts.ItemLocomotive;
+import pl.asie.computronics.Computronics;
+import pl.asie.computronics.integration.railcraft.tile.TileLocomotiveRelay;
+import pl.asie.computronics.reference.Config;
+import pl.asie.computronics.reference.Mods;
 
 /**
  * @author Vexatos

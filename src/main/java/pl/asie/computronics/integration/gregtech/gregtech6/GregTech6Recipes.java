@@ -2,19 +2,9 @@ package pl.asie.computronics.integration.gregtech.gregtech6;
 
 import static gregapi.data.CS.T;
 
-import mods.railcraft.common.items.ItemElectricMeter;
-import mods.railcraft.common.items.ItemRail;
-import mods.railcraft.common.items.RailcraftItem;
-
 import net.minecraft.init.Blocks;
 import net.minecraft.item.ItemStack;
 
-import pl.asie.computronics.Computronics;
-import pl.asie.computronics.integration.ModRecipes;
-import pl.asie.computronics.reference.Config;
-import pl.asie.computronics.reference.Mods;
-import pl.asie.computronics.util.RecipeUtils;
-import pl.asie.lib.util.color.RecipeColorizer;
 import cpw.mods.fml.common.Optional;
 import cpw.mods.fml.common.registry.GameRegistry;
 import gregapi.data.CS;
@@ -23,6 +13,15 @@ import gregapi.data.MT;
 import gregapi.data.OP;
 import gregapi.recipes.Recipe;
 import gregapi.util.OM;
+import mods.railcraft.common.items.ItemElectricMeter;
+import mods.railcraft.common.items.ItemRail;
+import mods.railcraft.common.items.RailcraftItem;
+import pl.asie.computronics.Computronics;
+import pl.asie.computronics.integration.ModRecipes;
+import pl.asie.computronics.reference.Config;
+import pl.asie.computronics.reference.Mods;
+import pl.asie.computronics.util.RecipeUtils;
+import pl.asie.lib.util.color.RecipeColorizer;
 
 /**
  * @author Vexatos

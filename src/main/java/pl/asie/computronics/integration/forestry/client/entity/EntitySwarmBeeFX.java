@@ -3,8 +3,8 @@ package pl.asie.computronics.integration.forestry.client.entity;
 import net.minecraft.client.renderer.Tessellator;
 import net.minecraft.world.World;
 
-import pl.asie.computronics.integration.forestry.client.SwarmTextureHandler;
 import forestry.apiculture.entities.EntityFXBee;
+import pl.asie.computronics.integration.forestry.client.SwarmTextureHandler;
 
 /**
  * Extension of EntityBeeFX

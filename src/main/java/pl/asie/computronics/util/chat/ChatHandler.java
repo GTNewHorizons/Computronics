@@ -4,10 +4,10 @@ import java.util.WeakHashMap;
 
 import net.minecraftforge.event.ServerChatEvent;
 
+import cpw.mods.fml.common.eventhandler.SubscribeEvent;
 import pl.asie.computronics.api.chat.ChatAPI;
 import pl.asie.computronics.api.chat.IChatListener;
 import pl.asie.computronics.api.chat.IChatListenerRegistry;
-import cpw.mods.fml.common.eventhandler.SubscribeEvent;
 
 public class ChatHandler implements IChatListenerRegistry {
 

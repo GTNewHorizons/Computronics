@@ -2,6 +2,17 @@ package pl.asie.computronics.integration.railcraft.tile;
 
 import java.util.UUID;
 
+import net.minecraft.entity.EntityLivingBase;
+import net.minecraft.entity.player.EntityPlayer;
+import net.minecraft.item.ItemStack;
+import net.minecraft.nbt.NBTTagCompound;
+
+import com.mojang.authlib.GameProfile;
+
+import cpw.mods.fml.common.Optional;
+import dan200.computercraft.api.lua.ILuaContext;
+import dan200.computercraft.api.lua.LuaException;
+import dan200.computercraft.api.peripheral.IComputerAccess;
 import li.cil.oc.api.machine.Arguments;
 import li.cil.oc.api.machine.Callback;
 import li.cil.oc.api.machine.Context;
@@ -9,12 +20,6 @@ import li.cil.oc.api.network.Connector;
 import mods.railcraft.api.core.IOwnable;
 import mods.railcraft.common.items.ItemTicket;
 import mods.railcraft.common.items.ItemTicketGold;
-
-import net.minecraft.entity.EntityLivingBase;
-import net.minecraft.entity.player.EntityPlayer;
-import net.minecraft.item.ItemStack;
-import net.minecraft.nbt.NBTTagCompound;
-
 import pl.asie.computronics.Computronics;
 import pl.asie.computronics.integration.railcraft.gui.slot.PaperSlotFilter;
 import pl.asie.computronics.network.PacketType;
@@ -26,13 +31,6 @@ import pl.asie.lib.api.tile.IBatteryProvider;
 import pl.asie.lib.api.tile.IInventoryProvider;
 import pl.asie.lib.network.Packet;
 import pl.asie.lib.tile.BatteryBasic;
-
-import com.mojang.authlib.GameProfile;
-
-import cpw.mods.fml.common.Optional;
-import dan200.computercraft.api.lua.ILuaContext;
-import dan200.computercraft.api.lua.LuaException;
-import dan200.computercraft.api.peripheral.IComputerAccess;
 
 /**
  * Contains a little bit of Railcraft code.

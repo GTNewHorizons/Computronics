@@ -2,8 +2,6 @@ package pl.asie.computronics.integration.railcraft;
 
 import java.io.IOException;
 
-import li.cil.oc.common.block.Item;
-
 import net.minecraft.block.Block;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.tileentity.TileEntity;
@@ -11,6 +9,14 @@ import net.minecraftforge.client.MinecraftForgeClient;
 import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.common.config.Configuration;
 
+import cpw.mods.fml.client.registry.RenderingRegistry;
+import cpw.mods.fml.common.Optional;
+import cpw.mods.fml.common.event.FMLInterModComms;
+import cpw.mods.fml.common.event.FMLMissingMappingsEvent;
+import cpw.mods.fml.common.registry.GameRegistry;
+import cpw.mods.fml.relauncher.Side;
+import cpw.mods.fml.relauncher.SideOnly;
+import li.cil.oc.common.block.Item;
 import pl.asie.computronics.Computronics;
 import pl.asie.computronics.integration.buildcraft.IntegrationBuildCraftBuilder;
 import pl.asie.computronics.integration.railcraft.block.BlockDigitalControllerBox;
@@ -29,13 +35,6 @@ import pl.asie.computronics.integration.railcraft.tile.TileLocomotiveRelay;
 import pl.asie.computronics.integration.railcraft.tile.TileTicketMachine;
 import pl.asie.computronics.reference.Mods;
 import pl.asie.lib.network.Packet;
-import cpw.mods.fml.client.registry.RenderingRegistry;
-import cpw.mods.fml.common.Optional;
-import cpw.mods.fml.common.event.FMLInterModComms;
-import cpw.mods.fml.common.event.FMLMissingMappingsEvent;
-import cpw.mods.fml.common.registry.GameRegistry;
-import cpw.mods.fml.relauncher.Side;
-import cpw.mods.fml.relauncher.SideOnly;
 
 /**
  * @author Vexatos

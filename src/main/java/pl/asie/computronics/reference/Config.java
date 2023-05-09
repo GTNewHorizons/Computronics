@@ -2,9 +2,9 @@ package pl.asie.computronics.reference;
 
 import net.minecraftforge.common.config.Configuration;
 
+import cpw.mods.fml.common.event.FMLPreInitializationEvent;
 import pl.asie.computronics.Computronics;
 import pl.asie.lib.util.EnergyConverter;
-import cpw.mods.fml.common.event.FMLPreInitializationEvent;
 
 /**
  * @author Vexatos

@@ -18,9 +18,9 @@ import java.util.Map;
 import javax.crypto.Cipher;
 import javax.xml.bind.DatatypeConverter;
 
-import pl.asie.lib.util.Base64;
-
 import com.google.common.base.Charsets;
+
+import pl.asie.lib.util.Base64;
 
 /**
  * Random RSA, encoding and BigInteger tests

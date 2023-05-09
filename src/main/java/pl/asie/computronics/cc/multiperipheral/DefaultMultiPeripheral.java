@@ -1,7 +1,7 @@
 package pl.asie.computronics.cc.multiperipheral;
 
-import pl.asie.computronics.api.multiperipheral.WrappedMultiPeripheral;
 import dan200.computercraft.api.peripheral.IPeripheral;
+import pl.asie.computronics.api.multiperipheral.WrappedMultiPeripheral;
 
 /**
  * @author Vexatos

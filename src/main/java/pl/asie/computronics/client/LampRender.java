@@ -9,10 +9,10 @@ import net.minecraft.world.IBlockAccess;
 
 import org.lwjgl.opengl.GL11;
 
-import pl.asie.computronics.block.BlockColorfulLamp;
-import pl.asie.computronics.tile.TileColorfulLamp;
 import cpw.mods.fml.client.registry.ISimpleBlockRenderingHandler;
 import cpw.mods.fml.client.registry.RenderingRegistry;
+import pl.asie.computronics.block.BlockColorfulLamp;
+import pl.asie.computronics.tile.TileColorfulLamp;
 
 public class LampRender implements ISimpleBlockRenderingHandler {
 

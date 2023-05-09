@@ -14,7 +14,6 @@ import net.minecraftforge.common.util.ForgeDirection;
 
 import org.lwjgl.opengl.GL11;
 
-import pl.asie.computronics.integration.buildcraft.pluggable.DroneStationRenderer.TextureHandler.Textures;
 import buildcraft.api.core.render.ITextureStates;
 import buildcraft.api.transport.IPipe;
 import buildcraft.api.transport.pluggable.IPipePluggableRenderer;
@@ -22,6 +21,7 @@ import buildcraft.api.transport.pluggable.PipePluggable;
 import buildcraft.core.lib.render.TextureStateManager;
 import buildcraft.core.lib.utils.MatrixTranformations;
 import cpw.mods.fml.common.eventhandler.SubscribeEvent;
+import pl.asie.computronics.integration.buildcraft.pluggable.DroneStationRenderer.TextureHandler.Textures;
 
 /**
  * @author Vexatos

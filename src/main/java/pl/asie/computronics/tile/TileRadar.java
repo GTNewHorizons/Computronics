@@ -4,16 +4,19 @@ import java.util.HashSet;
 import java.util.Map;
 import java.util.Set;
 
-import li.cil.oc.api.machine.Arguments;
-import li.cil.oc.api.machine.Callback;
-import li.cil.oc.api.machine.Context;
-import li.cil.oc.api.network.Connector;
-
 import net.minecraft.entity.EntityLiving;
 import net.minecraft.entity.item.EntityItem;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.util.AxisAlignedBB;
 
+import cpw.mods.fml.common.Optional;
+import dan200.computercraft.api.lua.ILuaContext;
+import dan200.computercraft.api.lua.LuaException;
+import dan200.computercraft.api.peripheral.IComputerAccess;
+import li.cil.oc.api.machine.Arguments;
+import li.cil.oc.api.machine.Callback;
+import li.cil.oc.api.machine.Context;
+import li.cil.oc.api.network.Connector;
 import pl.asie.computronics.cc.CCRadarProxy;
 import pl.asie.computronics.reference.Config;
 import pl.asie.computronics.reference.Mods;
@@ -23,10 +26,6 @@ import pl.asie.computronics.util.TableUtils;
 import pl.asie.lib.api.tile.IBatteryProvider;
 import pl.asie.lib.tile.BatteryBasic;
 import pl.asie.lib.util.EnergyConverter;
-import cpw.mods.fml.common.Optional;
-import dan200.computercraft.api.lua.ILuaContext;
-import dan200.computercraft.api.lua.LuaException;
-import dan200.computercraft.api.peripheral.IComputerAccess;
 
 public class TileRadar extends TileEntityPeripheralBase implements IBatteryProvider {
 

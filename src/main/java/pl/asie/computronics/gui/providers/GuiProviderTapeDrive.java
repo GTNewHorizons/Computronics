@@ -7,6 +7,8 @@ import net.minecraft.inventory.Slot;
 import net.minecraft.tileentity.TileEntity;
 import net.minecraft.world.World;
 
+import cpw.mods.fml.relauncher.Side;
+import cpw.mods.fml.relauncher.SideOnly;
 import pl.asie.computronics.Computronics;
 import pl.asie.computronics.gui.GuiTapePlayer;
 import pl.asie.computronics.gui.IGuiTapeDrive;
@@ -17,8 +19,6 @@ import pl.asie.computronics.tile.TileTapeDrive;
 import pl.asie.lib.block.ContainerInventory;
 import pl.asie.lib.gui.managed.GuiProviderBase;
 import pl.asie.lib.network.Packet;
-import cpw.mods.fml.relauncher.Side;
-import cpw.mods.fml.relauncher.SideOnly;
 
 /**
  * @author Vexatos

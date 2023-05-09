@@ -1,22 +1,21 @@
 package pl.asie.computronics.integration;
 
-import mods.railcraft.common.items.ItemElectricMeter;
-import mods.railcraft.common.items.ItemRail;
-import mods.railcraft.common.items.RailcraftItem;
-
 import net.minecraft.init.Blocks;
 import net.minecraft.init.Items;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 
+import cpw.mods.fml.common.Optional;
+import cpw.mods.fml.common.registry.GameRegistry;
+import mods.railcraft.common.items.ItemElectricMeter;
+import mods.railcraft.common.items.ItemRail;
+import mods.railcraft.common.items.RailcraftItem;
 import pl.asie.computronics.Computronics;
 import pl.asie.computronics.reference.Config;
 import pl.asie.computronics.reference.Mods;
 import pl.asie.computronics.util.RecipeUtils;
 import pl.asie.lib.util.color.RecipeColorizer;
 import pl.asie.lib.util.color.RecipeDecolorizer;
-import cpw.mods.fml.common.Optional;
-import cpw.mods.fml.common.registry.GameRegistry;
 
 /**
  * @author Vexatos

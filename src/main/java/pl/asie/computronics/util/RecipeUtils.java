@@ -8,8 +8,8 @@ import net.minecraft.item.ItemStack;
 import net.minecraftforge.oredict.ShapedOreRecipe;
 import net.minecraftforge.oredict.ShapelessOreRecipe;
 
-import pl.asie.computronics.Computronics;
 import cpw.mods.fml.common.registry.GameRegistry;
+import pl.asie.computronics.Computronics;
 
 /**
  * @author asie, Vexatos

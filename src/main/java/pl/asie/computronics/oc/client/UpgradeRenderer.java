@@ -5,12 +5,6 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Set;
 
-import li.cil.oc.api.driver.item.UpgradeRenderer.MountPointName;
-import li.cil.oc.api.event.RobotRenderEvent;
-import li.cil.oc.api.event.RobotRenderEvent.MountPoint;
-import li.cil.oc.api.internal.Robot;
-import li.cil.oc.client.renderer.PetRenderer;
-
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.renderer.texture.TextureManager;
 import net.minecraft.item.ItemStack;
@@ -20,13 +14,18 @@ import net.minecraftforge.client.event.RenderPlayerEvent;
 
 import org.lwjgl.opengl.GL11;
 
+import cpw.mods.fml.common.Optional;
+import cpw.mods.fml.common.eventhandler.EventPriority;
+import cpw.mods.fml.common.eventhandler.SubscribeEvent;
+import li.cil.oc.api.driver.item.UpgradeRenderer.MountPointName;
+import li.cil.oc.api.event.RobotRenderEvent;
+import li.cil.oc.api.event.RobotRenderEvent.MountPoint;
+import li.cil.oc.api.internal.Robot;
+import li.cil.oc.client.renderer.PetRenderer;
 import pl.asie.computronics.client.model.ModelRadar;
 import pl.asie.computronics.item.ItemOpenComputers;
 import pl.asie.computronics.reference.Mods;
 import pl.asie.computronics.util.internal.Triple;
-import cpw.mods.fml.common.Optional;
-import cpw.mods.fml.common.eventhandler.EventPriority;
-import cpw.mods.fml.common.eventhandler.SubscribeEvent;
 
 /**
  * Mostly stolen from Sangar. Stolen with permission.

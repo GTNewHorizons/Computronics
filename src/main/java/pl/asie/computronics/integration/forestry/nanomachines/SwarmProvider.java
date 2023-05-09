@@ -2,11 +2,6 @@ package pl.asie.computronics.integration.forestry.nanomachines;
 
 import java.util.Collections;
 
-import li.cil.oc.api.Nanomachines;
-import li.cil.oc.api.nanomachines.Behavior;
-import li.cil.oc.api.nanomachines.Controller;
-import li.cil.oc.api.prefab.AbstractProvider;
-
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.entity.player.EntityPlayer;
@@ -20,14 +15,18 @@ import net.minecraftforge.event.entity.minecart.MinecartInteractEvent;
 import net.minecraftforge.event.entity.player.PlayerInteractEvent;
 import net.minecraftforge.event.entity.player.PlayerInteractEvent.Action;
 
-import pl.asie.computronics.integration.forestry.IntegrationForestry;
-import pl.asie.lib.util.RayTracer;
 import cpw.mods.fml.common.eventhandler.Event;
 import cpw.mods.fml.common.eventhandler.SubscribeEvent;
 import forestry.api.apiculture.BeeManager;
 import forestry.api.apiculture.EnumBeeType;
 import forestry.api.apiculture.IBee;
 import forestry.api.apiculture.IBeeHousing;
+import li.cil.oc.api.Nanomachines;
+import li.cil.oc.api.nanomachines.Behavior;
+import li.cil.oc.api.nanomachines.Controller;
+import li.cil.oc.api.prefab.AbstractProvider;
+import pl.asie.computronics.integration.forestry.IntegrationForestry;
+import pl.asie.lib.util.RayTracer;
 
 /**
  * @author Vexatos

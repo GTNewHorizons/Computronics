@@ -3,6 +3,8 @@ package pl.asie.computronics.oc.driver;
 import java.util.Map;
 import java.util.Random;
 
+import net.minecraft.util.MathHelper;
+
 import li.cil.oc.api.Network;
 import li.cil.oc.api.driver.DeviceInfo;
 import li.cil.oc.api.machine.Arguments;
@@ -12,9 +14,6 @@ import li.cil.oc.api.network.Connector;
 import li.cil.oc.api.network.EnvironmentHost;
 import li.cil.oc.api.network.Visibility;
 import li.cil.oc.api.prefab.ManagedEnvironment;
-
-import net.minecraft.util.MathHelper;
-
 import pl.asie.computronics.reference.Config;
 import pl.asie.computronics.util.OCUtils;
 import pl.asie.computronics.util.ParticleUtils;

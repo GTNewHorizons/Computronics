@@ -6,6 +6,8 @@ import static pl.asie.computronics.Computronics.registerMultiPeripheralProvider;
 
 import net.minecraftforge.common.config.Configuration;
 
+import cpw.mods.fml.common.Optional;
+import dan200.computercraft.api.ComputerCraftAPI;
 import pl.asie.computronics.Computronics;
 import pl.asie.computronics.cc.multiperipheral.MultiPeripheralProvider;
 import pl.asie.computronics.integration.appeng.DriverSpatialIOPort;
@@ -50,8 +52,6 @@ import pl.asie.computronics.reference.Compat;
 import pl.asie.computronics.reference.Config;
 import pl.asie.computronics.reference.Mods;
 import pl.asie.computronics.tile.TileTapeDrive;
-import cpw.mods.fml.common.Optional;
-import dan200.computercraft.api.ComputerCraftAPI;
 
 /**
  * @author Vexatos

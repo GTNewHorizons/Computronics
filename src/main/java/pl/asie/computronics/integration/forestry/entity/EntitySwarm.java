@@ -23,9 +23,6 @@ import net.minecraft.world.World;
 import net.minecraft.world.biome.BiomeGenBase;
 import net.minecraft.world.biome.BiomeGenDesert;
 
-import pl.asie.computronics.Computronics;
-import pl.asie.computronics.integration.forestry.nanomachines.SwarmProvider;
-
 import com.mojang.authlib.GameProfile;
 
 import cpw.mods.fml.relauncher.Side;
@@ -43,6 +40,8 @@ import forestry.api.core.EnumHumidity;
 import forestry.api.core.EnumTemperature;
 import forestry.api.core.ForestryAPI;
 import forestry.api.core.IErrorLogic;
+import pl.asie.computronics.Computronics;
+import pl.asie.computronics.integration.forestry.nanomachines.SwarmProvider;
 
 /**
  * @author Vexatos

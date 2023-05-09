@@ -1,9 +1,5 @@
 package pl.asie.computronics.integration.buildcraft.pluggable;
 
-import li.cil.oc.Settings;
-import li.cil.oc.api.internal.Drone;
-import li.cil.oc.api.network.Connector;
-
 import net.minecraft.entity.Entity;
 import net.minecraft.item.ItemStack;
 import net.minecraft.nbt.NBTTagCompound;
@@ -11,15 +7,18 @@ import net.minecraft.util.AxisAlignedBB;
 import net.minecraft.world.World;
 import net.minecraftforge.common.util.ForgeDirection;
 
-import pl.asie.computronics.Computronics;
-import pl.asie.computronics.util.ParticleUtils;
-import pl.asie.lib.util.EnergyConverter;
 import buildcraft.api.transport.IPipeTile;
 import buildcraft.api.transport.pluggable.IPipePluggableRenderer;
 import buildcraft.api.transport.pluggable.PipePluggable;
 import buildcraft.core.lib.utils.MatrixTranformations;
 import cofh.api.energy.IEnergyReceiver;
 import io.netty.buffer.ByteBuf;
+import li.cil.oc.Settings;
+import li.cil.oc.api.internal.Drone;
+import li.cil.oc.api.network.Connector;
+import pl.asie.computronics.Computronics;
+import pl.asie.computronics.util.ParticleUtils;
+import pl.asie.lib.util.EnergyConverter;
 
 /**
  * @author Vexatos

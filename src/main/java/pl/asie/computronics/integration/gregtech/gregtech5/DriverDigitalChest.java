@@ -1,17 +1,16 @@
 package pl.asie.computronics.integration.gregtech.gregtech5;
 
+import net.minecraft.tileentity.TileEntity;
+import net.minecraft.world.World;
+import net.minecraftforge.common.util.ForgeDirection;
+
+import gregtech.api.interfaces.tileentity.IDigitalChest;
 import li.cil.oc.api.machine.Arguments;
 import li.cil.oc.api.machine.Callback;
 import li.cil.oc.api.machine.Context;
 import li.cil.oc.api.network.ManagedEnvironment;
 import li.cil.oc.api.prefab.DriverSidedTileEntity;
-
-import net.minecraft.tileentity.TileEntity;
-import net.minecraft.world.World;
-import net.minecraftforge.common.util.ForgeDirection;
-
 import pl.asie.computronics.integration.ManagedEnvironmentOCTile;
-import gregtech.api.interfaces.tileentity.IDigitalChest;
 
 public class DriverDigitalChest extends DriverSidedTileEntity {
 

@@ -1,7 +1,5 @@
 package pl.asie.computronics.block;
 
-import li.cil.oc.api.network.Environment;
-
 import net.minecraft.block.Block;
 import net.minecraft.client.renderer.texture.IIconRegister;
 import net.minecraft.entity.player.EntityPlayer;
@@ -12,6 +10,10 @@ import net.minecraft.util.IIcon;
 import net.minecraft.world.World;
 import net.minecraftforge.common.util.ForgeDirection;
 
+import cpw.mods.fml.common.Optional;
+import cpw.mods.fml.relauncher.Side;
+import cpw.mods.fml.relauncher.SideOnly;
+import li.cil.oc.api.network.Environment;
 import pl.asie.computronics.Computronics;
 import pl.asie.computronics.client.LampRender;
 import pl.asie.computronics.reference.Mods;
@@ -20,9 +22,6 @@ import pl.asie.computronics.util.LampUtil;
 import pl.asie.lib.integration.Integration;
 import powercrystals.minefactoryreloaded.api.rednet.IRedNetInputNode;
 import powercrystals.minefactoryreloaded.api.rednet.connectivity.RedNetConnectionType;
-import cpw.mods.fml.common.Optional;
-import cpw.mods.fml.relauncher.Side;
-import cpw.mods.fml.relauncher.SideOnly;
 
 @Optional.InterfaceList({ @Optional.Interface(
         iface = "powercrystals.minefactoryreloaded.api.rednet.IRedNetInputNode",

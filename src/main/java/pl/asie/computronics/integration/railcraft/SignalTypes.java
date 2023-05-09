@@ -1,13 +1,12 @@
 package pl.asie.computronics.integration.railcraft;
 
-import mods.railcraft.client.render.IIconProvider;
-import mods.railcraft.common.blocks.signals.ISignalTileDefinition;
-import mods.railcraft.common.blocks.signals.TileSignalFoundation;
-
 import net.minecraft.block.Block;
 import net.minecraft.util.IIcon;
 import net.minecraftforge.common.util.ForgeDirection;
 
+import mods.railcraft.client.render.IIconProvider;
+import mods.railcraft.common.blocks.signals.ISignalTileDefinition;
+import mods.railcraft.common.blocks.signals.TileSignalFoundation;
 import pl.asie.computronics.Computronics;
 import pl.asie.computronics.integration.railcraft.tile.TileDigitalControllerBox;
 import pl.asie.computronics.integration.railcraft.tile.TileDigitalReceiverBox;

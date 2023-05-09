@@ -11,20 +11,11 @@ import java.util.concurrent.Future;
 
 import javax.sound.sampled.AudioInputStream;
 
-import marytts.LocalMaryInterface;
-import marytts.MaryInterface;
-import marytts.exceptions.MaryConfigurationException;
-import marytts.exceptions.SynthesisException;
-import marytts.server.Mary;
-import marytts.util.data.audio.AudioPlayer;
-
 import net.minecraftforge.common.MinecraftForge;
 
 import org.apache.commons.lang3.StringUtils;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
-
-import pl.asie.computronics.reference.Mods;
 
 import com.google.common.util.concurrent.ThreadFactoryBuilder;
 
@@ -32,6 +23,13 @@ import cpw.mods.fml.common.FMLCommonHandler;
 import cpw.mods.fml.common.eventhandler.SubscribeEvent;
 import cpw.mods.fml.common.gameevent.TickEvent.Phase;
 import cpw.mods.fml.common.gameevent.TickEvent.ServerTickEvent;
+import marytts.LocalMaryInterface;
+import marytts.MaryInterface;
+import marytts.exceptions.MaryConfigurationException;
+import marytts.exceptions.SynthesisException;
+import marytts.server.Mary;
+import marytts.util.data.audio.AudioPlayer;
+import pl.asie.computronics.reference.Mods;
 
 /**
  * @author Vexatos

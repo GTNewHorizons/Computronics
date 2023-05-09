@@ -1,12 +1,11 @@
 package pl.asie.computronics.integration.buildcraft.statements.triggers;
 
-import li.cil.oc.api.internal.Case;
-
 import net.minecraft.tileentity.TileEntity;
 import net.minecraftforge.common.util.ForgeDirection;
 
 import buildcraft.api.statements.IStatementContainer;
 import buildcraft.api.statements.IStatementParameter;
+import li.cil.oc.api.internal.Case;
 
 /**
  * @author Vexatos

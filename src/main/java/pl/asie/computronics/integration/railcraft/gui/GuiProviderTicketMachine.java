@@ -1,18 +1,17 @@
 package pl.asie.computronics.integration.railcraft.gui;
 
-import mods.railcraft.common.plugins.forge.PlayerPlugin;
-
 import net.minecraft.client.gui.inventory.GuiContainer;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.inventory.Container;
 import net.minecraft.tileentity.TileEntity;
 import net.minecraft.world.World;
 
+import cpw.mods.fml.relauncher.Side;
+import cpw.mods.fml.relauncher.SideOnly;
+import mods.railcraft.common.plugins.forge.PlayerPlugin;
 import pl.asie.computronics.integration.railcraft.gui.container.ContainerTicketMachine;
 import pl.asie.computronics.integration.railcraft.tile.TileTicketMachine;
 import pl.asie.lib.gui.managed.GuiProviderBase;
-import cpw.mods.fml.relauncher.Side;
-import cpw.mods.fml.relauncher.SideOnly;
 
 /**
  * @author Vexatos

@@ -1,17 +1,16 @@
 package pl.asie.computronics.block;
 
-import li.cil.oc.api.network.Environment;
-
 import net.minecraft.client.renderer.texture.IIconRegister;
 import net.minecraft.tileentity.TileEntity;
 import net.minecraft.world.World;
 
-import pl.asie.computronics.Computronics;
-import pl.asie.computronics.reference.Mods;
-import pl.asie.computronics.tile.TileRadar;
 import cpw.mods.fml.common.Optional;
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
+import li.cil.oc.api.network.Environment;
+import pl.asie.computronics.Computronics;
+import pl.asie.computronics.reference.Mods;
+import pl.asie.computronics.tile.TileRadar;
 
 public class BlockRadar extends BlockMachineSidedIcon {
 

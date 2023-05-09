@@ -3,8 +3,6 @@ package pl.asie.computronics.oc.client;
 import java.util.Arrays;
 import java.util.List;
 
-import li.cil.oc.api.event.RackMountableRenderEvent;
-
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.renderer.RenderHelper;
 import net.minecraft.client.renderer.Tessellator;
@@ -15,11 +13,12 @@ import net.minecraftforge.client.event.TextureStitchEvent;
 
 import org.lwjgl.opengl.GL11;
 
+import cpw.mods.fml.common.Optional;
+import cpw.mods.fml.common.eventhandler.SubscribeEvent;
+import li.cil.oc.api.event.RackMountableRenderEvent;
 import pl.asie.computronics.item.ItemOpenComputers;
 import pl.asie.computronics.oc.driver.DriverBoardLight.Mode;
 import pl.asie.computronics.reference.Mods;
-import cpw.mods.fml.common.Optional;
-import cpw.mods.fml.common.eventhandler.SubscribeEvent;
 
 /**
  * @author Vexatos

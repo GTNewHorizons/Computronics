@@ -11,6 +11,12 @@ import java.util.Map;
 
 import javax.crypto.Cipher;
 
+import com.google.common.base.Charsets;
+
+import cpw.mods.fml.common.Optional;
+import dan200.computercraft.api.lua.ILuaContext;
+import dan200.computercraft.api.lua.LuaException;
+import dan200.computercraft.api.peripheral.IComputerAccess;
 import li.cil.oc.api.machine.Arguments;
 import li.cil.oc.api.machine.Callback;
 import li.cil.oc.api.machine.Context;
@@ -21,13 +27,6 @@ import pl.asie.computronics.util.OCUtils;
 import pl.asie.computronics.util.cipher.RSAValue;
 import pl.asie.computronics.util.cipher.ThreadLocals;
 import pl.asie.lib.util.Base64;
-
-import com.google.common.base.Charsets;
-
-import cpw.mods.fml.common.Optional;
-import dan200.computercraft.api.lua.ILuaContext;
-import dan200.computercraft.api.lua.LuaException;
-import dan200.computercraft.api.peripheral.IComputerAccess;
 
 /**
  * @author Vexatos

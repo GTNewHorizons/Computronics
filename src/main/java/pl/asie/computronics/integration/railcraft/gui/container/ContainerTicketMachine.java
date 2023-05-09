@@ -1,5 +1,14 @@
 package pl.asie.computronics.integration.railcraft.gui.container;
 
+import net.minecraft.entity.player.EntityPlayer;
+import net.minecraft.entity.player.InventoryPlayer;
+import net.minecraft.inventory.ICrafting;
+import net.minecraft.inventory.Slot;
+import net.minecraft.item.ItemStack;
+import net.minecraftforge.common.util.ForgeDirection;
+
+import cpw.mods.fml.relauncher.Side;
+import cpw.mods.fml.relauncher.SideOnly;
 import mods.railcraft.common.gui.containers.RailcraftContainer;
 import mods.railcraft.common.gui.slots.SlotOutput;
 import mods.railcraft.common.gui.slots.SlotSecure;
@@ -8,14 +17,6 @@ import mods.railcraft.common.gui.widgets.RFEnergyIndicator;
 import mods.railcraft.common.gui.widgets.Widget;
 import mods.railcraft.common.items.ItemTicketGold;
 import mods.railcraft.common.plugins.forge.PlayerPlugin;
-
-import net.minecraft.entity.player.EntityPlayer;
-import net.minecraft.entity.player.InventoryPlayer;
-import net.minecraft.inventory.ICrafting;
-import net.minecraft.inventory.Slot;
-import net.minecraft.item.ItemStack;
-import net.minecraftforge.common.util.ForgeDirection;
-
 import pl.asie.computronics.integration.railcraft.gui.slot.PaperSlotFilter;
 import pl.asie.computronics.integration.railcraft.gui.slot.SlotSecureInput;
 import pl.asie.computronics.integration.railcraft.gui.widget.LockButtonWidget;
@@ -24,8 +25,6 @@ import pl.asie.computronics.integration.railcraft.gui.widget.ProgressBarWidget;
 import pl.asie.computronics.integration.railcraft.gui.widget.SlotSelectionWidget;
 import pl.asie.computronics.integration.railcraft.tile.TileTicketMachine;
 import pl.asie.computronics.reference.Config;
-import cpw.mods.fml.relauncher.Side;
-import cpw.mods.fml.relauncher.SideOnly;
 
 /**
  * @author Vexatos

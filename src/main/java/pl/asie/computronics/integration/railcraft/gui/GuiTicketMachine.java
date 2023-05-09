@@ -1,11 +1,10 @@
 package pl.asie.computronics.integration.railcraft.gui;
 
+import net.minecraft.entity.player.InventoryPlayer;
+
 import mods.railcraft.client.gui.GuiContainerRailcraft;
 import mods.railcraft.common.gui.tooltips.ToolTip;
 import mods.railcraft.common.gui.widgets.Widget;
-
-import net.minecraft.entity.player.InventoryPlayer;
-
 import pl.asie.computronics.integration.railcraft.gui.container.ContainerTicketMachine;
 import pl.asie.computronics.integration.railcraft.gui.tooltip.ToolTips;
 import pl.asie.computronics.integration.railcraft.gui.widget.ButtonWidget;

@@ -2,6 +2,8 @@ package pl.asie.computronics.oc.driver;
 
 import java.util.Map;
 
+import net.minecraft.item.ItemStack;
+
 import li.cil.oc.api.Network;
 import li.cil.oc.api.driver.DeviceInfo;
 import li.cil.oc.api.driver.item.Memory;
@@ -9,9 +11,6 @@ import li.cil.oc.api.driver.item.Slot;
 import li.cil.oc.api.network.EnvironmentHost;
 import li.cil.oc.api.network.ManagedEnvironment;
 import li.cil.oc.api.network.Visibility;
-
-import net.minecraft.item.ItemStack;
-
 import pl.asie.computronics.util.OCUtils;
 
 /**

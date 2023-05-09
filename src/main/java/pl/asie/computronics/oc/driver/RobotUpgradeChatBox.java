@@ -2,6 +2,9 @@ package pl.asie.computronics.oc.driver;
 
 import java.util.Map;
 
+import net.minecraftforge.event.ServerChatEvent;
+
+import cpw.mods.fml.common.Optional;
 import li.cil.oc.api.Network;
 import li.cil.oc.api.driver.DeviceInfo;
 import li.cil.oc.api.machine.Arguments;
@@ -11,16 +14,12 @@ import li.cil.oc.api.network.EnvironmentHost;
 import li.cil.oc.api.network.Node;
 import li.cil.oc.api.network.Visibility;
 import li.cil.oc.api.prefab.ManagedEnvironment;
-
-import net.minecraftforge.event.ServerChatEvent;
-
 import pl.asie.computronics.api.chat.ChatAPI;
 import pl.asie.computronics.api.chat.IChatListener;
 import pl.asie.computronics.reference.Config;
 import pl.asie.computronics.reference.Mods;
 import pl.asie.computronics.util.ChatBoxUtils;
 import pl.asie.computronics.util.OCUtils;
-import cpw.mods.fml.common.Optional;
 
 public class RobotUpgradeChatBox extends ManagedEnvironment implements DeviceInfo, IChatListener {
 

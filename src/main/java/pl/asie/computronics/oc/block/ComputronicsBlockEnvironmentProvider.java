@@ -1,9 +1,9 @@
 package pl.asie.computronics.oc.block;
 
-import li.cil.oc.api.driver.EnvironmentProvider;
-
 import net.minecraft.item.ItemBlock;
 import net.minecraft.item.ItemStack;
+
+import li.cil.oc.api.driver.EnvironmentProvider;
 
 /**
  * @author Vexatos

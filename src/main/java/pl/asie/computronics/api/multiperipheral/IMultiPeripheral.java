@@ -1,8 +1,8 @@
 package pl.asie.computronics.api.multiperipheral;
 
-import pl.asie.computronics.reference.Mods;
 import cpw.mods.fml.common.Optional;
 import dan200.computercraft.api.peripheral.IPeripheral;
+import pl.asie.computronics.reference.Mods;
 
 /**
  * Allows having Multiple peripherals merged into a single one.
