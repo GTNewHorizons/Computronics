@@ -10,7 +10,7 @@ dependencies {
     compileOnly('com.github.GTNewHorizons:Draconic-Evolution:1.1.16-GTNH:api')
     compileOnly('com.github.GTNewHorizons:StorageDrawers:1.11.20-GTNH:api')
     compileOnly('com.github.GTNewHorizons:gendustry:1.6.5.5-GTNH:dev')
-    compileOnly('de.dfki.mary:voice-cmu-slt-hsmm:5.2') {
+    compileOnly('de.dfki.mary:voice-cmu-slt-hsmm:5.2.1') {
         exclude module: 'commons-io'
     }
     compileOnly('curse.maven:betterstorage-api-232919:2731636') {
