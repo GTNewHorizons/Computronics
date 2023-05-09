@@ -2,22 +2,21 @@ package pl.asie.computronics.integration.waila.providers;
 
 import java.util.List;
 
-import li.cil.oc.api.network.Environment;
-import li.cil.oc.api.network.Node;
-import mcp.mobius.waila.api.IWailaConfigHandler;
-import mcp.mobius.waila.api.IWailaDataAccessor;
-
 import net.minecraft.entity.player.EntityPlayerMP;
 import net.minecraft.item.ItemStack;
 import net.minecraft.nbt.NBTTagCompound;
 import net.minecraft.tileentity.TileEntity;
 import net.minecraft.world.World;
 
+import cpw.mods.fml.common.Optional;
+import li.cil.oc.api.network.Environment;
+import li.cil.oc.api.network.Node;
+import mcp.mobius.waila.api.IWailaConfigHandler;
+import mcp.mobius.waila.api.IWailaDataAccessor;
 import pl.asie.computronics.integration.waila.ConfigValues;
 import pl.asie.computronics.reference.Mods;
 import pl.asie.computronics.util.StringUtil;
 import pl.asie.computronics.util.internal.IComputronicsPeripheral;
-import cpw.mods.fml.common.Optional;
 
 /**
  * @author Vexatos

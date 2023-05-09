@@ -6,19 +6,18 @@ import java.util.Map;
 import java.util.concurrent.ExecutionException;
 import java.util.concurrent.Future;
 
-import li.cil.oc.api.machine.Arguments;
-import li.cil.oc.api.machine.Callback;
-import li.cil.oc.api.machine.Context;
-import li.cil.oc.api.machine.Value;
-
 import net.minecraft.nbt.NBTTagCompound;
 
-import pl.asie.computronics.Computronics;
-import pl.asie.computronics.reference.Mods;
 import cpw.mods.fml.common.Optional;
 import dan200.computercraft.api.lua.ILuaContext;
 import dan200.computercraft.api.lua.ILuaObject;
 import dan200.computercraft.api.lua.LuaException;
+import li.cil.oc.api.machine.Arguments;
+import li.cil.oc.api.machine.Callback;
+import li.cil.oc.api.machine.Context;
+import li.cil.oc.api.machine.Value;
+import pl.asie.computronics.Computronics;
+import pl.asie.computronics.reference.Mods;
 
 /**
  * @author Vexatos

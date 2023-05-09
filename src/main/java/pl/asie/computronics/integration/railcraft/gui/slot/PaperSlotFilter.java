@@ -1,9 +1,9 @@
 package pl.asie.computronics.integration.railcraft.gui.slot;
 
-import mods.railcraft.api.core.items.IStackFilter;
-
 import net.minecraft.init.Items;
 import net.minecraft.item.ItemStack;
+
+import mods.railcraft.api.core.items.IStackFilter;
 
 /**
  * @author Vexatos

@@ -17,14 +17,13 @@ import org.lwjgl.openal.AL;
 import org.lwjgl.openal.AL10;
 import org.lwjgl.openal.OpenALException;
 
-import pl.asie.computronics.Computronics;
-import pl.asie.computronics.reference.Config;
-
 import com.google.common.base.Throwables;
 
 import cpw.mods.fml.common.FMLCommonHandler;
 import cpw.mods.fml.common.eventhandler.SubscribeEvent;
 import cpw.mods.fml.common.gameevent.TickEvent.ClientTickEvent;
+import pl.asie.computronics.Computronics;
+import pl.asie.computronics.reference.Config;
 
 /**
  * @author Sangar, Vexatos

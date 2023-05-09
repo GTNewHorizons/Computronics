@@ -3,9 +3,9 @@ package pl.asie.computronics.block;
 import net.minecraft.client.renderer.texture.IIconRegister;
 import net.minecraft.util.IIcon;
 
-import pl.asie.computronics.reference.Mods;
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
+import pl.asie.computronics.reference.Mods;
 
 public abstract class BlockMachineSidedIcon extends BlockPeripheral {
 

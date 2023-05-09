@@ -1,14 +1,16 @@
 package pl.asie.computronics.integration.buildcraft;
 
-import li.cil.oc.api.Driver;
-import li.cil.oc.api.driver.EnvironmentProvider;
-import li.cil.oc.api.driver.Item;
-
 import net.minecraft.init.Items;
 import net.minecraft.item.ItemStack;
 import net.minecraftforge.client.MinecraftForgeClient;
 import net.minecraftforge.common.MinecraftForge;
 
+import buildcraft.api.transport.PipeManager;
+import cpw.mods.fml.common.Optional;
+import cpw.mods.fml.common.registry.GameRegistry;
+import li.cil.oc.api.Driver;
+import li.cil.oc.api.driver.EnvironmentProvider;
+import li.cil.oc.api.driver.Item;
 import pl.asie.computronics.Computronics;
 import pl.asie.computronics.integration.buildcraft.pluggable.DroneStationPluggable;
 import pl.asie.computronics.integration.buildcraft.pluggable.DroneStationRenderer;
@@ -16,9 +18,6 @@ import pl.asie.computronics.integration.buildcraft.pluggable.ItemDockingUpgrade;
 import pl.asie.computronics.integration.buildcraft.pluggable.ItemDroneStation;
 import pl.asie.computronics.reference.Mods;
 import pl.asie.computronics.util.RecipeUtils;
-import buildcraft.api.transport.PipeManager;
-import cpw.mods.fml.common.Optional;
-import cpw.mods.fml.common.registry.GameRegistry;
 
 /**
  * @author Vexatos

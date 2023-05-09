@@ -8,6 +8,8 @@ import net.minecraft.world.ChunkPosition;
 import net.minecraft.world.World;
 import net.minecraftforge.common.MinecraftForge;
 
+import cpw.mods.fml.client.registry.RenderingRegistry;
+import cpw.mods.fml.common.Optional;
 import pl.asie.computronics.api.audio.AudioPacketDFPWM;
 import pl.asie.computronics.api.audio.AudioPacketRegistry;
 import pl.asie.computronics.audio.AudioPacketClientHandlerDFPWM;
@@ -23,8 +25,6 @@ import pl.asie.computronics.tape.TapeScrollEventHandler;
 import pl.asie.computronics.util.boom.SelfDestruct;
 import pl.asie.computronics.util.sound.Audio;
 import pl.asie.lib.network.Packet;
-import cpw.mods.fml.client.registry.RenderingRegistry;
-import cpw.mods.fml.common.Optional;
 
 public class ClientProxy extends CommonProxy {
 

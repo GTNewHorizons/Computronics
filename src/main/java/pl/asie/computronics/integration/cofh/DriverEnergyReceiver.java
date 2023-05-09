@@ -4,12 +4,12 @@ import net.minecraft.tileentity.TileEntity;
 import net.minecraft.world.World;
 import net.minecraftforge.common.util.ForgeDirection;
 
-import pl.asie.computronics.integration.CCMultiPeripheral;
-import pl.asie.computronics.reference.Names;
 import cofh.api.energy.IEnergyReceiver;
 import dan200.computercraft.api.lua.ILuaContext;
 import dan200.computercraft.api.lua.LuaException;
 import dan200.computercraft.api.peripheral.IComputerAccess;
+import pl.asie.computronics.integration.CCMultiPeripheral;
+import pl.asie.computronics.reference.Names;
 
 /**
  * @author Vexatos

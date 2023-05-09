@@ -13,6 +13,12 @@ import net.minecraft.util.EnumChatFormatting;
 import net.minecraft.util.IIcon;
 import net.minecraft.world.World;
 
+import cpw.mods.fml.common.Optional;
+import cpw.mods.fml.relauncher.Side;
+import cpw.mods.fml.relauncher.SideOnly;
+import dan200.computercraft.api.filesystem.IMount;
+import dan200.computercraft.api.media.IMedia;
+import dan200.computercraft.api.media.IMediaProvider;
 import pl.asie.computronics.Computronics;
 import pl.asie.computronics.api.tape.IItemTapeStorage;
 import pl.asie.computronics.api.tape.ITapeStorage;
@@ -22,12 +28,6 @@ import pl.asie.computronics.reference.Mods;
 import pl.asie.computronics.tape.TapeStorage;
 import pl.asie.computronics.util.StringUtil;
 import pl.asie.lib.util.color.ItemColorizer;
-import cpw.mods.fml.common.Optional;
-import cpw.mods.fml.relauncher.Side;
-import cpw.mods.fml.relauncher.SideOnly;
-import dan200.computercraft.api.filesystem.IMount;
-import dan200.computercraft.api.media.IMedia;
-import dan200.computercraft.api.media.IMediaProvider;
 
 @Optional.InterfaceList({
         @Optional.Interface(iface = "dan200.computercraft.api.media.IMediaProvider", modid = Mods.ComputerCraft),

@@ -3,10 +3,10 @@ package pl.asie.computronics.integration.buildcraft.statements.triggers;
 import net.minecraft.tileentity.TileEntity;
 import net.minecraftforge.common.util.ForgeDirection;
 
-import pl.asie.computronics.tile.TapeDriveState.State;
-import pl.asie.computronics.tile.TileTapeDrive;
 import buildcraft.api.statements.IStatementContainer;
 import buildcraft.api.statements.IStatementParameter;
+import pl.asie.computronics.tile.TapeDriveState.State;
+import pl.asie.computronics.tile.TileTapeDrive;
 
 /**
  * @author Vexatos

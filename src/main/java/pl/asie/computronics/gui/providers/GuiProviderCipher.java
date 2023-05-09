@@ -3,14 +3,14 @@ package pl.asie.computronics.gui.providers;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.world.World;
 
+import cpw.mods.fml.relauncher.Side;
+import cpw.mods.fml.relauncher.SideOnly;
 import pl.asie.computronics.gui.GuiCipherBlock;
 import pl.asie.computronics.gui.container.ContainerCipherBlock;
 import pl.asie.lib.block.ContainerBase;
 import pl.asie.lib.block.TileEntityBase;
 import pl.asie.lib.gui.GuiBase;
 import pl.asie.lib.gui.managed.LegacyGuiProvider;
-import cpw.mods.fml.relauncher.Side;
-import cpw.mods.fml.relauncher.SideOnly;
 
 /**
  * @author Vexatos

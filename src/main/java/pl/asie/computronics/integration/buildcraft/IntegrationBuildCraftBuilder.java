@@ -2,11 +2,11 @@ package pl.asie.computronics.integration.buildcraft;
 
 import java.util.ArrayList;
 
+import buildcraft.api.blueprints.BuilderAPI;
+import cpw.mods.fml.common.Optional;
 import pl.asie.computronics.reference.Mods;
 import pl.asie.lib.block.BlockBase;
 import pl.asie.lib.integration.buildcraft.SchematicBlockBase;
-import buildcraft.api.blueprints.BuilderAPI;
-import cpw.mods.fml.common.Optional;
 
 /**
  * @author Vexatos

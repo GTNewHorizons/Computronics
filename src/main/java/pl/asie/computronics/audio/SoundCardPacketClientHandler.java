@@ -7,6 +7,8 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.Queue;
 
+import cpw.mods.fml.relauncher.Side;
+import cpw.mods.fml.relauncher.SideOnly;
 import pl.asie.computronics.Computronics;
 import pl.asie.computronics.api.audio.AudioPacketClientHandler;
 import pl.asie.computronics.reference.Config;
@@ -30,8 +32,6 @@ import pl.asie.computronics.util.sound.Instruction.SetWave;
 import pl.asie.computronics.util.sound.Instruction.SetWhiteNoise;
 import pl.asie.lib.audio.StreamingAudioPlayer;
 import pl.asie.lib.network.Packet;
-import cpw.mods.fml.relauncher.Side;
-import cpw.mods.fml.relauncher.SideOnly;
 
 /**
  * @author gamax92

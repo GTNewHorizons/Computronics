@@ -2,13 +2,13 @@ package pl.asie.computronics.integration.railcraft.gui.tooltip;
 
 import java.util.List;
 
+import com.google.common.base.Splitter;
+
 import mods.railcraft.common.gui.tooltips.ToolTip;
 import mods.railcraft.common.gui.tooltips.ToolTipLine;
 import mods.railcraft.common.plugins.forge.LocalizationPlugin;
 import mods.railcraft.common.util.misc.Game;
 import pl.asie.computronics.util.StringUtil;
-
-import com.google.common.base.Splitter;
 
 /**
  * @author CovertJaguar, Vexatos

@@ -2,9 +2,6 @@ package pl.asie.computronics.integration.railcraft.item;
 
 import java.util.List;
 
-import mods.railcraft.common.carts.EntityLocomotive;
-import mods.railcraft.common.carts.EntityLocomotiveElectric;
-
 import net.minecraft.client.renderer.texture.IIconRegister;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.player.EntityPlayer;
@@ -16,6 +13,8 @@ import net.minecraft.util.EnumChatFormatting;
 import net.minecraft.util.IIcon;
 import net.minecraft.world.World;
 
+import mods.railcraft.common.carts.EntityLocomotive;
+import mods.railcraft.common.carts.EntityLocomotiveElectric;
 import pl.asie.computronics.Computronics;
 import pl.asie.computronics.integration.railcraft.tile.TileLocomotiveRelay;
 import pl.asie.computronics.oc.manual.IItemWithPrefix;

@@ -6,6 +6,7 @@ import net.minecraft.util.Vec3;
 import net.minecraft.world.World;
 import net.minecraftforge.common.util.ForgeDirection;
 
+import gnu.trove.set.hash.TIntHashSet;
 import pl.asie.computronics.api.audio.AudioPacket;
 import pl.asie.computronics.api.audio.IAudioConnection;
 import pl.asie.computronics.api.audio.IAudioReceiver;
@@ -13,7 +14,6 @@ import pl.asie.computronics.audio.AudioUtils;
 import pl.asie.lib.block.TileEntityBase;
 import pl.asie.lib.util.ColorUtils;
 import pl.asie.lib.util.internal.IColorable;
-import gnu.trove.set.hash.TIntHashSet;
 
 public class TileAudioCable extends TileEntityBase implements IAudioReceiver, IColorable {
 

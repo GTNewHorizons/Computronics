@@ -1,12 +1,12 @@
 package pl.asie.computronics.integration.tis3d.serial;
 
-import li.cil.tis3d.api.serial.SerialInterface;
-import li.cil.tis3d.api.serial.SerialInterfaceProvider;
-import li.cil.tis3d.api.serial.SerialProtocolDocumentationReference;
-
 import net.minecraft.tileentity.TileEntity;
 import net.minecraft.util.EnumFacing;
 import net.minecraft.world.World;
+
+import li.cil.tis3d.api.serial.SerialInterface;
+import li.cil.tis3d.api.serial.SerialInterfaceProvider;
+import li.cil.tis3d.api.serial.SerialProtocolDocumentationReference;
 
 /**
  * @author Sangar, Vexatos

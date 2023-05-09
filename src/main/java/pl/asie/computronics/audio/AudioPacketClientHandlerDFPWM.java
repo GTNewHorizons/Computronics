@@ -2,12 +2,12 @@ package pl.asie.computronics.audio;
 
 import java.io.IOException;
 
+import cpw.mods.fml.relauncher.Side;
+import cpw.mods.fml.relauncher.SideOnly;
 import pl.asie.computronics.Computronics;
 import pl.asie.computronics.api.audio.AudioPacketClientHandler;
 import pl.asie.lib.audio.StreamingAudioPlayer;
 import pl.asie.lib.network.Packet;
-import cpw.mods.fml.relauncher.Side;
-import cpw.mods.fml.relauncher.SideOnly;
 
 @SideOnly(Side.CLIENT)
 public class AudioPacketClientHandlerDFPWM extends AudioPacketClientHandler {

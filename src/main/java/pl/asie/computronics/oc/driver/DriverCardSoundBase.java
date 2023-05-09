@@ -3,14 +3,14 @@ package pl.asie.computronics.oc.driver;
 import java.io.IOException;
 import java.util.Map;
 
+import net.minecraft.entity.player.EntityPlayer;
+import net.minecraft.world.World;
+
+import cpw.mods.fml.common.network.NetworkRegistry;
 import li.cil.oc.api.driver.DeviceInfo;
 import li.cil.oc.api.network.Connector;
 import li.cil.oc.api.network.EnvironmentHost;
 import li.cil.oc.api.prefab.ManagedEnvironment;
-
-import net.minecraft.entity.player.EntityPlayer;
-import net.minecraft.world.World;
-
 import pl.asie.computronics.Computronics;
 import pl.asie.computronics.network.PacketType;
 import pl.asie.computronics.reference.Config;
@@ -19,7 +19,6 @@ import pl.asie.computronics.util.sound.Audio;
 import pl.asie.computronics.util.sound.AudioType;
 import pl.asie.computronics.util.sound.Channel;
 import pl.asie.lib.network.Packet;
-import cpw.mods.fml.common.network.NetworkRegistry;
 
 /**
  * @author Vexatos

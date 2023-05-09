@@ -2,10 +2,10 @@ package pl.asie.computronics.oc.driver;
 
 import java.util.EnumSet;
 
+import net.minecraft.entity.player.EntityPlayer;
+
 import li.cil.oc.api.component.RackBusConnectable;
 import li.cil.oc.api.component.RackMountable;
-
-import net.minecraft.entity.player.EntityPlayer;
 
 /**
  * @author Vexatos

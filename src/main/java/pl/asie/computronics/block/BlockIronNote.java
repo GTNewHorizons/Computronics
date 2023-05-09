@@ -1,18 +1,17 @@
 package pl.asie.computronics.block;
 
-import li.cil.oc.api.network.Environment;
-
 import net.minecraft.block.Block;
 import net.minecraft.tileentity.TileEntity;
 import net.minecraft.world.World;
 import net.minecraftforge.common.util.ForgeDirection;
 
+import cpw.mods.fml.common.Optional;
+import li.cil.oc.api.network.Environment;
 import pl.asie.computronics.reference.Mods;
 import pl.asie.computronics.tile.TileIronNote;
 import pl.asie.computronics.util.NoteUtils;
 import powercrystals.minefactoryreloaded.api.rednet.IRedNetInputNode;
 import powercrystals.minefactoryreloaded.api.rednet.connectivity.RedNetConnectionType;
-import cpw.mods.fml.common.Optional;
 
 @Optional.InterfaceList({ @Optional.Interface(
         iface = "powercrystals.minefactoryreloaded.api.rednet.IRedNetInputNode",

@@ -3,20 +3,19 @@ package pl.asie.computronics.integration.buildcraft.statements;
 import java.util.Collection;
 import java.util.LinkedList;
 
-import li.cil.oc.api.internal.Case;
-
 import net.minecraft.tileentity.TileEntity;
 import net.minecraftforge.common.util.ForgeDirection;
 
-import pl.asie.computronics.integration.buildcraft.statements.actions.Actions;
-import pl.asie.computronics.reference.Mods;
-import pl.asie.computronics.tile.TileColorfulLamp;
-import pl.asie.computronics.tile.TileTapeDrive;
 import buildcraft.api.statements.IActionExternal;
 import buildcraft.api.statements.IActionInternal;
 import buildcraft.api.statements.IActionProvider;
 import buildcraft.api.statements.IStatementContainer;
 import buildcraft.api.statements.StatementManager;
+import li.cil.oc.api.internal.Case;
+import pl.asie.computronics.integration.buildcraft.statements.actions.Actions;
+import pl.asie.computronics.reference.Mods;
+import pl.asie.computronics.tile.TileColorfulLamp;
+import pl.asie.computronics.tile.TileTapeDrive;
 
 /**
  * @author Vexatos

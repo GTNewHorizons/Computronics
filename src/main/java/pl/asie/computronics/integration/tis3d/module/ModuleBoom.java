@@ -3,27 +3,26 @@ package pl.asie.computronics.integration.tis3d.module;
 import java.util.ArrayList;
 import java.util.List;
 
-import li.cil.tis3d.api.FontRendererAPI;
-import li.cil.tis3d.api.machine.Casing;
-import li.cil.tis3d.api.machine.Face;
-import li.cil.tis3d.api.machine.Pipe;
-import li.cil.tis3d.api.machine.Port;
-import li.cil.tis3d.api.util.RenderUtil;
-
 import net.minecraft.nbt.NBTTagCompound;
 import net.minecraft.util.ResourceLocation;
 
 import org.lwjgl.opengl.GL11;
 
-import pl.asie.computronics.integration.tis3d.IntegrationTIS3D;
-import pl.asie.computronics.reference.Mods;
-import pl.asie.computronics.util.boom.SelfDestruct;
 import cpw.mods.fml.common.Optional;
 import cpw.mods.fml.common.eventhandler.EventPriority;
 import cpw.mods.fml.common.eventhandler.SubscribeEvent;
 import cpw.mods.fml.common.gameevent.TickEvent;
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
+import li.cil.tis3d.api.FontRendererAPI;
+import li.cil.tis3d.api.machine.Casing;
+import li.cil.tis3d.api.machine.Face;
+import li.cil.tis3d.api.machine.Pipe;
+import li.cil.tis3d.api.machine.Port;
+import li.cil.tis3d.api.util.RenderUtil;
+import pl.asie.computronics.integration.tis3d.IntegrationTIS3D;
+import pl.asie.computronics.reference.Mods;
+import pl.asie.computronics.util.boom.SelfDestruct;
 
 /**
  * @author Vexatos

@@ -2,10 +2,10 @@ package pl.asie.computronics.integration.waila.providers;
 
 import java.util.List;
 
+import net.minecraft.item.ItemStack;
+
 import mcp.mobius.waila.api.IWailaConfigHandler;
 import mcp.mobius.waila.api.IWailaDataAccessor;
-
-import net.minecraft.item.ItemStack;
 
 /**
  * @author Vexatos

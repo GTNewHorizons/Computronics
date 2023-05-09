@@ -1,16 +1,15 @@
 package pl.asie.computronics.integration.railcraft.driver;
 
-import mods.railcraft.common.blocks.machine.beta.TileBoilerFirebox;
-
 import net.minecraft.tileentity.TileEntity;
 import net.minecraft.world.World;
 
-import pl.asie.computronics.api.multiperipheral.IMultiPeripheral;
-import pl.asie.computronics.integration.CCMultiPeripheral;
-import pl.asie.computronics.reference.Names;
 import dan200.computercraft.api.lua.ILuaContext;
 import dan200.computercraft.api.lua.LuaException;
 import dan200.computercraft.api.peripheral.IComputerAccess;
+import mods.railcraft.common.blocks.machine.beta.TileBoilerFirebox;
+import pl.asie.computronics.api.multiperipheral.IMultiPeripheral;
+import pl.asie.computronics.integration.CCMultiPeripheral;
+import pl.asie.computronics.reference.Names;
 
 /**
  * @author Vexatos

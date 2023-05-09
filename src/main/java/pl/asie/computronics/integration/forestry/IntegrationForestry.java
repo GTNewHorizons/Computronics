@@ -4,9 +4,6 @@ import static forestry.api.apiculture.EnumBeeChromosome.*;
 
 import java.util.HashMap;
 
-import li.cil.oc.api.Items;
-import li.cil.oc.api.Nanomachines;
-
 import net.bdew.gendustry.api.EnumMutationSetting;
 import net.bdew.gendustry.api.GendustryAPI;
 import net.minecraft.block.Block;
@@ -19,15 +16,6 @@ import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.fluids.Fluid;
 import net.minecraftforge.fluids.FluidRegistry;
 
-import pl.asie.computronics.Computronics;
-import pl.asie.computronics.integration.forestry.client.SwarmTextureHandler;
-import pl.asie.computronics.integration.forestry.client.entity.EntitySwarmBeeFX;
-import pl.asie.computronics.integration.forestry.entity.EntitySwarm;
-import pl.asie.computronics.integration.forestry.entity.SwarmRenderer;
-import pl.asie.computronics.integration.forestry.nanomachines.SwarmProvider;
-import pl.asie.computronics.reference.Mods;
-import pl.asie.computronics.util.RecipeUtils;
-import pl.asie.lib.item.ItemMultiple;
 import cpw.mods.fml.client.registry.RenderingRegistry;
 import cpw.mods.fml.common.Optional;
 import cpw.mods.fml.common.registry.EntityRegistry;
@@ -51,6 +39,17 @@ import forestry.apiculture.genetics.alleles.AlleleEffect;
 import forestry.apiculture.render.ParticleRenderer;
 import forestry.core.genetics.alleles.AlleleHelper;
 import forestry.core.genetics.alleles.EnumAllele.*;
+import li.cil.oc.api.Items;
+import li.cil.oc.api.Nanomachines;
+import pl.asie.computronics.Computronics;
+import pl.asie.computronics.integration.forestry.client.SwarmTextureHandler;
+import pl.asie.computronics.integration.forestry.client.entity.EntitySwarmBeeFX;
+import pl.asie.computronics.integration.forestry.entity.EntitySwarm;
+import pl.asie.computronics.integration.forestry.entity.SwarmRenderer;
+import pl.asie.computronics.integration.forestry.nanomachines.SwarmProvider;
+import pl.asie.computronics.reference.Mods;
+import pl.asie.computronics.util.RecipeUtils;
+import pl.asie.lib.item.ItemMultiple;
 
 /**
  * @author Vexatos

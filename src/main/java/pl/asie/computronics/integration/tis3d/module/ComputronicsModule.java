@@ -1,12 +1,12 @@
 package pl.asie.computronics.integration.tis3d.module;
 
+import net.minecraft.block.Block;
+import net.minecraft.nbt.NBTTagCompound;
+
 import li.cil.tis3d.api.machine.Casing;
 import li.cil.tis3d.api.machine.Face;
 import li.cil.tis3d.api.module.traits.BlockChangeAware;
 import li.cil.tis3d.api.prefab.module.AbstractModule;
-
-import net.minecraft.block.Block;
-import net.minecraft.nbt.NBTTagCompound;
 
 /**
  * @author Vexatos

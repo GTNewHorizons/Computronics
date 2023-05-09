@@ -4,24 +4,10 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Locale;
 
-import li.cil.oc.api.network.Node;
-import li.cil.oc.api.network.SidedEnvironment;
-import mods.railcraft.api.carts.CartTools;
-import mods.railcraft.common.carts.EntityLocomotive;
-import mods.railcraft.common.carts.EnumCart;
-import mods.railcraft.common.carts.ICartType;
-
 import net.minecraft.block.Block;
 import net.minecraft.entity.item.EntityMinecart;
 import net.minecraft.nbt.NBTTagCompound;
 import net.minecraftforge.common.util.ForgeDirection;
-
-import pl.asie.computronics.Computronics;
-import pl.asie.computronics.cc.ISidedPeripheral;
-import pl.asie.computronics.reference.Mods;
-import pl.asie.computronics.reference.Names;
-import pl.asie.computronics.tile.TileEntityPeripheralBase;
-import pl.asie.computronics.util.OCUtils;
 
 import com.mojang.authlib.GameProfile;
 
@@ -29,6 +15,18 @@ import cpw.mods.fml.common.Optional;
 import dan200.computercraft.api.lua.ILuaContext;
 import dan200.computercraft.api.lua.LuaException;
 import dan200.computercraft.api.peripheral.IComputerAccess;
+import li.cil.oc.api.network.Node;
+import li.cil.oc.api.network.SidedEnvironment;
+import mods.railcraft.api.carts.CartTools;
+import mods.railcraft.common.carts.EntityLocomotive;
+import mods.railcraft.common.carts.EnumCart;
+import mods.railcraft.common.carts.ICartType;
+import pl.asie.computronics.Computronics;
+import pl.asie.computronics.cc.ISidedPeripheral;
+import pl.asie.computronics.reference.Mods;
+import pl.asie.computronics.reference.Names;
+import pl.asie.computronics.tile.TileEntityPeripheralBase;
+import pl.asie.computronics.util.OCUtils;
 
 /**
  * @author CovertJaguar, Vexatos, marcin212, Kubuxu

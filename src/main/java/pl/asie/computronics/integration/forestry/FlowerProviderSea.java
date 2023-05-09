@@ -11,12 +11,12 @@ import net.minecraftforge.fluids.Fluid;
 import net.minecraftforge.fluids.FluidRegistry;
 import net.minecraftforge.fluids.IFluidBlock;
 
-import pl.asie.computronics.util.StringUtil;
 import forestry.api.apiculture.FlowerManager;
 import forestry.api.genetics.IFlowerAcceptableRule;
 import forestry.api.genetics.IFlowerProvider;
 import forestry.api.genetics.IIndividual;
 import forestry.api.genetics.IPollinatable;
+import pl.asie.computronics.util.StringUtil;
 
 /**
  * @author Vexatos

@@ -4,14 +4,14 @@ import java.io.IOException;
 
 import net.minecraft.world.World;
 
+import cpw.mods.fml.common.Optional;
+import cpw.mods.fml.common.registry.EntityRegistry;
 import pl.asie.computronics.api.audio.AudioPacketDFPWM;
 import pl.asie.computronics.api.audio.AudioPacketRegistry;
 import pl.asie.computronics.audio.SoundCardPacket;
 import pl.asie.computronics.item.entity.EntityItemIndestructable;
 import pl.asie.computronics.reference.Mods;
 import pl.asie.lib.network.Packet;
-import cpw.mods.fml.common.Optional;
-import cpw.mods.fml.common.registry.EntityRegistry;
 
 public class CommonProxy {
 

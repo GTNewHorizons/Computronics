@@ -1,7 +1,5 @@
 package pl.asie.computronics.integration.railcraft.block;
 
-import li.cil.oc.api.network.Environment;
-
 import net.minecraft.client.renderer.texture.IIconRegister;
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.item.ItemStack;
@@ -9,12 +7,13 @@ import net.minecraft.tileentity.TileEntity;
 import net.minecraft.util.IIcon;
 import net.minecraft.world.World;
 
+import cpw.mods.fml.relauncher.Side;
+import cpw.mods.fml.relauncher.SideOnly;
+import li.cil.oc.api.network.Environment;
 import pl.asie.computronics.Computronics;
 import pl.asie.computronics.block.BlockMachineSidedIcon;
 import pl.asie.computronics.integration.railcraft.tile.TileTicketMachine;
 import pl.asie.computronics.oc.manual.IBlockWithPrefix;
-import cpw.mods.fml.relauncher.Side;
-import cpw.mods.fml.relauncher.SideOnly;
 
 /**
  * @author Vexatos

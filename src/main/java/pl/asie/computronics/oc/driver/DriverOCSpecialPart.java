@@ -1,10 +1,9 @@
 package pl.asie.computronics.oc.driver;
 
-import li.cil.oc.api.driver.Item;
-
 import net.minecraft.item.ItemStack;
 import net.minecraft.nbt.NBTTagCompound;
 
+import li.cil.oc.api.driver.Item;
 import pl.asie.computronics.oc.IntegrationOpenComputers;
 import pl.asie.computronics.util.OCUtils;
 

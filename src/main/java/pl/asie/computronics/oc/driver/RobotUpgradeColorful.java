@@ -1,5 +1,7 @@
 package pl.asie.computronics.oc.driver;
 
+import net.minecraft.nbt.NBTTagCompound;
+
 import li.cil.oc.api.Network;
 import li.cil.oc.api.internal.Robot;
 import li.cil.oc.api.machine.Arguments;
@@ -7,9 +9,6 @@ import li.cil.oc.api.machine.Callback;
 import li.cil.oc.api.machine.Context;
 import li.cil.oc.api.network.EnvironmentHost;
 import li.cil.oc.api.network.Visibility;
-
-import net.minecraft.nbt.NBTTagCompound;
-
 import pl.asie.computronics.reference.Config;
 import pl.asie.computronics.util.OCUtils;
 

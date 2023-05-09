@@ -10,11 +10,6 @@ import net.minecraft.item.ItemStack;
 import net.minecraft.nbt.NBTTagCompound;
 import net.minecraft.server.MinecraftServer;
 
-import pl.asie.computronics.Computronics;
-import pl.asie.computronics.item.ItemPortableTapeDrive;
-import pl.asie.computronics.tile.TapeDriveState.State;
-import pl.asie.lib.audio.StreamingAudioPlayer;
-
 import com.google.common.collect.BiMap;
 import com.google.common.collect.HashBiMap;
 
@@ -22,6 +17,10 @@ import cpw.mods.fml.common.eventhandler.SubscribeEvent;
 import cpw.mods.fml.common.gameevent.TickEvent;
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
+import pl.asie.computronics.Computronics;
+import pl.asie.computronics.item.ItemPortableTapeDrive;
+import pl.asie.computronics.tile.TapeDriveState.State;
+import pl.asie.lib.audio.StreamingAudioPlayer;
 
 /**
  * @author Vexatos

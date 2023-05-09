@@ -1,11 +1,11 @@
 package pl.asie.computronics.cc.multiperipheral;
 
+import cpw.mods.fml.common.Optional;
+import dan200.computercraft.api.peripheral.IPeripheral;
 import li.cil.oc.api.network.BlacklistedPeripheral;
 import openperipheral.api.peripheral.IBrokenOpenPeripheral;
 import pl.asie.computronics.api.multiperipheral.WrappedMultiPeripheral;
 import pl.asie.computronics.reference.Mods;
-import cpw.mods.fml.common.Optional;
-import dan200.computercraft.api.peripheral.IPeripheral;
 
 /**
  * @author Vexatos

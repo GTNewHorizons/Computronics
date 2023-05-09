@@ -2,10 +2,10 @@ package pl.asie.computronics.util;
 
 import net.minecraft.world.World;
 
+import cpw.mods.fml.common.network.NetworkRegistry.TargetPoint;
 import pl.asie.computronics.Computronics;
 import pl.asie.computronics.network.PacketType;
 import pl.asie.lib.network.Packet;
-import cpw.mods.fml.common.network.NetworkRegistry.TargetPoint;
 
 public class ParticleUtils {
 

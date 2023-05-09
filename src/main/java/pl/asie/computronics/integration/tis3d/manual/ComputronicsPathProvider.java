@@ -1,16 +1,15 @@
 package pl.asie.computronics.integration.tis3d.manual;
 
+import net.minecraft.item.ItemStack;
+import net.minecraft.util.ResourceLocation;
+import net.minecraft.world.World;
+
 import li.cil.tis3d.api.ManualAPI;
 import li.cil.tis3d.api.manual.PathProvider;
 import li.cil.tis3d.api.manual.TabIconRenderer;
 import li.cil.tis3d.api.prefab.manual.ItemStackTabIconRenderer;
 import li.cil.tis3d.api.prefab.manual.ResourceContentProvider;
 import li.cil.tis3d.api.prefab.manual.TextureTabIconRenderer;
-
-import net.minecraft.item.ItemStack;
-import net.minecraft.util.ResourceLocation;
-import net.minecraft.world.World;
-
 import pl.asie.computronics.integration.tis3d.IntegrationTIS3D;
 
 /**

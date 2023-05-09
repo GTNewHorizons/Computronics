@@ -10,17 +10,17 @@ import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.util.AxisAlignedBB;
 import net.minecraft.world.World;
 
-import pl.asie.computronics.reference.Config;
-import pl.asie.computronics.reference.Mods;
-import pl.asie.computronics.tile.TileRadar;
-import pl.asie.computronics.util.RadarUtils;
-import pl.asie.computronics.util.TableUtils;
 import cpw.mods.fml.common.Optional;
 import dan200.computercraft.api.lua.ILuaContext;
 import dan200.computercraft.api.lua.ILuaTask;
 import dan200.computercraft.api.lua.LuaException;
 import dan200.computercraft.api.peripheral.IComputerAccess;
 import dan200.computercraft.api.turtle.ITurtleAccess;
+import pl.asie.computronics.reference.Config;
+import pl.asie.computronics.reference.Mods;
+import pl.asie.computronics.tile.TileRadar;
+import pl.asie.computronics.util.RadarUtils;
+import pl.asie.computronics.util.TableUtils;
 
 public class CCRadarProxy {
 

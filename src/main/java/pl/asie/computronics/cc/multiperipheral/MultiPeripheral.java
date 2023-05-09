@@ -5,16 +5,16 @@ import java.util.HashMap;
 import java.util.HashSet;
 import java.util.Set;
 
-import li.cil.oc.Settings;
-import li.cil.oc.api.network.BlacklistedPeripheral;
-import pl.asie.computronics.api.multiperipheral.IMultiPeripheral;
-import pl.asie.computronics.reference.Config;
-import pl.asie.computronics.reference.Mods;
 import cpw.mods.fml.common.Optional;
 import dan200.computercraft.api.lua.ILuaContext;
 import dan200.computercraft.api.lua.LuaException;
 import dan200.computercraft.api.peripheral.IComputerAccess;
 import dan200.computercraft.api.peripheral.IPeripheral;
+import li.cil.oc.Settings;
+import li.cil.oc.api.network.BlacklistedPeripheral;
+import pl.asie.computronics.api.multiperipheral.IMultiPeripheral;
+import pl.asie.computronics.reference.Config;
+import pl.asie.computronics.reference.Mods;
 
 /**
  * Allows having multiple peripherals merged into a single one.

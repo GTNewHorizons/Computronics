@@ -8,6 +8,7 @@ import net.minecraft.world.IBlockAccess;
 import net.minecraft.world.World;
 import net.minecraftforge.common.util.ForgeDirection;
 
+import cpw.mods.fml.common.Optional;
 import pl.asie.computronics.Computronics;
 import pl.asie.computronics.oc.block.IComputronicsEnvironmentBlock;
 import pl.asie.computronics.oc.manual.IBlockWithDocumentation;
@@ -16,7 +17,6 @@ import pl.asie.computronics.tile.TileEntityPeripheralBase;
 import pl.asie.lib.block.BlockBase;
 import pl.asie.lib.util.ColorUtils;
 import pl.asie.lib.util.ColorUtils.Color;
-import cpw.mods.fml.common.Optional;
 
 @Optional.InterfaceList({ @Optional.Interface(
         iface = "pl.asie.computronics.oc.block.IComputronicsEnvironmentBlock",

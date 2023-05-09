@@ -1,11 +1,5 @@
 package pl.asie.computronics.integration.tis3d.module;
 
-import li.cil.tis3d.api.machine.Casing;
-import li.cil.tis3d.api.machine.Face;
-import li.cil.tis3d.api.machine.Pipe;
-import li.cil.tis3d.api.machine.Port;
-import li.cil.tis3d.api.util.RenderUtil;
-
 import net.minecraft.client.renderer.OpenGlHelper;
 import net.minecraft.nbt.NBTTagCompound;
 import net.minecraft.util.ResourceLocation;
@@ -14,6 +8,11 @@ import org.lwjgl.opengl.GL11;
 
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
+import li.cil.tis3d.api.machine.Casing;
+import li.cil.tis3d.api.machine.Face;
+import li.cil.tis3d.api.machine.Pipe;
+import li.cil.tis3d.api.machine.Port;
+import li.cil.tis3d.api.util.RenderUtil;
 
 /**
  * @author Vexatos

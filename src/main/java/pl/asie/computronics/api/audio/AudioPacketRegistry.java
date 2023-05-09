@@ -1,10 +1,10 @@
 package pl.asie.computronics.api.audio;
 
-import pl.asie.lib.audio.StreamingPlaybackManager;
 import gnu.trove.map.TIntObjectMap;
 import gnu.trove.map.TObjectIntMap;
 import gnu.trove.map.hash.TIntObjectHashMap;
 import gnu.trove.map.hash.TObjectIntHashMap;
+import pl.asie.lib.audio.StreamingPlaybackManager;
 
 public final class AudioPacketRegistry {
 

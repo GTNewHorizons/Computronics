@@ -7,13 +7,13 @@ import net.minecraft.item.ItemStack;
 import net.minecraft.world.World;
 import net.minecraftforge.common.util.ForgeDirection;
 
-import pl.asie.computronics.Computronics;
-import pl.asie.computronics.oc.manual.IItemWithPrefix;
 import buildcraft.api.transport.IPipe;
 import buildcraft.api.transport.pluggable.IPipePluggableItem;
 import buildcraft.api.transport.pluggable.PipePluggable;
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
+import pl.asie.computronics.Computronics;
+import pl.asie.computronics.oc.manual.IItemWithPrefix;
 
 /**
  * @author Vexatos

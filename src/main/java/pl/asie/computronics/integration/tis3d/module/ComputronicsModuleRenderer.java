@@ -2,11 +2,11 @@ package pl.asie.computronics.integration.tis3d.module;
 
 import java.awt.*;
 
-import li.cil.tis3d.api.prefab.client.SimpleModuleRenderer;
-
 import net.minecraft.item.ItemStack;
 
 import org.lwjgl.opengl.GL11;
+
+import li.cil.tis3d.api.prefab.client.SimpleModuleRenderer;
 
 /**
  * @author Vexatos

@@ -4,9 +4,9 @@ import java.util.ArrayList;
 
 import net.minecraft.nbt.NBTTagCompound;
 
-import pl.asie.computronics.reference.Config;
-
 import com.google.common.collect.ImmutableList;
+
+import pl.asie.computronics.reference.Config;
 
 /**
  * @author Vexatos

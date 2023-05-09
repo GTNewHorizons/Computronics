@@ -1,9 +1,5 @@
 package pl.asie.computronics.integration.railcraft.block;
 
-import li.cil.oc.api.network.Environment;
-import mods.railcraft.client.util.textures.TextureAtlasSheet;
-import mods.railcraft.common.util.misc.MiscTools;
-
 import net.minecraft.block.Block;
 import net.minecraft.client.renderer.texture.IIconRegister;
 import net.minecraft.entity.EntityLivingBase;
@@ -15,14 +11,17 @@ import net.minecraft.world.IBlockAccess;
 import net.minecraft.world.World;
 import net.minecraftforge.common.util.ForgeDirection;
 
+import cpw.mods.fml.common.Optional;
+import cpw.mods.fml.relauncher.Side;
+import cpw.mods.fml.relauncher.SideOnly;
+import li.cil.oc.api.network.Environment;
+import mods.railcraft.client.util.textures.TextureAtlasSheet;
+import mods.railcraft.common.util.misc.MiscTools;
 import pl.asie.computronics.Computronics;
 import pl.asie.computronics.block.BlockPeripheral;
 import pl.asie.computronics.integration.railcraft.tile.TileDigitalDetector;
 import pl.asie.computronics.oc.manual.IBlockWithPrefix;
 import pl.asie.computronics.reference.Mods;
-import cpw.mods.fml.common.Optional;
-import cpw.mods.fml.relauncher.Side;
-import cpw.mods.fml.relauncher.SideOnly;
 
 /**
  * @author CovertJaguar, Vexatos, marcin212, Kubuxu

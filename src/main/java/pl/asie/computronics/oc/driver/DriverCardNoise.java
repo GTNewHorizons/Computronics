@@ -5,13 +5,6 @@ import java.util.HashMap;
 import java.util.Locale;
 import java.util.Map;
 
-import li.cil.oc.api.Network;
-import li.cil.oc.api.machine.Arguments;
-import li.cil.oc.api.machine.Callback;
-import li.cil.oc.api.machine.Context;
-import li.cil.oc.api.network.EnvironmentHost;
-import li.cil.oc.api.network.Visibility;
-
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.nbt.NBTTagCompound;
 import net.minecraft.nbt.NBTTagFloat;
@@ -19,6 +12,13 @@ import net.minecraft.nbt.NBTTagList;
 import net.minecraft.world.World;
 import net.minecraftforge.common.util.Constants;
 
+import cpw.mods.fml.common.network.NetworkRegistry;
+import li.cil.oc.api.Network;
+import li.cil.oc.api.machine.Arguments;
+import li.cil.oc.api.machine.Callback;
+import li.cil.oc.api.machine.Context;
+import li.cil.oc.api.network.EnvironmentHost;
+import li.cil.oc.api.network.Visibility;
 import pl.asie.computronics.Computronics;
 import pl.asie.computronics.network.PacketType;
 import pl.asie.computronics.reference.Config;
@@ -27,7 +27,6 @@ import pl.asie.computronics.util.sound.Audio;
 import pl.asie.computronics.util.sound.AudioType;
 import pl.asie.computronics.util.sound.Channel;
 import pl.asie.lib.network.Packet;
-import cpw.mods.fml.common.network.NetworkRegistry;
 
 /**
  * @author Vexatos

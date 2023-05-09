@@ -12,8 +12,6 @@ import java.util.Arrays;
 import java.util.Locale;
 import java.util.Properties;
 
-import marytts.server.MaryProperties;
-
 import net.minecraft.launchwrapper.Launch;
 import net.minecraft.launchwrapper.LaunchClassLoader;
 
@@ -21,6 +19,7 @@ import org.apache.log4j.PropertyConfigurator;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
+import marytts.server.MaryProperties;
 import pl.asie.computronics.reference.Mods;
 
 /**

@@ -1,12 +1,11 @@
 package pl.asie.computronics.integration.railcraft.client;
 
-import mods.railcraft.client.render.BlockRenderer;
-import mods.railcraft.client.render.RenderSignalBox;
-
 import net.minecraft.block.Block;
 
-import pl.asie.computronics.integration.railcraft.SignalTypes;
 import cpw.mods.fml.client.registry.ClientRegistry;
+import mods.railcraft.client.render.BlockRenderer;
+import mods.railcraft.client.render.RenderSignalBox;
+import pl.asie.computronics.integration.railcraft.SignalTypes;
 
 /**
  * @author CovertJaguar, Vexatos

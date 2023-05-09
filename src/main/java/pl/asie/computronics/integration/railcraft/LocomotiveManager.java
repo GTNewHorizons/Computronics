@@ -3,8 +3,6 @@ package pl.asie.computronics.integration.railcraft;
 import java.util.Map;
 import java.util.UUID;
 
-import mods.railcraft.common.carts.EntityLocomotiveElectric;
-
 import net.minecraft.entity.item.EntityMinecart;
 import net.minecraft.util.MathHelper;
 import net.minecraft.world.ChunkCoordIntPair;
@@ -12,10 +10,11 @@ import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.event.entity.EntityEvent;
 import net.minecraftforge.event.entity.minecart.MinecartUpdateEvent;
 
-import pl.asie.computronics.Computronics;
-
 import com.google.common.collect.MapMaker;
+
 import cpw.mods.fml.common.eventhandler.SubscribeEvent;
+import mods.railcraft.common.carts.EntityLocomotiveElectric;
+import pl.asie.computronics.Computronics;
 
 /**
  * @author CovertJaguar, Vexatos

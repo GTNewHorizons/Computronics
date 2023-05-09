@@ -3,19 +3,18 @@ package pl.asie.computronics.oc.manual;
 import java.util.ArrayList;
 import java.util.Collections;
 
-import li.cil.oc.api.Manual;
-import li.cil.oc.api.manual.PathProvider;
-import li.cil.oc.api.manual.TabIconRenderer;
-import li.cil.oc.api.prefab.ItemStackTabIconRenderer;
-import li.cil.oc.api.prefab.ResourceContentProvider;
-import li.cil.oc.api.prefab.TextureTabIconRenderer;
-
 import net.minecraft.block.Block;
 import net.minecraft.item.ItemBlock;
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.ResourceLocation;
 import net.minecraft.world.World;
 
+import li.cil.oc.api.Manual;
+import li.cil.oc.api.manual.PathProvider;
+import li.cil.oc.api.manual.TabIconRenderer;
+import li.cil.oc.api.prefab.ItemStackTabIconRenderer;
+import li.cil.oc.api.prefab.ResourceContentProvider;
+import li.cil.oc.api.prefab.TextureTabIconRenderer;
 import pl.asie.computronics.Computronics;
 
 /**

@@ -1,15 +1,14 @@
 package pl.asie.computronics.integration;
 
-import li.cil.oc.api.network.BlacklistedPeripheral;
-
 import net.minecraft.world.IBlockAccess;
 import net.minecraft.world.World;
 
-import pl.asie.computronics.reference.Mods;
 import cpw.mods.fml.common.Optional;
 import dan200.computercraft.api.peripheral.IComputerAccess;
 import dan200.computercraft.api.peripheral.IPeripheral;
 import dan200.computercraft.api.peripheral.IPeripheralProvider;
+import li.cil.oc.api.network.BlacklistedPeripheral;
+import pl.asie.computronics.reference.Mods;
 
 /**
  * @author Vexatos

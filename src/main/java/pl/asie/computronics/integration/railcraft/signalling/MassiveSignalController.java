@@ -10,22 +10,20 @@ import java.util.Set;
 
 import javax.annotation.Nonnull;
 
-import mods.railcraft.api.core.WorldCoordinate;
-import mods.railcraft.api.signals.SignalAspect;
-import mods.railcraft.api.signals.SignalController;
-import mods.railcraft.api.signals.SignalReceiver;
-
 import net.minecraft.nbt.NBTTagCompound;
 import net.minecraft.nbt.NBTTagList;
 import net.minecraft.tileentity.TileEntity;
 import net.minecraftforge.common.util.Constants;
 
-import pl.asie.computronics.util.collect.SimpleInvertibleDualMap;
-
 import com.google.common.collect.Sets;
 
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
+import mods.railcraft.api.core.WorldCoordinate;
+import mods.railcraft.api.signals.SignalAspect;
+import mods.railcraft.api.signals.SignalController;
+import mods.railcraft.api.signals.SignalReceiver;
+import pl.asie.computronics.util.collect.SimpleInvertibleDualMap;
 
 /**
  * @author Vexatos

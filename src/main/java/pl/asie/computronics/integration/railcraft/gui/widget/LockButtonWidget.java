@@ -1,9 +1,9 @@
 package pl.asie.computronics.integration.railcraft.gui.widget;
 
-import mods.railcraft.client.gui.GuiContainerRailcraft;
-import pl.asie.computronics.integration.railcraft.tile.TileTicketMachine;
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
+import mods.railcraft.client.gui.GuiContainerRailcraft;
+import pl.asie.computronics.integration.railcraft.tile.TileTicketMachine;
 
 /**
  * @author Vexatos

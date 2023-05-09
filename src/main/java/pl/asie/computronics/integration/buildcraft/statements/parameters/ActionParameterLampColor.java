@@ -7,12 +7,12 @@ import net.minecraft.item.ItemStack;
 import net.minecraft.nbt.NBTTagCompound;
 import net.minecraft.util.IIcon;
 
-import pl.asie.computronics.integration.buildcraft.statements.StatementParameters;
-import pl.asie.computronics.util.StringUtil;
 import buildcraft.api.statements.IStatement;
 import buildcraft.api.statements.IStatementContainer;
 import buildcraft.api.statements.IStatementParameter;
 import buildcraft.api.statements.StatementMouseClick;
+import pl.asie.computronics.integration.buildcraft.statements.StatementParameters;
+import pl.asie.computronics.util.StringUtil;
 
 /**
  * @author Vexatos

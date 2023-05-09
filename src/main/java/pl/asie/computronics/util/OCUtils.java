@@ -5,12 +5,6 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-import li.cil.oc.api.Driver;
-import li.cil.oc.api.driver.DeviceInfo.DeviceAttribute;
-import li.cil.oc.api.driver.Item;
-import li.cil.oc.client.KeyBindings;
-import li.cil.oc.util.ItemCosts;
-
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.gui.FontRenderer;
 import net.minecraft.item.EnumRarity;
@@ -20,6 +14,11 @@ import net.minecraft.util.EnumChatFormatting;
 
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
+import li.cil.oc.api.Driver;
+import li.cil.oc.api.driver.DeviceInfo.DeviceAttribute;
+import li.cil.oc.api.driver.Item;
+import li.cil.oc.client.KeyBindings;
+import li.cil.oc.util.ItemCosts;
 
 /**
  * @author Vexatos
