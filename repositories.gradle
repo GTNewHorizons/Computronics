@@ -4,8 +4,7 @@ repositories {
     jcenter() // Needed for Mary TTS
     maven {
         name = "OC repo"
-        url = "http://maven.cil.li/"
-        allowInsecureProtocol = true
+        url = "https://maven.cil.li/"
     }
     ivy {
         name "Vexatos Github"
