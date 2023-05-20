@@ -20,7 +20,7 @@ public class DriverDeviceInformation extends DriverSidedTileEntity {
             super(tile, name);
         }
 
-        @Callback(doc = "function():table; Returns sensor information about this block", direct = true)
+        @Callback(doc = "function():table; Returns sensor information about this block", direct = false)
         public Object[] getSensorInformation(Context c, Arguments a) {
             return new Object[] { tile.getInfoData() };
         }
