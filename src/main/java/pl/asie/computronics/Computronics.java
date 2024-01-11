@@ -6,11 +6,6 @@ import java.util.Random;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
 
-import cpw.mods.fml.common.FMLCommonHandler;
-import cpw.mods.fml.common.Loader;
-import cpw.mods.fml.common.Mod;
-import cpw.mods.fml.common.Optional;
-import cpw.mods.fml.common.SidedProxy;
 import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemBlock;
@@ -23,9 +18,13 @@ import org.apache.logging.log4j.Logger;
 import com.google.common.collect.ImmutableList;
 import com.google.common.util.concurrent.ThreadFactoryBuilder;
 
-
+import cpw.mods.fml.common.FMLCommonHandler;
+import cpw.mods.fml.common.Loader;
+import cpw.mods.fml.common.Mod;
 import cpw.mods.fml.common.Mod.EventHandler;
 import cpw.mods.fml.common.Mod.Instance;
+import cpw.mods.fml.common.Optional;
+import cpw.mods.fml.common.SidedProxy;
 import cpw.mods.fml.common.event.FMLInitializationEvent;
 import cpw.mods.fml.common.event.FMLInterModComms;
 import cpw.mods.fml.common.event.FMLMissingMappingsEvent;
