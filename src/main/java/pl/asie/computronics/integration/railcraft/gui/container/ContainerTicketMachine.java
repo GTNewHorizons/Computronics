@@ -46,7 +46,7 @@ public class ContainerTicketMachine extends RailcraftContainer {
         this.addWidget(new PrintButtonWidget(tile, 67, 54, 0, 168, 20, 16));
         this.addWidget(new SlotSelectionWidget(tile, 33, 15, 184, 0, 88, 34, maintenanceMode));
 
-        this.energyIndicator = new RFEnergyIndicator(tile);
+        this.energyIndicator = new RFEnergyIndicator(tile.getMaxEnergyStored(ForgeDirection.UNKNOWN));
         if (Config.TICKET_MACHINE_CONSUME_RF) {
             this.addWidget(new Widget(160, 14, 184, 25, 8, 50));
             this.addWidget(new IndicatorWidget(this.energyIndicator, 161, 15, 194, 26, 6, 48));
