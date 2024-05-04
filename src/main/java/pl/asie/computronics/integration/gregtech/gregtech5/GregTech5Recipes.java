@@ -5,7 +5,6 @@ import net.minecraft.item.ItemStack;
 
 import cpw.mods.fml.common.Optional;
 import cpw.mods.fml.common.registry.GameRegistry;
-import gregtech.GT_Mod;
 import gregtech.api.enums.GT_Values;
 import gregtech.api.enums.ItemList;
 import gregtech.api.enums.Materials;
@@ -591,36 +590,6 @@ public class GregTech5Recipes extends ModRecipes {
                 "ringNiobiumTitanium",
                 'h',
                 "cellArgon");
-
-        GT_Mod.gregtechproxy.addFluid(
-                "Argon",
-                "Argon",
-                Materials.Argon,
-                2,
-                295,
-                GT_OreDictUnificator.get(OrePrefixes.cell, Materials.Argon, 1L),
-                GT_OreDictUnificator.get(OrePrefixes.cell, Materials.Empty, 1L),
-                1000);
-
-        // Nope.
-        Materials.ChromiumDioxide.mBlastFurnaceRequired = false;
-        Materials.ChromiumDioxide.mBlastFurnaceTemp = 650;
-        Materials.ChromiumDioxide.mMeltingPoint = 650;
-
-        GT_Values.RA.addElectrolyzerRecipe(
-                ItemList.Cell_Air.get(1),
-                null,
-                null,
-                Materials.Air.getGas(2000L),
-                ItemList.Cell_Empty.get(1),
-                null,
-                null,
-                null,
-                null,
-                null,
-                null,
-                800,
-                30);
 
         // Cr + 2O = CrO2
         GT_Values.RA.addChemicalRecipe(
