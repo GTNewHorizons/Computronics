@@ -1,5 +1,10 @@
 package pl.asie.computronics.integration.gregtech.gregtech5;
 
+import static gregtech.api.recipe.RecipeMaps.assemblerRecipes;
+import static gregtech.api.recipe.RecipeMaps.chemicalReactorRecipes;
+import static gregtech.api.util.GT_RecipeBuilder.SECONDS;
+import static gregtech.api.util.GT_RecipeBuilder.TICKS;
+
 import net.minecraft.init.Blocks;
 import net.minecraft.item.ItemStack;
 
@@ -9,6 +14,7 @@ import gregtech.api.enums.GT_Values;
 import gregtech.api.enums.ItemList;
 import gregtech.api.enums.Materials;
 import gregtech.api.enums.OrePrefixes;
+import gregtech.api.enums.TierEU;
 import gregtech.api.util.GT_OreDictUnificator;
 import gregtech.api.util.GT_Utility;
 import mods.railcraft.common.items.ItemElectricMeter;
@@ -81,20 +87,20 @@ public class GregTech5Recipes extends ModRecipes {
                     Blocks.noteblock);
         }
         if (Computronics.audioCable != null) {
-            GT_Values.RA.addAssemblerRecipe(
-                    GT_OreDictUnificator.get(OrePrefixes.wireGt02, Materials.Silver, 1),
-                    GT_OreDictUnificator.get(OrePrefixes.plateDouble, Materials.Paper, 1),
-                    Materials.Bismuth.getMolten(GT_Values.L),
-                    new ItemStack(Computronics.audioCable, 1, 0),
-                    64,
-                    30);
-            GT_Values.RA.addAssemblerRecipe(
-                    GT_OreDictUnificator.get(OrePrefixes.wireGt02, Materials.Silver, 1),
-                    GT_OreDictUnificator.get(OrePrefixes.plateDouble, Materials.Paper, 1),
-                    Materials.Lead.getMolten(GT_Values.L),
-                    new ItemStack(Computronics.audioCable, 1, 0),
-                    64,
-                    30);
+            GT_Values.RA.stdBuilder()
+                    .itemInputs(
+                            GT_OreDictUnificator.get(OrePrefixes.wireGt02, Materials.Silver, 1),
+                            GT_OreDictUnificator.get(OrePrefixes.plateDouble, Materials.Paper, 1))
+                    .fluidInputs(Materials.Bismuth.getMolten(GT_Values.L))
+                    .itemOutputs(new ItemStack(Computronics.audioCable, 1, 0)).duration(64 * TICKS)
+                    .eut(TierEU.RECIPE_LV).addTo(assemblerRecipes);
+            GT_Values.RA.stdBuilder()
+                    .itemInputs(
+                            GT_OreDictUnificator.get(OrePrefixes.wireGt02, Materials.Silver, 1),
+                            GT_OreDictUnificator.get(OrePrefixes.plateDouble, Materials.Paper, 1))
+                    .fluidInputs(Materials.Lead.getMolten(GT_Values.L))
+                    .itemOutputs(new ItemStack(Computronics.audioCable, 1, 0)).duration(64 * TICKS)
+                    .eut(TierEU.RECIPE_LV).addTo(assemblerRecipes);
         }
         if (Computronics.speaker != null) {
             RecipeUtils.addShapedRecipe(
@@ -592,12 +598,12 @@ public class GregTech5Recipes extends ModRecipes {
                 "cellArgon");
 
         // Cr + 2O = CrO2
-        GT_Values.RA.addChemicalRecipe(
-                GT_OreDictUnificator.get(OrePrefixes.dust, Materials.Chrome, 1),
-                GT_Utility.getIntegratedCircuit(1),
-                Materials.Oxygen.getGas(2000),
-                null,
-                GT_OreDictUnificator.get(OrePrefixes.dust, Materials.ChromiumDioxide, 3),
-                800);
+        GT_Values.RA.stdBuilder()
+                .itemInputs(
+                        GT_OreDictUnificator.get(OrePrefixes.dust, Materials.Chrome, 1),
+                        GT_Utility.getIntegratedCircuit(1))
+                .fluidInputs(Materials.Oxygen.getGas(2000))
+                .itemOutputs(GT_OreDictUnificator.get(OrePrefixes.dust, Materials.ChromiumDioxide, 3))
+                .duration(40 * SECONDS).eut(TierEU.RECIPE_LV).addTo(chemicalReactorRecipes);
     }
 }
