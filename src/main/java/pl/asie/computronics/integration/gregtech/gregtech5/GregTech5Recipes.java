@@ -92,14 +92,14 @@ public class GregTech5Recipes extends ModRecipes {
                             GT_OreDictUnificator.get(OrePrefixes.wireGt02, Materials.Silver, 1),
                             GT_OreDictUnificator.get(OrePrefixes.plateDouble, Materials.Paper, 1))
                     .fluidInputs(Materials.Bismuth.getMolten(GT_Values.L))
-                    .itemOutputs(new ItemStack(Computronics.audioCable, 1, 0)).duration(64 * TICKS)
+                    .itemOutputs(new ItemStack(Computronics.audioCable, 1, 0)).duration(3*SECONDS + 4 * TICKS)
                     .eut(TierEU.RECIPE_LV).addTo(assemblerRecipes);
             GT_Values.RA.stdBuilder()
                     .itemInputs(
                             GT_OreDictUnificator.get(OrePrefixes.wireGt02, Materials.Silver, 1),
                             GT_OreDictUnificator.get(OrePrefixes.plateDouble, Materials.Paper, 1))
                     .fluidInputs(Materials.Lead.getMolten(GT_Values.L))
-                    .itemOutputs(new ItemStack(Computronics.audioCable, 1, 0)).duration(64 * TICKS)
+                    .itemOutputs(new ItemStack(Computronics.audioCable, 1, 0)).duration(3*SECONDS + 4 * TICKS)
                     .eut(TierEU.RECIPE_LV).addTo(assemblerRecipes);
         }
         if (Computronics.speaker != null) {
