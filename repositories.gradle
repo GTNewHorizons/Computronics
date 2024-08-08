@@ -5,6 +5,7 @@ repositories {
     maven {
         name = "OC repo"
         url = "https://maven.cil.li/"
+		url = "https://mvnrepository.com/"
     }
     ivy {
         name "Vexatos Github"
