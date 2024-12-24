@@ -61,6 +61,7 @@ import pl.asie.computronics.integration.gregtech.gregtech5.DriverBatteryBuffer;
 import pl.asie.computronics.integration.gregtech.gregtech5.DriverDeviceInformation;
 import pl.asie.computronics.integration.gregtech.gregtech5.DriverDigitalChest;
 import pl.asie.computronics.integration.gregtech.gregtech5.DriverMachine;
+import pl.asie.computronics.integration.gregtech.gregtech5.DriverTTMultiblockBase;
 import pl.asie.computronics.integration.mekanism.DriverStrictEnergyStorage;
 import pl.asie.computronics.integration.railcraft.driver.DriverElectricGrid;
 import pl.asie.computronics.integration.railcraft.driver.DriverRoutingDetector;
@@ -274,6 +275,7 @@ public class IntegrationOpenComputers {
                 Driver.add(new DriverDeviceInformation());
                 Driver.add(new DriverMachine());
                 Driver.add(new DriverBatteryBuffer());
+                Driver.add(new DriverTTMultiblockBase());
             }
             if (compat.isCompatEnabled(Compat.GregTech_DigitalChests)) {
                 Driver.add(new DriverDigitalChest());
