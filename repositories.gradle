@@ -6,10 +6,9 @@ repositories {
         name = "OC repo"
         url = "https://maven.cil.li/"
     }
-	    maven {
-        name = "additional"
-		url = "https://repo.myrobotlab.org/artifactory/myrobotlab/"
-    }
+    maven { url = 'https://raw.githubusercontent.com/DFKI-MLT/Maven-Repository/main/' }
+    maven { url = 'https://nrgxnat.jfrog.io/artifactory/libs-release/' }
+    maven { url = 'https://nexus.terrestris.de/repository/public/' }
     ivy {
         name "Vexatos Github"
         metadataSources {
