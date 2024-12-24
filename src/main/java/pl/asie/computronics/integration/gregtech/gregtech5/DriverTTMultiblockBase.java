@@ -22,14 +22,14 @@ public class DriverTTMultiblockBase extends DriverSidedTileEntity {
             super(tile, name);
         }
 
-        @Callback(doc = "function(hatch:int, id: int, val:double); Sets a parameter", direct = true)
+        @Callback(doc = "function(hatch:int, id:int, val:double); Sets a parameter", direct = false)
         public Object[] setParameters(Context c, Arguments a) {
             Parameters p = ((TTMultiblockBase) tile.getMetaTileEntity()).parametrization;
             p.trySetParameters(a.checkInteger(0), a.checkInteger(1), a.checkDouble(2));
             return null;
         }
 
-        @Callback(doc = "function(hatch:int, id: int);double Returns the value of a parameter", direct = true)
+        @Callback(doc = "function(hatch:int, id:int);double Returns the value of a parameter", direct = true)
         public Object[] getParameters(Context c, Arguments a) {
             return new Object[] { ((TTMultiblockBase) tile.getMetaTileEntity()).parametrization
                     .getGroup(a.checkInteger(0)).parameterIn[a.checkInteger((1))].get() };
