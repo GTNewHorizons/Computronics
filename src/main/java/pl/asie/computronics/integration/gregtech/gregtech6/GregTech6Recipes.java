@@ -602,7 +602,7 @@ public class GregTech6Recipes extends ModRecipes {
                 't',
                 new ItemStack(Computronics.itemPartsGreg, 1, 0),
                 'p',
-                "plateQuadrupleTungstenSteel",
+                "plateTripleTungstenSteel",
                 'c',
                 IL.Processor_Crystal_Sapphire.get(1));
 
