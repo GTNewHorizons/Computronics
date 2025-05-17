@@ -18,15 +18,7 @@ import li.cil.oc.api.network.ManagedEnvironment;
 import li.cil.oc.api.prefab.DriverSidedTileEntity;
 import pl.asie.computronics.integration.ManagedEnvironmentOCTile;
 
-/**
- * @author Asie, Vexatos, Gemini
- *
- * Driver for GregTech MetaTileEntities that support circuit configuration
- * via {@link IConfigurationCircuitSupport}.
- * Exposes a "gt_circuit_config" component.
- * The managed environment operates on {@link IMetaTileEntity}.
- */
-public class DriverGregTechCircuitConfig extends DriverSidedTileEntity {
+public class DriverGregTechCircuitConfigableMachine extends DriverSidedTileEntity {
 
     private static final int NO_CONFIG = -1; // Similar to GhostCircuitItemStackHandler.NO_CONFIG
 
@@ -39,7 +31,7 @@ public class DriverGregTechCircuitConfig extends DriverSidedTileEntity {
 
         @Override
         public int priority() {
-            return 0; // Default priority, distinct component name "gt_circuit_config"
+            return 0; // Default priority
         }
 
         private int getCircuitSlot() {
@@ -55,7 +47,7 @@ public class DriverGregTechCircuitConfig extends DriverSidedTileEntity {
                 return new Object[]{null, "Machine does not support circuit configuration."};
             }
             int circuitSlot = getCircuitSlot();
-            if (circuitSlot < 0 || circuitSlot >= this.tile.getSizeInventory()) {
+            if (circuitSlot < 0 || circuitSlot >= this.tile.getSizeInventory()) { // Changed to getSizeInventory()
                 // Computronics.log.warn("Invalid circuit slot " + circuitSlot + " for " + this.tile.getMetaName());
                 return new Object[]{null, "Invalid circuit slot index."};
             }
@@ -73,7 +65,7 @@ public class DriverGregTechCircuitConfig extends DriverSidedTileEntity {
                 return new Object[]{null, "Machine does not support circuit configuration."};
             }
             int circuitSlot = getCircuitSlot();
-            if (circuitSlot < 0 || circuitSlot >= this.tile.getSizeInventory()) {
+            if (circuitSlot < 0 || circuitSlot >= this.tile.getSizeInventory()) { // Changed to getSizeInventory()
                 // Computronics.log.warn("Invalid circuit slot " + circuitSlot + " for " + this.tile.getMetaName());
                 return new Object[]{null, "Invalid circuit slot index."};
             }
@@ -115,9 +107,9 @@ public class DriverGregTechCircuitConfig extends DriverSidedTileEntity {
         if (tileEntity instanceof BaseMetaTileEntity) {
             IMetaTileEntity mte = ((BaseMetaTileEntity) tileEntity).getMetaTileEntity();
             if (mte instanceof IConfigurationCircuitSupport) { // Ensure again before creating environment
-                return new ManagedEnvironmentGregTechCircuitConfig(mte, "gt_circuit_config");
+                return new ManagedEnvironmentGregTechCircuitConfig(mte, "gt_machine");
             }
         }
         return null;
     }
-}
+} 
