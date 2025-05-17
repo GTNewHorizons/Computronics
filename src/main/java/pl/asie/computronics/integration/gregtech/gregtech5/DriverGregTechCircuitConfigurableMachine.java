@@ -18,7 +18,7 @@ import li.cil.oc.api.network.ManagedEnvironment;
 import li.cil.oc.api.prefab.DriverSidedTileEntity;
 import pl.asie.computronics.integration.ManagedEnvironmentOCTile;
 
-public class DriverGregTechCircuitConfigableMachine extends DriverSidedTileEntity {
+public class DriverGregTechCircuitConfigurableMachine extends DriverSidedTileEntity {
 
     private static final int NO_CONFIG = -1; // Similar to GhostCircuitItemStackHandler.NO_CONFIG
 
@@ -112,4 +112,4 @@ public class DriverGregTechCircuitConfigableMachine extends DriverSidedTileEntit
         }
         return null;
     }
-} 
+}
