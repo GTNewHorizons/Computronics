@@ -20,7 +20,7 @@ import pl.asie.computronics.integration.ManagedEnvironmentOCTile;
 
 public class DriverGregTechCircuitConfigurableMachine extends DriverSidedTileEntity {
 
-    private static final int NO_CONFIG = -1; // Similar to GhostCircuitItemStackHandler.NO_CONFIG
+    private static final int NO_CONFIG = -1;
 
     public static class ManagedEnvironmentGregTechCircuitConfig extends ManagedEnvironmentOCTile<IMetaTileEntity> {
         public static final int MAX_CIRCUIT_NUMBER = 24;
@@ -31,7 +31,7 @@ public class DriverGregTechCircuitConfigurableMachine extends DriverSidedTileEnt
 
         @Override
         public int priority() {
-            return 0; // Default priority
+            return 0;
         }
 
         private int getCircuitSlot() {
@@ -47,8 +47,7 @@ public class DriverGregTechCircuitConfigurableMachine extends DriverSidedTileEnt
                 return new Object[]{null, "Machine does not support circuit configuration."};
             }
             int circuitSlot = getCircuitSlot();
-            if (circuitSlot < 0 || circuitSlot >= this.tile.getSizeInventory()) { // Changed to getSizeInventory()
-                // Computronics.log.warn("Invalid circuit slot " + circuitSlot + " for " + this.tile.getMetaName());
+            if (circuitSlot < 0 || circuitSlot >= this.tile.getSizeInventory()) {
                 return new Object[]{null, "Invalid circuit slot index."};
             }
 
@@ -65,8 +64,7 @@ public class DriverGregTechCircuitConfigurableMachine extends DriverSidedTileEnt
                 return new Object[]{null, "Machine does not support circuit configuration."};
             }
             int circuitSlot = getCircuitSlot();
-            if (circuitSlot < 0 || circuitSlot >= this.tile.getSizeInventory()) { // Changed to getSizeInventory()
-                // Computronics.log.warn("Invalid circuit slot " + circuitSlot + " for " + this.tile.getMetaName());
+            if (circuitSlot < 0 || circuitSlot >= this.tile.getSizeInventory()) {
                 return new Object[]{null, "Invalid circuit slot index."};
             }
 
@@ -87,7 +85,6 @@ public class DriverGregTechCircuitConfigurableMachine extends DriverSidedTileEnt
 
     @Override
     public Class<?> getTileEntityClass() {
-        // The driver attaches to the BaseMetaTileEntity which hosts the IMetaTileEntity
         return BaseMetaTileEntity.class;
     }
 
