@@ -27,21 +27,24 @@ import pl.asie.computronics.reference.Names;
 public class DriverWeatherObelisk {
 
     private static Object[] activate(TileWeatherObelisk tile) {
-        return new Object[] { tile.startTask() };
+        if (tile.getActiveTask() == null) {
+            tile.startTask();
+            return new Object[] { tile.getActiveTask() != null };
+        }
+        return new Object[] { false };
     }
 
     private static Object[] canActivate(TileWeatherObelisk tile, int taskID) {
         final WeatherTask[] VALUES = WeatherTask.values();
         taskID--;
         if (taskID < 0 || taskID >= VALUES.length) {
-            return new Object[] { false,
-                    "invalid weather mode. needs to be between 1 and " + String.valueOf(VALUES.length) };
+            return new Object[] { false, "invalid weather mode. needs to be between 1 and " + VALUES.length };
         }
         return new Object[] { tile.canStartTask(VALUES[taskID]) };
     }
 
     private static Object[] weather_modes() {
-        LinkedHashMap<String, Integer> weatherModes = new LinkedHashMap<String, Integer>();
+        LinkedHashMap<String, Integer> weatherModes = new LinkedHashMap<>();
         final WeatherTask[] VALUES = WeatherTask.values();
         for (int i = 0; i < VALUES.length; i++) {
             weatherModes.put(VALUES[i].name().toLowerCase(Locale.ENGLISH), i + 1);
@@ -104,9 +107,9 @@ public class DriverWeatherObelisk {
         }
 
         @Override
-        public CCMultiPeripheral getPeripheral(World world, int x, int y, int z, int side) {
+        public CCMultiPeripheral<TileWeatherObelisk> getPeripheral(World world, int x, int y, int z, int side) {
             TileEntity te = world.getTileEntity(x, y, z);
-            if (te != null && te instanceof TileWeatherObelisk) {
+            if (te instanceof TileWeatherObelisk) {
                 return new CCDriver((TileWeatherObelisk) te, world, x, y, z);
             }
             return null;
