@@ -23,7 +23,7 @@ dependencies {
     compileOnly(deobf('https://media.forgecdn.net/files/3005/75/Armourers-Workshop-1.7.10-0.48.5.jar'))
     compileOnly(deobf('https://media.forgecdn.net/files/2269/339/ComputerCraft1.75.jar'))
     compileOnly(deobf('https://media.forgecdn.net/files/2301/651/FSP-1.7.10-0.29.3.jar'))
-    compileOnly(deobf('http://immibis.com/mcmoddl/files/redlogic-59.1.13.jar'))
+	compileOnly rfg.deobf("maven.modrinth:redlogic:59.1.13")
     compileOnly('curse.maven:openperipheralcore-228817:2386737') {
         transitive = false
     }
