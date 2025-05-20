@@ -41,7 +41,6 @@ import pl.asie.computronics.integration.draconicevolution.DriverExtendedRFStorag
 import pl.asie.computronics.integration.enderio.DriverAbstractMachine;
 import pl.asie.computronics.integration.enderio.DriverAbstractPoweredMachine;
 import pl.asie.computronics.integration.enderio.DriverCapacitorBank;
-import pl.asie.computronics.integration.enderio.DriverCapacitorBankOld;
 import pl.asie.computronics.integration.enderio.DriverHasExperience;
 import pl.asie.computronics.integration.enderio.DriverIOConfigurable;
 import pl.asie.computronics.integration.enderio.DriverPowerMonitor;
@@ -302,7 +301,6 @@ public class IntegrationOpenComputers {
                 Driver.add(new DriverAbstractPoweredMachine.OCDriver());
                 Driver.add(new DriverPowerMonitor.OCDriver());
                 Driver.add(new DriverCapacitorBank.OCDriver());
-                Driver.add(new DriverCapacitorBankOld.OCDriver());
                 Driver.add(new DriverTransceiver.OCDriver());
                 Driver.add(new DriverVacuumChest.OCDriver());
                 Driver.add(new DriverWeatherObelisk.OCDriver());
