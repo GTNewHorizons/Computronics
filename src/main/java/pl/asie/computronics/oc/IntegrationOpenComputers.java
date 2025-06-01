@@ -55,12 +55,7 @@ import pl.asie.computronics.integration.factorization.DriverChargeConductor;
 import pl.asie.computronics.integration.flamingo.DriverFlamingo;
 import pl.asie.computronics.integration.forestry.IntegrationForestry;
 import pl.asie.computronics.integration.fsp.DriverSteamTransporter;
-import pl.asie.computronics.integration.gregtech.gregtech5.DriverBaseMetaTileEntity;
-import pl.asie.computronics.integration.gregtech.gregtech5.DriverBatteryBuffer;
-import pl.asie.computronics.integration.gregtech.gregtech5.DriverDeviceInformation;
-import pl.asie.computronics.integration.gregtech.gregtech5.DriverDigitalChest;
-import pl.asie.computronics.integration.gregtech.gregtech5.DriverMachine;
-import pl.asie.computronics.integration.gregtech.gregtech5.DriverTTMultiblockBase;
+import pl.asie.computronics.integration.gregtech.gregtech5.*;
 import pl.asie.computronics.integration.mekanism.DriverStrictEnergyStorage;
 import pl.asie.computronics.integration.railcraft.driver.DriverElectricGrid;
 import pl.asie.computronics.integration.railcraft.driver.DriverRoutingDetector;
@@ -273,6 +268,7 @@ public class IntegrationOpenComputers {
                 Driver.add(new DriverBaseMetaTileEntity());
                 Driver.add(new DriverDeviceInformation());
                 Driver.add(new DriverMachine());
+                Driver.add(new DriverGregTechCircuitConfigurableMachine());
                 Driver.add(new DriverBatteryBuffer());
                 Driver.add(new DriverTTMultiblockBase());
             }
