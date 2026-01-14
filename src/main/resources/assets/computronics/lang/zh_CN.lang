@@ -13,6 +13,7 @@ tile.computronics.digitalControllerBox.name=数字信号控制器
 tile.computronics.digitalReceiverBox.name=数字信号接收器
 tile.computronics.detector.name=检测器 - 数字
 tile.computronics.ticketMachine.name=售票机
+gui.computronics.ticketMachine.title=售票机
 tile.computronics.audiocable.name=音频线
 tile.computronics.speaker.name=扩音器
 tile.computronics.speechBox.name=语音盒
