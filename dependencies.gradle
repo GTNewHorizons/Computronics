@@ -1,16 +1,19 @@
 // Add your dependencies here
 
 dependencies {
-    api('com.github.GTNewHorizons:AsieLib:0.6.0:dev')
-    compileOnly('com.github.GTNewHorizons:OpenComputers:1.11.16-GTNH:dev')
-    compileOnly("com.github.GTNewHorizons:BuildCraft:7.1.42:dev")
-	compileOnly('com.github.GTNewHorizons:EnderIO:2.9.16:dev')
+    api('com.github.GTNewHorizons:AsieLib:0.7.1:dev')
+    compileOnly('com.github.GTNewHorizons:OpenComputers:1.12.12-GTNH:dev')
+    compileOnly("com.github.GTNewHorizons:BuildCraft:7.1.48:dev")
+	compileOnly('com.github.GTNewHorizons:EnderIO:2.10.12:dev')
     compileOnly('li.cil.tis3d:TIS-3D:MC1.7.10-1.2.4.70:dev')
     compileOnly('com.gregoriust.gregtech:gregtech_1.7.10:6.04.06:dev')
-    compileOnly('com.github.GTNewHorizons:GT5-Unofficial:5.09.51.330:dev')
-    compileOnly('com.github.GTNewHorizons:Draconic-Evolution:1.4.21-GTNH:api')
-    compileOnly('com.github.GTNewHorizons:StorageDrawers:2.1.2-GTNH:api')
-    compileOnly('com.github.GTNewHorizons:gendustry:1.9.1-GTNH:dev')
+    compileOnly('com.github.GTNewHorizons:GT5-Unofficial:5.09.52.205:dev')
+    compileOnly('com.github.GTNewHorizons:Draconic-Evolution:1.5.8-GTNH:api')
+    compileOnly('com.github.GTNewHorizons:StorageDrawers:2.2.9-GTNH:api')
+    compileOnly('com.github.GTNewHorizons:gendustry:1.9.7-GTNH:dev')
+    compileOnly rfg.deobf("curse.maven:Armourers-Workshop-229523:3005075")
+    compileOnly rfg.deobf("curse.maven:ComputerCraft-67504:2269339")
+    compileOnly rfg.deobf("curse.maven:FSP-224867:2301651")
     compileOnly('de.dfki.mary:voice-cmu-slt-hsmm:5.2.1') {
         exclude module: 'commons-io'
     }
@@ -21,9 +24,6 @@ dependencies {
     compileOnly('curse.maven:minefactory-reloaded-66672:2366150') {
         transitive = false
     }
-    compileOnly(deobf('https://media.forgecdn.net/files/3005/75/Armourers-Workshop-1.7.10-0.48.5.jar'))
-    compileOnly(deobf('https://media.forgecdn.net/files/2269/339/ComputerCraft1.75.jar'))
-    compileOnly(deobf('https://media.forgecdn.net/files/2301/651/FSP-1.7.10-0.29.3.jar'))
 	compileOnly rfg.deobf("maven.modrinth:redlogic:59.1.13")
     compileOnly('curse.maven:openperipheralcore-228817:2386737') {
         transitive = false
