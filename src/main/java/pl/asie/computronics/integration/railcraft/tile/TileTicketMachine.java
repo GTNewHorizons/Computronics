@@ -584,6 +584,10 @@ public class TileTicketMachine extends TileEntityPeripheralBase
         return getBlockType().getUnlocalizedName() + ".name";
     }
 
+    public String getGuiLocalizationTag() {
+        return "gui." + getBlockType().getUnlocalizedName() + ".title";
+    }
+
     public boolean isOwner(GameProfile player) {
         return isSamePlayer(this.owner, player);
     }
