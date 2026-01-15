@@ -1,7 +1,6 @@
 // Add any additional repositories for your dependencies here
 
 repositories {
-    jcenter() // Needed for Mary TTS
     maven {
         name = "OC repo"
         url = "https://maven.cil.li/"
@@ -14,6 +13,21 @@ repositories {
         metadataSources {
             artifact()
         }
+        artifactPattern "https://github.com/Vexatos/[module]/releases/download/v[revision]/[module]-1.7.10-[revision].jar"
+    }
+    ivy {
+        name "copygirl Github"
+        metadataSources {
+            artifact()
+        }
+        artifactPattern "https://github.com/copygirl/[module]/releases/download/v[revision]/[module]-1.7.10-[revision].jar"
+    }
+	ivy {
+        name "Factorization Archive"
+        metadataSources {
+            artifact()
+        }
+		artifactPattern "https://github.com/purpleposeidon/fz_archive/raw/master/old/[module]-[revision].jar"
         artifactPattern "https://github.com/Vexatos/[module]/releases/download/v[revision]/[module]-1.7.10-[revision].jar"
     }
 }
