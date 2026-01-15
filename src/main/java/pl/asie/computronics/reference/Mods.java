@@ -12,8 +12,8 @@ import cpw.mods.fml.common.versioning.ArtifactVersion;
 public class Mods {
 
     // The mod itself
-    public static final String Computronics = "GRADLETOKEN_MODID", Computronics_NAME = "GRADLETOKEN_MODNAME",
-            Computronics_VERSION = "GRADLETOKEN_VERSION";
+    public static final String Computronics = "computronics", Computronics_NAME = "Computronics",
+            Computronics_VERSION = Tags.VERSION;
 
     // Computer mods
     public static final String OpenComputers = "OpenComputers", ComputerCraft = "ComputerCraft", TIS3D = "tis3d";
