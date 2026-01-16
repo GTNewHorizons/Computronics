@@ -157,6 +157,8 @@ public class ModuleTapeReader extends ComputronicsModule {
                     }
                     break;
                 }
+                default:
+                    break;
             }
         }
 
@@ -267,6 +269,8 @@ public class ModuleTapeReader extends ComputronicsModule {
                     }
                     break;
                 }
+                default:
+                    break;
             }
         }
 

@@ -4,7 +4,6 @@ import java.io.IOException;
 import java.util.Collection;
 import java.util.Collections;
 import java.util.HashSet;
-import java.util.List;
 import java.util.Set;
 
 import net.minecraft.entity.player.EntityPlayerMP;
@@ -60,11 +59,9 @@ public abstract class AudioPacket {
         return distSq <= mdSq;
     }
 
-    @SuppressWarnings("unchecked")
     public final void sendPacket() {
         try {
-            for (EntityPlayerMP playerMP : (List<EntityPlayerMP>) MinecraftServer.getServer()
-                    .getConfigurationManager().playerEntityList) {
+            for (EntityPlayerMP playerMP : MinecraftServer.getServer().getConfigurationManager().playerEntityList) {
                 if (playerMP == null || playerMP.worldObj == null) {
                     continue;
                 }

@@ -53,6 +53,8 @@ public class NetworkHandlerServer extends MessageHandlerBase {
                 }
             }
                 break;
+            default:
+                break;
         }
     }
 }

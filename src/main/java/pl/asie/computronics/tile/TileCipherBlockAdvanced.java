@@ -86,7 +86,7 @@ public class TileCipherBlockAdvanced extends TileEntityPeripheralBase {
         }
     }
 
-    private static Map<Integer, String> checkValidKey(Map map, int index) {
+    private static Map<Integer, String> checkValidKey(Map<?, ?> map, int index) {
         if (map.get(1) instanceof String && map.get(2) instanceof String) {
             Map<Integer, String> keyMap = new LinkedHashMap<Integer, String>();
             keyMap.put(1, (String) map.get(1));
@@ -312,7 +312,7 @@ public class TileCipherBlockAdvanced extends TileEntityPeripheralBase {
                     } else if (!(arguments.length >= 2 && arguments[1] instanceof Map)) {
                         throw new LuaException("second argument needs to be a table");
                     }
-                    return this.encrypt(checkValidKey((Map) arguments[1], 1), (String) arguments[0]);
+                    return this.encrypt(checkValidKey((Map<?, ?>) arguments[1], 1), (String) arguments[0]);
                 }
                 case 3: {
                     if (!(arguments.length >= 1 && arguments[0] instanceof String)) {
@@ -320,7 +320,7 @@ public class TileCipherBlockAdvanced extends TileEntityPeripheralBase {
                     } else if (!(arguments.length >= 2 && arguments[1] instanceof Map)) {
                         throw new LuaException("second argument needs to be a table");
                     }
-                    return this.decrypt(checkValidKey((Map) arguments[1], 1), (String) arguments[0]);
+                    return this.decrypt(checkValidKey((Map<?, ?>) arguments[1], 1), (String) arguments[0]);
                 }
             }
         } catch (InterruptedException ie) {

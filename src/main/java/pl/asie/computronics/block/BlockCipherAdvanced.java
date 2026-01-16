@@ -58,7 +58,8 @@ public class BlockCipherAdvanced extends BlockMachineSidedIcon implements IBlock
 
     @SuppressWarnings("unchecked")
     @Override
-    public void addInformation(ItemStack stack, EntityPlayer player, List list, boolean wat) {
+    public void addInformation(ItemStack stack, EntityPlayer player, @SuppressWarnings("rawtypes") List list,
+            boolean wat) {
         list.add(EnumChatFormatting.GRAY + StringUtil.localize("tooltip.computronics.cipher.advanced"));
     }
 

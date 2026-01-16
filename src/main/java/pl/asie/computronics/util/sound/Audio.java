@@ -305,6 +305,7 @@ public class Audio {
     // Having the error code in an accessible way is really cool, you know.
     class LessUselessOpenALException extends OpenALException {
 
+        private static final long serialVersionUID = -1935006916683881681L;
         final int errorCode;
 
         LessUselessOpenALException(int errorCode) {

@@ -62,7 +62,7 @@ public class RobotUpgradeRadar extends ManagedEnvironment implements DeviceInfo 
             direct = true,
             limit = CALL_LIMIT)
     public Object[] getEntities(Context context, Arguments args) {
-        List<Map> entities = new ArrayList<Map>();
+        List<Map<String, Object>> entities = new ArrayList<>();
         int distance = getDistance(args);
         if (((Connector) this.node()).tryChangeBuffer(0 - (Config.RADAR_ENERGY_COST_OC * distance * 1.75))) {
             AxisAlignedBB bounds = getBounds(distance);
@@ -98,7 +98,7 @@ public class RobotUpgradeRadar extends ManagedEnvironment implements DeviceInfo 
             direct = true,
             limit = CALL_LIMIT)
     public Object[] getPlayers(Context context, Arguments args) {
-        List<Map> entities = new ArrayList<Map>();
+        List<Map<String, Object>> entities = new ArrayList<>();
         int distance = getDistance(args);
         if (((Connector) this.node()).tryChangeBuffer(0 - (Config.RADAR_ENERGY_COST_OC * distance * 1.0))) {
             AxisAlignedBB bounds = getBounds(distance);
@@ -120,7 +120,7 @@ public class RobotUpgradeRadar extends ManagedEnvironment implements DeviceInfo 
             direct = true,
             limit = CALL_LIMIT)
     public Object[] getMobs(Context context, Arguments args) {
-        List<Map> entities = new ArrayList<Map>();
+        List<Map<String, Object>> entities = new ArrayList<>();
         int distance = getDistance(args);
         if (((Connector) this.node()).tryChangeBuffer(0 - (Config.RADAR_ENERGY_COST_OC * distance * 1.0))) {
             AxisAlignedBB bounds = getBounds(distance);
@@ -142,7 +142,7 @@ public class RobotUpgradeRadar extends ManagedEnvironment implements DeviceInfo 
             direct = true,
             limit = CALL_LIMIT)
     public Object[] getItems(Context context, Arguments args) {
-        List<Map> entities = new ArrayList<Map>();
+        List<Map<String, Object>> entities = new ArrayList<>();
         int distance = getDistance(args);
         if (((Connector) this.node()).tryChangeBuffer(0 - (Config.RADAR_ENERGY_COST_OC * distance * 2.0))) {
             AxisAlignedBB bounds = getBounds(distance);

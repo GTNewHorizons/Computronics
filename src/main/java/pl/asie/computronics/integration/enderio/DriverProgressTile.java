@@ -67,7 +67,7 @@ public class DriverProgressTile {
         }
 
         @Override
-        public CCMultiPeripheral getPeripheral(World world, int x, int y, int z, int side) {
+        public CCMultiPeripheral<IProgressTile> getPeripheral(World world, int x, int y, int z, int side) {
             TileEntity te = world.getTileEntity(x, y, z);
             if (te != null && te instanceof IProgressTile) {
                 return new CCDriver((IProgressTile) te, world, x, y, z);

@@ -307,7 +307,7 @@ public class ItemOpenComputers extends ItemMultiple
     @Override
     @SideOnly(Side.CLIENT)
     @SuppressWarnings("unchecked")
-    public void getSubItems(net.minecraft.item.Item item, CreativeTabs tabs, List list) {
+    public void getSubItems(net.minecraft.item.Item item, CreativeTabs tabs, @SuppressWarnings("rawtypes") List list) {
         if (Config.OC_UPGRADE_CAMERA) {
             list.add(new ItemStack(item, 1, 0));
         }
@@ -428,8 +428,7 @@ public class ItemOpenComputers extends ItemMultiple
     // Mostly stolen from Sangar
     @Override
     @SideOnly(Side.CLIENT)
-    @SuppressWarnings("unchecked")
-    public void addInformation(ItemStack stack, EntityPlayer player, List tooltip, boolean advanced) {
+    public void addInformation(ItemStack stack, EntityPlayer player, List<String> tooltip, boolean advanced) {
         OCUtils.addTooltip(stack, tooltip, advanced);
     }
 
