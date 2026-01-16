@@ -71,7 +71,7 @@ public class CCRadarProxy {
                         }
 
                 AxisAlignedBB bounds = getBounds(xCoord, yCoord, zCoord, fDistance);
-                Set<Map> entities = new HashSet<Map>();
+                Set<Map<String, Object>> entities = new HashSet<>();
                 if (method == 0 || method == 1) {
                     entities.addAll(
                             RadarUtils.getEntities(

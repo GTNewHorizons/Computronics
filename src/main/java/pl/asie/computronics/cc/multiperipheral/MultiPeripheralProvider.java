@@ -89,13 +89,13 @@ public class MultiPeripheralProvider implements IPeripheralProvider {
             return;
         }
         ccPeripheralProviders = new ArrayList<IPeripheralProvider>();
-        List ccperiphs;
+        List<Object> ccperiphs;
         try {
             // I am sorry I have to do this
             Class<?> cclass = Class.forName("dan200.computercraft.ComputerCraft");
             Field cfield = cclass.getDeclaredField("peripheralProviders");
             cfield.setAccessible(true);
-            ccperiphs = (List) cfield.get(null);
+            ccperiphs = (List<Object>) cfield.get(null);
         } catch (IllegalAccessException e) {
             log.error("Could not access ComputerCraft peripheral provider list");
             ccErrored = true;

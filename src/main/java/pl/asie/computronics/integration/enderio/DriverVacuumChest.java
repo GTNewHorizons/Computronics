@@ -72,7 +72,7 @@ public class DriverVacuumChest {
         }
 
         @Override
-        public CCMultiPeripheral getPeripheral(World world, int x, int y, int z, int side) {
+        public CCMultiPeripheral<TileVacuumChest> getPeripheral(World world, int x, int y, int z, int side) {
             TileEntity te = world.getTileEntity(x, y, z);
             if (te != null && te instanceof TileVacuumChest) {
                 return new CCDriver((TileVacuumChest) te, world, x, y, z);

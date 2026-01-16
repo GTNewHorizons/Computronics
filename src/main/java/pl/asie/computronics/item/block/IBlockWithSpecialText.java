@@ -12,7 +12,7 @@ public interface IBlockWithSpecialText {
 
     public boolean hasSubTypes();
 
-    public void addInformation(ItemStack stack, EntityPlayer player, List list, boolean wat);
+    public void addInformation(ItemStack stack, EntityPlayer player, List<String> list, boolean wat);
 
     public String getUnlocalizedName(ItemStack stack);
 }

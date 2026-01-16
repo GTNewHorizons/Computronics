@@ -58,9 +58,8 @@ public class BlockChatBox extends BlockMachineSidedIcon implements IBlockWithSpe
         return new TileChatBox();
     }
 
-    @SuppressWarnings("unchecked")
     @Override
-    public void getSubBlocks(Item item, CreativeTabs creativeTabs, List blockList) {
+    public void getSubBlocks(Item item, CreativeTabs creativeTabs, List<ItemStack> blockList) {
         blockList.add(new ItemStack(item, 1, 0));
         if (Config.CHATBOX_CREATIVE) {
             blockList.add(new ItemStack(item, 1, 8));
@@ -109,9 +108,10 @@ public class BlockChatBox extends BlockMachineSidedIcon implements IBlockWithSpe
         return true;
     }
 
-    @Override
     @SuppressWarnings("unchecked")
-    public void addInformation(ItemStack stack, EntityPlayer player, List list, boolean wat) {
+    @Override
+    public void addInformation(ItemStack stack, EntityPlayer player, @SuppressWarnings("rawtypes") List list,
+            boolean wat) {
         if (stack.getItemDamage() >= 8) {
             list.add(EnumChatFormatting.GRAY + StringUtil.localize("tooltip.computronics.chatBox.creative"));
         }

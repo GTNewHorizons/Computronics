@@ -31,8 +31,8 @@ public class ToolTips {
                 String text = LocalizationPlugin.translate(tipTag);
 
                 for (String var : vars) {
-                    List pair = keyValueSplitter.splitToList(var);
-                    text = text.replace((CharSequence) pair.get(0), (CharSequence) pair.get(1));
+                    List<String> pair = keyValueSplitter.splitToList(var);
+                    text = text.replace(pair.get(0), pair.get(1));
                 }
 
                 for (String var11 : lineSplitter.split(text)) {

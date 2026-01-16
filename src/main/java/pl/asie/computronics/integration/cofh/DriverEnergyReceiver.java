@@ -30,7 +30,7 @@ public class DriverEnergyReceiver {
         }
 
         @Override
-        public CCMultiPeripheral getPeripheral(World world, int x, int y, int z, int side) {
+        public CCMultiPeripheral<IEnergyReceiver> getPeripheral(World world, int x, int y, int z, int side) {
             TileEntity te = world.getTileEntity(x, y, z);
             if (te != null && te instanceof IEnergyReceiver) {
                 return new CCDriver((IEnergyReceiver) te, world, x, y, z);

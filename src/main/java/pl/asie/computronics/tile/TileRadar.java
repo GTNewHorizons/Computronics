@@ -78,7 +78,7 @@ public class TileRadar extends TileEntityPeripheralBase implements IBatteryProvi
             doc = "function([distance:number]):table; Returns a list of all entities detected within the specified or the maximum range")
     @Optional.Method(modid = Mods.OpenComputers)
     public Object[] getEntities(Context context, Arguments args) {
-        Set<Map> entities = new HashSet<Map>();
+        Set<Map<String, Object>> entities = new HashSet<>();
         int distance = getDistance(args);
         double energyNeeded = (Config.RADAR_ENERGY_COST_OC * distance * 1.75);
         if (((Connector) node()).tryChangeBuffer(0 - energyNeeded) || extractFromBattery(energyNeeded)) {
@@ -114,7 +114,7 @@ public class TileRadar extends TileEntityPeripheralBase implements IBatteryProvi
             doc = "function([distance:number]):table; Returns a list of all players detected within the specified or the maximum range")
     @Optional.Method(modid = Mods.OpenComputers)
     public Object[] getPlayers(Context context, Arguments args) {
-        Set<Map> entities = new HashSet<Map>();
+        Set<Map<String, Object>> entities = new HashSet<>();
         int distance = getDistance(args);
         double energyNeeded = (Config.RADAR_ENERGY_COST_OC * distance * 1.0);
         if (((Connector) node()).tryChangeBuffer(0 - energyNeeded) || extractFromBattery(energyNeeded)) {
@@ -136,7 +136,7 @@ public class TileRadar extends TileEntityPeripheralBase implements IBatteryProvi
             doc = "function([distance:number]):table; Returns a list of all mobs detected within the specified or the maximum range")
     @Optional.Method(modid = Mods.OpenComputers)
     public Object[] getMobs(Context context, Arguments args) {
-        Set<Map> entities = new HashSet<Map>();
+        Set<Map<String, Object>> entities = new HashSet<>();
         int distance = getDistance(args);
         double energyNeeded = (Config.RADAR_ENERGY_COST_OC * distance * 1.0);
         if (((Connector) node()).tryChangeBuffer(0 - energyNeeded) || extractFromBattery(energyNeeded)) {
@@ -158,7 +158,7 @@ public class TileRadar extends TileEntityPeripheralBase implements IBatteryProvi
             doc = "function([distance:number]):table; Returns a list of all items detected within the specified or the maximum range")
     @Optional.Method(modid = Mods.OpenComputers)
     public Object[] getItems(Context context, Arguments args) {
-        Set<Map> entities = new HashSet<Map>();
+        Set<Map<String, Object>> entities = new HashSet<>();
         int distance = getDistance(args);
         double energyNeeded = (Config.RADAR_ENERGY_COST_OC * distance * 2.0);
         if (((Connector) node()).tryChangeBuffer(0 - energyNeeded) || extractFromBattery(energyNeeded)) {

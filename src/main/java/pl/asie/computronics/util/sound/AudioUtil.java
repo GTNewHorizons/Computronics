@@ -180,6 +180,8 @@ public class AudioUtil {
                     }
                     break;
                 }
+                default:
+                    break;
             }
             value *= progress;
             return value;

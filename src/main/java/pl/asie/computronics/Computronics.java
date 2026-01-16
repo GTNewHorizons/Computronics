@@ -469,7 +469,6 @@ public class Computronics {
      * @see IMultiPeripheralRegistry
      */
     @EventHandler
-    @SuppressWarnings("unchecked")
     public void receiveIMC(FMLInterModComms.IMCEvent event) {
         if (Mods.isLoaded(Mods.ComputerCraft)) {
             ImmutableList<FMLInterModComms.IMCMessage> messages = event.getMessages();
@@ -483,7 +482,7 @@ public class Computronics {
                             String className = methodString
                                     .substring(0, methodString.length() - methodName.length() - 1);
                             try {
-                                Class c = Class.forName(className);
+                                Class<?> c = Class.forName(className);
                                 Method method = c.getDeclaredMethod(methodName, IMultiPeripheralRegistry.class);
                                 method.invoke(null, peripheralRegistry);
                             } catch (ClassNotFoundException e) {

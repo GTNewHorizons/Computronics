@@ -61,7 +61,7 @@ public class DriverRoutingDetector {
     }
 
     private static Object[] setRoutingTable(TileDetector tile, Object[] arguments) {
-        Map pageMap = (Map) arguments[0];
+        Map<?, ?> pageMap = (Map<?, ?>) arguments[0];
         if (((DetectorRouting) tile.getDetector()).getInventory().getStackInSlot(0) != null
                 && ((DetectorRouting) tile.getDetector()).getInventory().getStackInSlot(0)
                         .getItem() instanceof ItemRoutingTable) {

@@ -19,9 +19,8 @@ public class ItemBlockWithSpecialText extends ItemBlock {
         }
     }
 
-    @SuppressWarnings("unchecked")
     @Override
-    public void addInformation(ItemStack stack, EntityPlayer player, List list, boolean wat) {
+    public void addInformation(ItemStack stack, EntityPlayer player, List<String> list, boolean wat) {
         if (this.specialBlock != null) {
             this.specialBlock.addInformation(stack, player, list, wat);
         } else {

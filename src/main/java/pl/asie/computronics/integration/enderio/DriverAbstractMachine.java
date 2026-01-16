@@ -66,7 +66,7 @@ public class DriverAbstractMachine {
         }
 
         @Override
-        public CCMultiPeripheral getPeripheral(World world, int x, int y, int z, int side) {
+        public CCMultiPeripheral<AbstractMachineEntity> getPeripheral(World world, int x, int y, int z, int side) {
             TileEntity te = world.getTileEntity(x, y, z);
             if (te != null && te instanceof AbstractMachineEntity) {
                 return new CCDriver((AbstractMachineEntity) te, world, x, y, z);

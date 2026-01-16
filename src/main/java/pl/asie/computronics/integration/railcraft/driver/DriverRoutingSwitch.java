@@ -57,7 +57,7 @@ public class DriverRoutingSwitch {
     }
 
     private static Object[] setRoutingTable(TileSwitchRouting tile, Object[] arguments) {
-        Map pageMap = (Map) arguments[0];
+        Map<?, ?> pageMap = (Map<?, ?>) arguments[0];
         if (tile.getInventory().getStackInSlot(0) != null
                 && tile.getInventory().getStackInSlot(0).getItem() instanceof ItemRoutingTable) {
             if (!tile.isSecure()) {

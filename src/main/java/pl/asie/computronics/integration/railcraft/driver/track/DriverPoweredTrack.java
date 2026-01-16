@@ -26,7 +26,7 @@ import pl.asie.computronics.reference.Names;
 public class DriverPoweredTrack {
 
     private static Object[] isPowered(ITrackPowered tile) {
-        if (!(tile instanceof ISecure && ((ISecure) tile).isSecure())) {
+        if (!(tile instanceof ISecure && ((ISecure<?>) tile).isSecure())) {
             return new Object[] { tile.isPowered() };
         } else {
             return new Object[] { null, "track is locked" };

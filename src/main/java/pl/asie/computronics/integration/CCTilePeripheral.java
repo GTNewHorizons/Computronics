@@ -58,7 +58,7 @@ public abstract class CCTilePeripheral<T> implements IPeripheral, IPeripheralPro
             return true;
         }
         if (this.getClass().isInstance(other)) {
-            CCTilePeripheral o = this.getClass().cast(other);
+            CCTilePeripheral<?> o = this.getClass().cast(other);
             if (w == o.w && x == o.x && z == o.z && y == o.y) {
                 return true;
             }

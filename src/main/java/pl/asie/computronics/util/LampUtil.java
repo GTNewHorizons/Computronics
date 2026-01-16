@@ -5,7 +5,7 @@ package pl.asie.computronics.util;
  */
 public class LampUtil {
 
-    private static Class coloredLights;
+    private static Class<?> coloredLights;
     private static boolean initialized = false;
 
     /**

@@ -111,7 +111,7 @@ public class DriverIOConfigurable {
         }
 
         @Override
-        public CCMultiPeripheral getPeripheral(World world, int x, int y, int z, int side) {
+        public CCMultiPeripheral<IIoConfigurable> getPeripheral(World world, int x, int y, int z, int side) {
             TileEntity te = world.getTileEntity(x, y, z);
             if (te != null && te instanceof IIoConfigurable) {
                 return new CCDriver((IIoConfigurable) te, world, x, y, z);

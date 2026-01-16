@@ -38,7 +38,7 @@ public class DriverCardBeep extends DriverCardSoundBase {
             direct = true,
             limit = 10)
     public Object[] beep(Context context, Arguments args) throws Exception {
-        Map map = args.checkTable(0);
+        Map<?, ?> map = args.checkTable(0);
         if (map.size() > 8) {
             return new Object[] { false, "table must not contain more than 8 frequencies" };
         }
@@ -49,12 +49,12 @@ public class DriverCardBeep extends DriverCardSoundBase {
         double longest = 0.0;
         for (Object entryObj : map.entrySet()) {
             if (entryObj instanceof Map.Entry) {
-                Object freqObj = ((Map.Entry) entryObj).getKey();
+                Object freqObj = ((Map.Entry<?, ?>) entryObj).getKey();
                 if (!(freqObj instanceof Number)) {
                     throw new IllegalArgumentException("frequency '" + String.valueOf(freqObj) + "' is not a number");
                 }
                 // Object durObj = map.get(freqObj);
-                Object durObj = ((Map.Entry) entryObj).getValue();
+                Object durObj = ((Map.Entry<?, ?>) entryObj).getValue();
                 if (durObj != null && !(durObj instanceof Number)) {
                     throw new IllegalArgumentException("duration '" + String.valueOf(durObj) + "' is not a number");
                 }

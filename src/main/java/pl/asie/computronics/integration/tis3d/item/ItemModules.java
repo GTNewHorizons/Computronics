@@ -37,7 +37,7 @@ public class ItemModules extends ItemMultiple implements ModuleProvider, IModule
     @Override
     @SideOnly(Side.CLIENT)
     @SuppressWarnings("unchecked")
-    public void getSubItems(Item item, CreativeTabs tabs, List list) {
+    public void getSubItems(Item item, CreativeTabs tabs, @SuppressWarnings("rawtypes") List list) {
         if (Config.TIS3D_MODULE_COLORFUL) {
             list.add(new ItemStack(item, 1, 0));
         }
