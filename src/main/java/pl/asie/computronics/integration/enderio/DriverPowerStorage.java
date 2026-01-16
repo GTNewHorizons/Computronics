@@ -81,7 +81,7 @@ public class DriverPowerStorage {
         }
 
         @Override
-        public CCMultiPeripheral getPeripheral(World world, int x, int y, int z, int side) {
+        public CCMultiPeripheral<IPowerStorage> getPeripheral(World world, int x, int y, int z, int side) {
             TileEntity te = world.getTileEntity(x, y, z);
             if (te != null && te instanceof IPowerStorage) {
                 return new CCDriver((IPowerStorage) te, world, x, y, z);

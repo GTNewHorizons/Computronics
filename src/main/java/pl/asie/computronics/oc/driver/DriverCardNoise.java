@@ -212,7 +212,7 @@ public class DriverCardNoise extends DriverCardSoundBase {
         if (sendBuffer != null) {
             return new Object[] { false, "already processing" };
         }
-        Map map = args.checkTable(0);
+        Map<?, ?> map = args.checkTable(0);
         if (map.size() > 8) {
             return new Object[] { false, "table must not contain more than 8 frequencies" };
         }
@@ -227,7 +227,7 @@ public class DriverCardNoise extends DriverCardSoundBase {
                         "frequency-duration pair '" + String.valueOf(freqDurPair) + "' is not a table");
             }
 
-            Map freqDurMap = (Map) freqDurPair;
+            Map<?, ?> freqDurMap = (Map<?, ?>) freqDurPair;
             if (!freqDurMap.containsKey(1)) {
                 continue;
             }

@@ -115,7 +115,7 @@ public class DriverDrawerGroup {
         }
 
         @Override
-        public CCMultiPeripheral getPeripheral(World world, int x, int y, int z, int side) {
+        public CCMultiPeripheral<IDrawerGroup> getPeripheral(World world, int x, int y, int z, int side) {
             TileEntity te = world.getTileEntity(x, y, z);
             if (te != null && te instanceof IDrawerGroup) {
                 return new CCDriver((IDrawerGroup) te, world, x, y, z);

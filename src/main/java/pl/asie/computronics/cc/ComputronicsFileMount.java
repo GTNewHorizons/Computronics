@@ -74,7 +74,7 @@ public class ComputronicsFileMount implements IMount {
     /**
      * @author Sangar, Vexatos
      */
-    public static IMount createMount(Class clazz, String domain, String root) {
+    public static IMount createMount(Class<?> clazz, String domain, String root) {
         try {
             String innerPath = ("assets/" + domain + "/" + root.trim()).replace("//", "/");
             String codeSource = clazz.getProtectionDomain().getCodeSource().getLocation().getPath();

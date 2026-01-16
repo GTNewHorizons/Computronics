@@ -100,6 +100,8 @@ public class NetworkHandlerClient extends MessageHandlerBase {
                 }
             }
                 break;
+            default:
+                break;
         }
     }
 }

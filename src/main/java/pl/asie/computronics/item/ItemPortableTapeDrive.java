@@ -75,8 +75,7 @@ public class ItemPortableTapeDrive extends Item implements IItemWithDocumentatio
 
     @Override
     @SideOnly(Side.CLIENT)
-    @SuppressWarnings("unchecked")
-    public void addInformation(ItemStack stack, EntityPlayer player, List info, boolean advanced) {
+    public void addInformation(ItemStack stack, EntityPlayer player, List<String> info, boolean advanced) {
         if (stack.hasTagCompound()) {
             NBTTagCompound tag = stack.getTagCompound();
             if (tag.hasKey("state") && tag.hasKey("tid")

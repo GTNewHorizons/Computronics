@@ -102,7 +102,7 @@ public class DriverRedstoneControllable {
         }
 
         @Override
-        public CCMultiPeripheral getPeripheral(World world, int x, int y, int z, int side) {
+        public CCMultiPeripheral<IRedstoneModeControlable> getPeripheral(World world, int x, int y, int z, int side) {
             TileEntity te = world.getTileEntity(x, y, z);
             if (te != null && te instanceof IRedstoneModeControlable) {
                 return new CCDriver((IRedstoneModeControlable) te, world, x, y, z);

@@ -161,9 +161,8 @@ public class ItemTape extends Item implements IItemTapeStorage, IMedia, IMediaPr
         return true;
     }
 
-    @SuppressWarnings("unchecked")
     @Override
-    public void addInformation(ItemStack stack, EntityPlayer player, List text, boolean par4) {
+    public void addInformation(ItemStack stack, EntityPlayer player, List<String> text, boolean par4) {
         int size = getSize(stack);
         int len = (int) Math.floor(size / L_MINUTE);
         if (stack.getTagCompound() != null) {
@@ -194,7 +193,7 @@ public class ItemTape extends Item implements IItemTapeStorage, IMedia, IMediaPr
     @SuppressWarnings("unchecked")
     @Override
     @SideOnly(Side.CLIENT)
-    public void getSubItems(Item item, CreativeTabs tabs, List list) {
+    public void getSubItems(Item item, CreativeTabs tabs, @SuppressWarnings("rawtypes") List list) {
         for (int i = 0; i < TAPE_COUNT; i++) {
             if ((i == 7 || i == 9) && !Mods.isLoaded(Mods.GregTech)) {
                 // Do nothing. If we return here, we lose all new tapes.

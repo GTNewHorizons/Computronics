@@ -197,7 +197,7 @@ public class DriverCapacitorBank {
         }
 
         @Override
-        public CCMultiPeripheral getPeripheral(World world, int x, int y, int z, int side) {
+        public CCMultiPeripheral<TileCapBank> getPeripheral(World world, int x, int y, int z, int side) {
             TileEntity te = world.getTileEntity(x, y, z);
             if (te != null && te instanceof TileCapBank) {
                 return new CCDriver((TileCapBank) te, world, x, y, z);

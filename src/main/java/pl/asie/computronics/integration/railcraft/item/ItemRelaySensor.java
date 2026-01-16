@@ -131,9 +131,8 @@ public class ItemRelaySensor extends Item implements IItemWithPrefix {
         return false;
     }
 
-    @SuppressWarnings("unchecked")
     @Override
-    public void addInformation(ItemStack stack, EntityPlayer player, List text, boolean par4) {
+    public void addInformation(ItemStack stack, EntityPlayer player, List<String> text, boolean par4) {
         String descKey;
         if (stack.hasTagCompound() && stack.getTagCompound().getBoolean("bound")) {
             NBTTagCompound data = stack.getTagCompound();
