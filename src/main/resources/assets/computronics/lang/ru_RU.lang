@@ -13,7 +13,7 @@ tile.computronics.digitalControllerBox.name=Цифровой контролле�
 tile.computronics.digitalReceiverBox.name=Цифровой приёмник сигнала
 tile.computronics.detector.name=Детектор - Цифровой
 tile.computronics.ticketMachine.name=Автомат для печати билетов
-gui.computronics.ticketMachine.title=Автомат для печати билетов
+gui.tile.computronics.ticketMachine.title=Автомат для печати билетов
 tile.computronics.audiocable.name=Звуковой кабель
 tile.computronics.speaker.name=Громкоговоритель
 
