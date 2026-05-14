@@ -1,7 +1,7 @@
 package pl.asie.computronics.integration.gregtech.gregtech5;
 
-import java.util.LinkedHashMap;
-import java.util.List;
+import java.util.*;
+import java.util.stream.Collectors;
 
 import net.minecraft.tileentity.TileEntity;
 import net.minecraft.world.World;
@@ -36,26 +36,29 @@ public class DriverParametrized extends DriverSidedTileEntity {
             Parameter<?> p = parameterList.stream().filter(param -> param.getNbtKey().equals(key)).findFirst()
                     .orElse(null);
 
-            if (p instanceof BooleanParameter bool_p) {
-                bool_p.setValue(a.checkBoolean(1));
+            if (p instanceof BooleanParameter boolParam) {
+                boolParam.setValue(a.checkBoolean(1));
                 return null;
             }
-            if (p instanceof DoubleParameter double_p) {
-                double_p.setValue(a.checkDouble(1));
+            if (p instanceof DoubleParameter doubleParam) {
+                doubleParam.setValue(a.checkDouble(1));
                 return null;
             }
-            if (p instanceof IntegerParameter int_p) {
-                int_p.setValue(a.checkInteger(1));
+            if (p instanceof IntegerParameter intParam) {
+                intParam.setValue(a.checkInteger(1));
                 return null;
             }
-            if (p instanceof StringParameter str_p) {
-                str_p.setValue(a.checkString(1));
+            if (p instanceof StringParameter strParam) {
+                strParam.setValue(a.checkString(1));
                 return null;
             }
-            return null;
+
+            List<String> validKeys = parameterList.stream().map(Parameter::getNbtKey).collect(Collectors.toList());
+
+            throw new IllegalArgumentException("invalid parameter key, must be in " + validKeys);
         }
 
-        @Callback(doc = "function();any Returns the value of all parameter", direct = true)
+        @Callback(doc = "function():table; Returns the value of all parameters", direct = true)
         public Object[] getParameters(Context c, Arguments a) {
             List<Parameter<?>> parameterList = ((IParametrized) tile.getMetaTileEntity()).getParameters();
             LinkedHashMap<String, Object> parameters = new LinkedHashMap<String, Object>();
