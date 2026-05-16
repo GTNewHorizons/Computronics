@@ -1,6 +1,7 @@
 package pl.asie.computronics.integration.gregtech.gregtech5;
 
-import java.util.*;
+import java.util.LinkedHashMap;
+import java.util.List;
 import java.util.stream.Collectors;
 
 import net.minecraft.tileentity.TileEntity;
@@ -34,7 +35,12 @@ public class DriverParametrized extends DriverSidedTileEntity {
             List<Parameter<?>> parameterList = ((IParametrized) tile.getMetaTileEntity()).getParameters();
             String key = a.checkString(0);
             Parameter<?> p = parameterList.stream().filter(param -> param.getNbtKey().equals(key)).findFirst()
-                    .orElse(null);
+                    .orElseThrow(() -> {
+                        List<String> validKeys = parameterList.stream().map(Parameter::getNbtKey)
+                                .collect(Collectors.toList());
+
+                        return new IllegalArgumentException("invalid parameter key, must be in " + validKeys);
+                    });
 
             if (p instanceof BooleanParameter boolParam) {
                 boolParam.setValue(a.checkBoolean(1));
@@ -52,16 +58,13 @@ public class DriverParametrized extends DriverSidedTileEntity {
                 strParam.setValue(a.checkString(1));
                 return null;
             }
-
-            List<String> validKeys = parameterList.stream().map(Parameter::getNbtKey).collect(Collectors.toList());
-
-            throw new IllegalArgumentException("invalid parameter key, must be in " + validKeys);
+            throw new IllegalArgumentException("unsupported parameter type");
         }
 
         @Callback(doc = "function():table; Returns the value of all parameters", direct = true)
         public Object[] getParameters(Context c, Arguments a) {
             List<Parameter<?>> parameterList = ((IParametrized) tile.getMetaTileEntity()).getParameters();
-            LinkedHashMap<String, Object> parameters = new LinkedHashMap<String, Object>();
+            LinkedHashMap<String, Object> parameters = new LinkedHashMap<>();
             for (Parameter<?> param : parameterList) {
                 parameters.put(param.getNbtKey(), param.getValue());
             }
