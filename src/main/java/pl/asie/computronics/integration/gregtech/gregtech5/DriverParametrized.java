@@ -3,6 +3,7 @@ package pl.asie.computronics.integration.gregtech.gregtech5;
 import java.util.LinkedHashMap;
 import java.util.List;
 import java.util.stream.Collectors;
+import java.util.stream.Stream;
 
 import net.minecraft.tileentity.TileEntity;
 import net.minecraft.world.World;
@@ -16,6 +17,7 @@ import li.cil.oc.api.network.ManagedEnvironment;
 import li.cil.oc.api.prefab.DriverSidedTileEntity;
 import pl.asie.computronics.integration.ManagedEnvironmentOCTile;
 import tectech.thing.metaTileEntity.multi.base.parameter.BooleanParameter;
+import tectech.thing.metaTileEntity.multi.base.parameter.CompositeParameter;
 import tectech.thing.metaTileEntity.multi.base.parameter.DoubleParameter;
 import tectech.thing.metaTileEntity.multi.base.parameter.IParametrized;
 import tectech.thing.metaTileEntity.multi.base.parameter.IntegerParameter;
@@ -23,6 +25,32 @@ import tectech.thing.metaTileEntity.multi.base.parameter.Parameter;
 import tectech.thing.metaTileEntity.multi.base.parameter.StringParameter;
 
 public class DriverParametrized extends DriverSidedTileEntity {
+
+    private static class ParameterKV {
+
+        public String key;
+        public Parameter<?> value;
+
+        public ParameterKV(String key, Parameter<?> value) {
+            this.key = key;
+            this.value = value;
+        }
+    }
+
+    private static class ParameterStreams {
+
+        public static Stream<ParameterKV> flatten(List<Parameter<?>> parameterList) {
+            return parameterList.stream().flatMap(p -> flatten("", p));
+        }
+
+        private static Stream<ParameterKV> flatten(String prefix, Parameter<?> parameter) {
+            String fullKey = prefix.isEmpty() ? parameter.getNbtKey() : prefix + "." + parameter.getNbtKey();
+            if (parameter instanceof CompositeParameter compositeParameter) {
+                return compositeParameter.getValue().stream().flatMap(child -> flatten(fullKey, child));
+            }
+            return Stream.of(new ParameterKV(fullKey, parameter));
+        }
+    }
 
     public static class ManagedEnvironmentParametrized extends ManagedEnvironmentOCTile<BaseMetaTileEntity> {
 
@@ -34,11 +62,10 @@ public class DriverParametrized extends DriverSidedTileEntity {
         public Object[] setParameter(Context c, Arguments a) {
             List<Parameter<?>> parameterList = ((IParametrized) tile.getMetaTileEntity()).getParameters();
             String key = a.checkString(0);
-            Parameter<?> p = parameterList.stream().filter(param -> param.getNbtKey().equals(key)).findFirst()
-                    .orElseThrow(() -> {
-                        List<String> validKeys = parameterList.stream().map(Parameter::getNbtKey)
-                                .collect(Collectors.toList());
-
+            Parameter<?> p = ParameterStreams.flatten(parameterList).filter(parameterKV -> parameterKV.key.equals(key))
+                    .map(parameterKV -> parameterKV.value).findFirst().orElseThrow(() -> {
+                        List<String> validKeys = ParameterStreams.flatten(parameterList)
+                                .map(parameterKV -> parameterKV.key).collect(Collectors.toList());
                         return new IllegalArgumentException("invalid parameter key, must be in " + validKeys);
                     });
 
@@ -64,10 +91,12 @@ public class DriverParametrized extends DriverSidedTileEntity {
         @Callback(doc = "function():table; Returns the value of all parameters", direct = true)
         public Object[] getParameters(Context c, Arguments a) {
             List<Parameter<?>> parameterList = ((IParametrized) tile.getMetaTileEntity()).getParameters();
-            LinkedHashMap<String, Object> parameters = new LinkedHashMap<>();
-            for (Parameter<?> param : parameterList) {
-                parameters.put(param.getNbtKey(), param.getValue());
-            }
+            LinkedHashMap<String, Object> parameters = ParameterStreams.flatten(parameterList).collect(
+                    Collectors.toMap(
+                            parameterKV -> parameterKV.key,
+                            parameterKV -> parameterKV.value,
+                            (parameterA, parameterB) -> parameterB,
+                            LinkedHashMap::new));
             return new Object[] { parameters };
         }
     }
