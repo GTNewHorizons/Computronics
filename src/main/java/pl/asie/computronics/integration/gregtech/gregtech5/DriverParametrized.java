@@ -40,13 +40,14 @@ public class DriverParametrized extends DriverSidedTileEntity {
     private static class ParameterStreams {
 
         public static Stream<ParameterKV> flatten(List<Parameter<?>> parameterList) {
-            return parameterList.stream().flatMap(p -> flatten("", p));
+            return parameterList.stream().flatMap(p -> flatten(p.getNbtKey(), p));
         }
 
-        private static Stream<ParameterKV> flatten(String prefix, Parameter<?> parameter) {
-            String fullKey = prefix.isEmpty() ? parameter.getNbtKey() : prefix + "." + parameter.getNbtKey();
+        private static Stream<ParameterKV> flatten(String fullKey, Parameter<?> parameter) {
             if (parameter instanceof CompositeParameter compositeParameter) {
-                return compositeParameter.getValue().stream().flatMap(child -> flatten(fullKey, child));
+                String prefix = fullKey + ".";
+                return compositeParameter.getValue().stream()
+                        .flatMap(child -> flatten(prefix + child.getNbtKey(), child));
             }
             return Stream.of(new ParameterKV(fullKey, parameter));
         }
