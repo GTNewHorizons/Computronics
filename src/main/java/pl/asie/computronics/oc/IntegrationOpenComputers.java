@@ -270,7 +270,7 @@ public class IntegrationOpenComputers {
                 Driver.add(new DriverMachine());
                 Driver.add(new DriverGregTechCircuitConfigurableMachine());
                 Driver.add(new DriverBatteryBuffer());
-                Driver.add(new DriverTTMultiblockBase());
+                Driver.add(new DriverParametrized());
             }
             if (compat.isCompatEnabled(Compat.GregTech_DigitalChests)) {
                 Driver.add(new DriverDigitalChest());
