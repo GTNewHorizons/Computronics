@@ -95,7 +95,7 @@ public class DriverParametrized extends DriverSidedTileEntity {
             LinkedHashMap<String, Object> parameters = ParameterStreams.flatten(parameterList).collect(
                     Collectors.toMap(
                             parameterKV -> parameterKV.key,
-                            parameterKV -> parameterKV.value,
+                            parameterKV -> parameterKV.value.getValue(),
                             (parameterA, parameterB) -> parameterB,
                             LinkedHashMap::new));
             return new Object[] { parameters };
