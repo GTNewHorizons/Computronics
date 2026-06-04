@@ -88,7 +88,7 @@ public class ComputronicsAchievements {
                     false,
                     false);
 
-            if (Mods.hasVersion(Mods.GregTech, Mods.Versions.GregTech5)) {
+            if (Mods.isLoaded(Mods.GregTech) && !Mods.hasVersion(Mods.GregTech, Mods.Versions.GregTech6)) {
                 this.registerAchievement(
                         EnumAchievements.Tape_IG,
                         8,
