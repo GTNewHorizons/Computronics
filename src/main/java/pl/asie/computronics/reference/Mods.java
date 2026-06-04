@@ -6,7 +6,7 @@ import cpw.mods.fml.common.versioning.ArtifactVersion;
 
 /**
  * List of used mod IDs
- * 
+ *
  * @author Vexatos
  */
 public class Mods {
@@ -44,7 +44,7 @@ public class Mods {
     public static class Versions {
 
         public static final String BuildCraftTiles = "[1.1,)", Forestry = "[4.2.0,)", Gendustry = "[2.0.0,)",
-                GregTech5 = "[MC1710]", GregTech6 = "[GT6-MC1710]";
+                GregTech6 = "[GT6-MC1710]";
     }
 
     public static boolean isLoaded(String name) {

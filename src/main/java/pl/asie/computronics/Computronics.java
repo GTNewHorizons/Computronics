@@ -395,7 +395,8 @@ public class Computronics {
     @EventHandler
     public void postInit(FMLPostInitializationEvent event) {
 
-        if (Mods.hasVersion(Mods.GregTech, Mods.Versions.GregTech5) && Config.GREGTECH_RECIPES) {
+        if (Mods.isLoaded(Mods.GregTech) && !Mods.hasVersion(Mods.GregTech, Mods.Versions.GregTech6)
+                && Config.GREGTECH_RECIPES) {
             ModRecipes.instance = new GregTech5Recipes();
         } else if (Mods.hasVersion(Mods.GregTech, Mods.Versions.GregTech6) && Config.GREGTECH_RECIPES) {
             ModRecipes.instance = new GregTech6Recipes();
@@ -410,7 +411,7 @@ public class Computronics {
 
         // Mod compat - GregTech
         if (itemTape != null && itemPartsGreg != null) {
-            if (Mods.hasVersion(Mods.GregTech, Mods.Versions.GregTech5)) {
+            if (Mods.isLoaded(Mods.GregTech) && !Mods.hasVersion(Mods.GregTech, Mods.Versions.GregTech6)) {
                 GregTech5Recipes.registerStandardGregTechRecipes();
             } else if (Mods.hasVersion(Mods.GregTech, Mods.Versions.GregTech6)) {
                 GregTech6Recipes.registerStandardGregTechRecipes();
