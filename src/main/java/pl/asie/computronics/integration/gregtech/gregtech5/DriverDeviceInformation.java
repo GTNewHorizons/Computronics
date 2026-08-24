@@ -1,5 +1,9 @@
 package pl.asie.computronics.integration.gregtech.gregtech5;
 
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.List;
+
 import net.minecraft.tileentity.TileEntity;
 import net.minecraft.world.World;
 import net.minecraftforge.common.util.ForgeDirection;
@@ -22,7 +26,9 @@ public class DriverDeviceInformation extends DriverSidedTileEntity {
 
         @Callback(doc = "function():table; Returns sensor information about this block", direct = false)
         public Object[] getSensorInformation(Context c, Arguments a) {
-            return new Object[] { tile.getInfoData() };
+            List<String> info = new ArrayList<>(Arrays.asList(tile.getInfoData()));
+            tile.getExtraInfoData(info);
+            return new Object[] { info.toArray(new String[0]) };
         }
     }
 
