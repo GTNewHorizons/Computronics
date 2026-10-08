@@ -1,7 +1,5 @@
 package pl.asie.computronics.integration.forestry;
 
-import java.util.Arrays;
-import java.util.List;
 import java.util.Set;
 
 import net.minecraft.block.Block;
@@ -23,34 +21,13 @@ import pl.asie.computronics.util.StringUtil;
  */
 public class FlowerProviderSea implements IFlowerProvider, IFlowerAcceptableRule {
 
-    private static List<String> waterTypes = Arrays.asList("water");
-    private static final List<String> saltwaterTypes = Arrays
-            .asList("saltwater", "saltWater", "Saltwater", "SaltWater");
-    private static boolean hasCheckedSaltwater = false;
-
-    private static void checkSaltwater() {
-        if (hasCheckedSaltwater) {
-            return;
-        }
-        for (String saltwaterType : saltwaterTypes) {
-            if (FluidRegistry.isFluidRegistered(saltwaterType)) {
-                waterTypes = saltwaterTypes;
-                break;
-            }
-        }
-        hasCheckedSaltwater = true;
-    }
-
     @Override
     public boolean isAcceptableFlower(String flowerType, World world, int x, int y, int z) {
         Block block = world.getBlock(x, y, z);
         if (block != null) {
             Fluid fluid = FluidRegistry.lookupFluidForBlock(block);
             if (fluid != null && FluidRegistry.isFluidRegistered(fluid)) {
-                if (!hasCheckedSaltwater) {
-                    checkSaltwater();
-                }
-                if (waterTypes.contains(fluid.getName())) {
+                if ("water".equals(fluid.getName())) {
                     if (block instanceof IFluidBlock) {
                         return ((IFluidBlock) block).canDrain(world, x, y, z);
                     } else {
