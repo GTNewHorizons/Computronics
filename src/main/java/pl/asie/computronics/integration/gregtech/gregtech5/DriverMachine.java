@@ -3,7 +3,9 @@ package pl.asie.computronics.integration.gregtech.gregtech5;
 import net.minecraft.world.World;
 import net.minecraftforge.common.util.ForgeDirection;
 
+import gregtech.api.interfaces.metatileentity.IMetaTileEntity;
 import gregtech.api.interfaces.tileentity.IMachineProgress;
+import gregtech.common.tileentities.machines.multi.purification.MTEPurificationUnitBase;
 import li.cil.oc.api.machine.Arguments;
 import li.cil.oc.api.machine.Callback;
 import li.cil.oc.api.machine.Context;
@@ -72,6 +74,35 @@ public class DriverMachine extends DriverSidedTileEntity {
         public Object[] getName(Context c, Arguments a) {
             return new Object[] { tile.getIGregTechTileEntity(tile.getXCoord(), tile.getYCoord(), tile.getZCoord())
                     .getMetaTileEntity().getMetaName() };
+        }
+
+        @Callback(
+                doc = "function():number or (nil, string); Returns the parallel limit of a purification unit",
+                direct = true)
+        public Object[] getParallelLimit(Context c, Arguments a) {
+            IMetaTileEntity mte = tile.getIGregTechTileEntity(tile.getXCoord(), tile.getYCoord(), tile.getZCoord())
+                    .getMetaTileEntity();
+            if (!(mte instanceof MTEPurificationUnitBase<?>unit)) {
+                return new Object[] { null, "Machine is not a purification unit." };
+            }
+            return new Object[] { unit.getMaxParallel() };
+        }
+
+        @Callback(
+                doc = "function(limit:number):boolean or (nil, string); Sets the parallel limit of a purification unit for the next cycle. Must be between 1 and 2147483647. Returns true on success.")
+        public Object[] setParallelLimit(Context c, Arguments a) {
+            IMetaTileEntity mte = tile.getIGregTechTileEntity(tile.getXCoord(), tile.getYCoord(), tile.getZCoord())
+                    .getMetaTileEntity();
+            if (!(mte instanceof MTEPurificationUnitBase<?>unit)) {
+                return new Object[] { null, "Machine is not a purification unit." };
+            }
+            int limit = a.checkInteger(0);
+            if (limit < 1) {
+                return new Object[] { null, "Parallel limit must be at least 1." };
+            }
+            unit.setMaxParallel(limit);
+            unit.markDirty();
+            return new Object[] { true };
         }
     }
 
