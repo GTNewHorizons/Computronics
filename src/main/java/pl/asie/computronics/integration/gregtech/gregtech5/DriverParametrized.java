@@ -29,9 +29,9 @@ public class DriverParametrized extends DriverSidedTileEntity {
     private static class ParameterKV {
 
         public String key;
-        public Parameter<?> value;
+        public Parameter<?, ?> value;
 
-        public ParameterKV(String key, Parameter<?> value) {
+        public ParameterKV(String key, Parameter<?, ?> value) {
             this.key = key;
             this.value = value;
         }
@@ -39,11 +39,11 @@ public class DriverParametrized extends DriverSidedTileEntity {
 
     private static class ParameterStreams {
 
-        public static Stream<ParameterKV> flatten(List<Parameter<?>> parameterList) {
+        public static Stream<ParameterKV> flatten(List<Parameter<?, ?>> parameterList) {
             return parameterList.stream().flatMap(p -> flatten(p.getNbtKey(), p));
         }
 
-        private static Stream<ParameterKV> flatten(String fullKey, Parameter<?> parameter) {
+        private static Stream<ParameterKV> flatten(String fullKey, Parameter<?, ?> parameter) {
             if (parameter instanceof CompositeParameter compositeParameter) {
                 String prefix = fullKey + ".";
                 return compositeParameter.getValue().stream()
@@ -61,9 +61,9 @@ public class DriverParametrized extends DriverSidedTileEntity {
 
         @Callback(doc = "function(key:string, val:any); Sets a parameter", direct = false)
         public Object[] setParameter(Context c, Arguments a) {
-            List<Parameter<?>> parameterList = ((IParametrized) tile.getMetaTileEntity()).getParameters();
+            List<Parameter<?, ?>> parameterList = ((IParametrized) tile.getMetaTileEntity()).getParameters();
             String key = a.checkString(0);
-            Parameter<?> p = ParameterStreams.flatten(parameterList).filter(parameterKV -> parameterKV.key.equals(key))
+            Parameter<?, ?> p = ParameterStreams.flatten(parameterList).filter(parameterKV -> parameterKV.key.equals(key))
                     .map(parameterKV -> parameterKV.value).findFirst().orElseThrow(() -> {
                         List<String> validKeys = ParameterStreams.flatten(parameterList)
                                 .map(parameterKV -> parameterKV.key).collect(Collectors.toList());
@@ -91,7 +91,7 @@ public class DriverParametrized extends DriverSidedTileEntity {
 
         @Callback(doc = "function():table; Returns the value of all parameters", direct = true)
         public Object[] getParameters(Context c, Arguments a) {
-            List<Parameter<?>> parameterList = ((IParametrized) tile.getMetaTileEntity()).getParameters();
+            List<Parameter<?, ?>> parameterList = ((IParametrized) tile.getMetaTileEntity()).getParameters();
             LinkedHashMap<String, Object> parameters = ParameterStreams.flatten(parameterList).collect(
                     Collectors.toMap(
                             parameterKV -> parameterKV.key,
