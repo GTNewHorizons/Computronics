@@ -63,8 +63,9 @@ public class DriverParametrized extends DriverSidedTileEntity {
         public Object[] setParameter(Context c, Arguments a) {
             List<Parameter<?, ?>> parameterList = ((IParametrized) tile.getMetaTileEntity()).getParameters();
             String key = a.checkString(0);
-            Parameter<?, ?> p = ParameterStreams.flatten(parameterList).filter(parameterKV -> parameterKV.key.equals(key))
-                    .map(parameterKV -> parameterKV.value).findFirst().orElseThrow(() -> {
+            Parameter<?, ?> p = ParameterStreams.flatten(parameterList)
+                    .filter(parameterKV -> parameterKV.key.equals(key)).map(parameterKV -> parameterKV.value)
+                    .findFirst().orElseThrow(() -> {
                         List<String> validKeys = ParameterStreams.flatten(parameterList)
                                 .map(parameterKV -> parameterKV.key).collect(Collectors.toList());
                         return new IllegalArgumentException("invalid parameter key, must be in " + validKeys);
