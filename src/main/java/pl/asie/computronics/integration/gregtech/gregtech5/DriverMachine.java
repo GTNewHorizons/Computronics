@@ -4,6 +4,7 @@ import net.minecraft.world.World;
 import net.minecraftforge.common.util.ForgeDirection;
 
 import gregtech.api.interfaces.metatileentity.IMetaTileEntity;
+import gregtech.api.interfaces.tileentity.IGregTechTileEntity;
 import gregtech.api.interfaces.tileentity.IMachineProgress;
 import gregtech.common.tileentities.machines.multi.purification.MTEPurificationUnitBase;
 import li.cil.oc.api.machine.Arguments;
@@ -72,8 +73,14 @@ public class DriverMachine extends DriverSidedTileEntity {
 
         @Callback(doc = "function():string; Returns the machine's name", direct = true)
         public Object[] getName(Context c, Arguments a) {
-            return new Object[] { tile.getIGregTechTileEntity(tile.getXCoord(), tile.getYCoord(), tile.getZCoord())
-                    .getMetaTileEntity().getMetaName() };
+            // direct callbacks run on the computer's thread, so this MUST NOT look the machine up in the world:
+            // World.getTileEntity can load chunks and add tile entities from this thread, which crashes the server
+            // when it's ticking tile entities at the same time (concurrent modification of the ArrayList).
+            if (tile instanceof IGregTechTileEntity gtTile) {
+                IMetaTileEntity mte = gtTile.getMetaTileEntity();
+                if (mte != null) return new Object[] { mte.getMetaName() };
+            }
+            return new Object[] { null, "not a GregTech machine" };
         }
 
         @Callback(
