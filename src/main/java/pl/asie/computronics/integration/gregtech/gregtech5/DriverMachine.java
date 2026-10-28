@@ -47,13 +47,16 @@ public class DriverMachine extends DriverSidedTileEntity {
             return new Object[] { tile.isAllowedToWork() };
         }
 
-        @Callback(doc = "function(work:boolean); Sets whether this block is currently allowed to work", direct = true)
+        @Callback(
+                doc = "function(work:boolean); Sets whether this block is currently allowed to work. Takes effect next tick.",
+                direct = true,
+                limit = 256)
         public Object[] setWorkAllowed(Context c, Arguments a) {
             if (a.count() == 1 && a.isBoolean(0)) {
                 if (a.checkBoolean(0)) {
-                    tile.enableWorking();
+                    ServerThread.schedule(tile::enableWorking);
                 } else {
-                    tile.disableWorking();
+                    ServerThread.schedule(tile::disableWorking);
                 }
             }
             return null;

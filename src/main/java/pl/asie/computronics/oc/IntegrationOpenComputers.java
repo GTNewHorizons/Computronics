@@ -268,6 +268,7 @@ public class IntegrationOpenComputers {
                 Driver.add(new DriverBaseMetaTileEntity());
                 Driver.add(new DriverDeviceInformation());
                 Driver.add(new DriverMachine());
+                FMLCommonHandler.instance().bus().register(ServerThread.INSTANCE);
                 Driver.add(new DriverGregTechCircuitConfigurableMachine());
                 Driver.add(new DriverBatteryBuffer());
                 Driver.add(new DriverParametrized());
